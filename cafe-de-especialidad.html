@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Overpass:wght@400;600;700&amp;display=swap">
 <link rel="stylesheet" href="assets/css/style.css?v=5">
 <link rel="stylesheet" href="assets/css/explorer.css?v=1">
+<link rel="stylesheet" href="assets/css/comparison.css?v=1">
 <script>try{if(sessionStorage.getItem('pt')){document.documentElement.classList.add('pt-in');sessionStorage.removeItem('pt');setTimeout(function(){document.documentElement.classList.remove('pt-in')},2500)}}catch(e){}</script>
 </head>
 <body class="page-dark">
@@ -205,20 +206,91 @@
 </div>
 </section>
 
-<section class="section section--alt">
+<section class="section section--alt cmp-section" id="comparar" aria-labelledby="cmp-title">
 <div class="wrap">
-<h2 class="h-xl" data-split style="margin-bottom:48px">Especialidad, comercial y torrefacto</h2>
-<div class="table-wrap">
-<table class="compare">
-<thead><tr><th scope="col"><span class="hidden">Criterio</span></th><th scope="col">Especialidad</th><th scope="col">Comercial</th><th scope="col">Torrefacto</th></tr></thead>
-<tbody>
-<tr><th scope="row">Origen</th><td>Finca o cooperativa concreta</td><td>Mezcla de orígenes</td><td>Mezcla de orígenes</td></tr>
-<tr><th scope="row">Calidad</th><td>80 puntos o más en cata</td><td>Sin puntuación</td><td>Sin puntuación</td></tr>
-<tr><th scope="row">Tueste</th><td>Reciente, a medida del grano</td><td>Industrial, suele ser oscuro</td><td>Tostado con azúcar</td></tr>
-<tr><th scope="row">Sabor</th><td>Notas propias: fruta, flores, chocolate</td><td>Plano, amargo</td><td>Amargo y quemado</td></tr>
-<tr><th scope="row">Productor</th><td>Precio a menudo negociado y más alto</td><td>Ligado al precio de bolsa</td><td>Ligado al precio de bolsa</td></tr>
-</tbody>
-</table>
+<div class="cmp" data-compare data-pick="all">
+
+<header class="cmp-head">
+<div>
+<p class="cmp-eyebrow">Compara</p>
+<h2 class="cmp-title" id="cmp-title">Especialidad, comercial y torrefacto</h2>
+</div>
+<p class="cmp-hint"><span class="cmp-dot" aria-hidden="true"></span>Interactivo: toca una columna o una fila</p>
+</header>
+
+<div class="cmp-pick" role="group" aria-label="Destacar una columna">
+<button type="button" data-pick="all" aria-pressed="true">Todas</button>
+<button type="button" data-pick="esp" aria-pressed="false">Especialidad</button>
+<button type="button" data-pick="com" aria-pressed="false">Comercial</button>
+<button type="button" data-pick="tor" aria-pressed="false">Torrefacto</button>
+</div>
+
+<div class="cmp-table">
+
+<div class="cmp-row cmp-row--head">
+<div class="cmp-cell" aria-hidden="true"></div>
+<div class="cmp-cell"><button type="button" class="cmp-col" data-col="esp" aria-pressed="false">Especialidad</button></div>
+<div class="cmp-cell"><button type="button" class="cmp-col" data-col="com" aria-pressed="false">Comercial</button></div>
+<div class="cmp-cell"><button type="button" class="cmp-col" data-col="tor" aria-pressed="false">Torrefacto</button></div>
+</div>
+
+<div class="cmp-item">
+<div class="cmp-row">
+<button type="button" class="cmp-label" aria-expanded="false" aria-controls="cmp-w1"><span>Origen</span><span class="cmp-plus" aria-hidden="true">+</span></button>
+<div class="cmp-cell" data-col="esp" data-name="Especialidad">Finca o cooperativa concreta</div>
+<div class="cmp-cell" data-col="com" data-name="Comercial">Mezcla de orígenes</div>
+<div class="cmp-cell" data-col="tor" data-name="Torrefacto">Mezcla de orígenes</div>
+</div>
+<div class="cmp-why" id="cmp-w1" hidden><span class="cmp-why-tag">Por qué importa</span><p>Cuanto más concreto es el origen, más sabes de dónde viene tu café y quién lo cultivó.</p></div>
+</div>
+
+<div class="cmp-item">
+<div class="cmp-row">
+<button type="button" class="cmp-label" aria-expanded="false" aria-controls="cmp-w2"><span>Calidad</span><span class="cmp-plus" aria-hidden="true">+</span></button>
+<div class="cmp-cell" data-col="esp" data-name="Especialidad">80 puntos o más en cata</div>
+<div class="cmp-cell" data-col="com" data-name="Comercial">Sin puntuación</div>
+<div class="cmp-cell" data-col="tor" data-name="Torrefacto">Sin puntuación</div>
+</div>
+<div class="cmp-why" id="cmp-w2" hidden><span class="cmp-why-tag">Por qué importa</span><p>80 es el mínimo de la escala de 100 de la SCA. Mira cómo funciona en la sección de arriba: <a href="#definicion">ver la escala</a>.</p></div>
+</div>
+
+<div class="cmp-item">
+<div class="cmp-row">
+<button type="button" class="cmp-label" aria-expanded="false" aria-controls="cmp-w3"><span>Tueste</span><span class="cmp-plus" aria-hidden="true">+</span></button>
+<div class="cmp-cell" data-col="esp" data-name="Especialidad">Reciente, a medida del grano</div>
+<div class="cmp-cell" data-col="com" data-name="Comercial">Industrial, suele ser oscuro</div>
+<div class="cmp-cell" data-col="tor" data-name="Torrefacto">Tostado con azúcar</div>
+</div>
+<div class="cmp-why" id="cmp-w3" hidden><span class="cmp-why-tag">Por qué importa</span><p>Un tueste a medida deja ver el origen. El azúcar del torrefacto oscurece el grano y tapa su sabor.</p></div>
+</div>
+
+<div class="cmp-item">
+<div class="cmp-row">
+<button type="button" class="cmp-label" aria-expanded="false" aria-controls="cmp-w4"><span>Sabor</span><span class="cmp-plus" aria-hidden="true">+</span></button>
+<div class="cmp-cell" data-col="esp" data-name="Especialidad">Notas propias: fruta, flores, chocolate</div>
+<div class="cmp-cell" data-col="com" data-name="Comercial">Plano, amargo</div>
+<div class="cmp-cell" data-col="tor" data-name="Torrefacto">Amargo y quemado</div>
+</div>
+<div class="cmp-why" id="cmp-w4" hidden><span class="cmp-why-tag">Por qué importa</span><p>Es lo que notas en la taza. Si la carta no dice nada del sabor, pregunta qué notas tiene el café.</p></div>
+</div>
+
+<div class="cmp-item">
+<div class="cmp-row">
+<button type="button" class="cmp-label" aria-expanded="false" aria-controls="cmp-w5"><span>Productor</span><span class="cmp-plus" aria-hidden="true">+</span></button>
+<div class="cmp-cell" data-col="esp" data-name="Especialidad">A menudo negociado directamente con el productor</div>
+<div class="cmp-cell" data-col="com" data-name="Comercial">Ligado al precio de bolsa</div>
+<div class="cmp-cell" data-col="tor" data-name="Torrefacto">Ligado al precio de bolsa</div>
+</div>
+<div class="cmp-why" id="cmp-w5" hidden><span class="cmp-why-tag">Por qué importa</span><p>En especialidad el precio suele negociarse con quien cultiva. En comercial sigue el precio de bolsa del mercado.</p></div>
+</div>
+
+</div>
+
+<div class="cmp-foot">
+<span>Compara tendencias generales, no marcas concretas.</span>
+<a href="#definicion">Volver a la definición ↑</a>
+</div>
+
 </div>
 </div>
 </section>
@@ -296,5 +368,6 @@
 <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script defer src="assets/js/main.js"></script>
 <script defer src="assets/js/explorer.js?v=1"></script>
+<script defer src="assets/js/comparison.js?v=1"></script>
 </body>
 </html>
