@@ -159,6 +159,14 @@
     });
     resetBtn.addEventListener('click', resetTimer);
     calc(); resetTimer();
+    var qs = new URLSearchParams(window.location.search);
+    var qm = qs.get('metodo');
+    if (qm && METHODS[qm]) {
+      var qb = brew.querySelector('[data-method="' + qm + '"]');
+      if (qb) qb.click();
+      var qd = Number(qs.get('dosis'));
+      if (qd >= Number(dose.min) && qd <= Number(dose.max)) { dose.value = qd; calc(); resetTimer(); }
+    }
   }
 
   /* ---------- Barrios: resaltar en la brújula ---------- */
