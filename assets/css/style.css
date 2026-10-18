@@ -475,3 +475,26 @@ html.pt-in .pt { transform: translateY(0); visibility: visible; transition: tran
   .metro { --p: 1; }
 }
 .no-motion .metro { --p: 1; }
+
+/* ===== Spacing rhythm v2 (tighter, premium) ===== */
+:root { --sec: clamp(48px, 6vw, 80px); }
+.sec-head { margin-bottom: clamp(32px, 4vw, 56px); }
+.hero { padding-bottom: clamp(48px, 6vw, 88px); }
+.page-hero { padding-top: calc(84px + clamp(32px, 5vw, 72px)); padding-bottom: clamp(40px, 5vw, 64px); }
+.page-hero + .section { padding-top: clamp(40px, 5vw, 56px); }
+.page-hero + .section:not(.section--alt):not(.section--dark):not(.section--line) { padding-top: 0; }
+.section:not(.section--alt):not(.section--dark):not(.section--line) + .section:not(.section--alt):not(.section--dark):not(.section--line),
+.section--alt + .section--alt,
+.section--dark + .section--dark { padding-top: 0; }
+.foot-cta { margin-bottom: 64px; }
+.svc-item { min-height: 60vh; padding: 40px 0; }
+
+/* ===== Accessibility and tap targets ===== */
+.site-footer .btn--primary { color: #fff; }
+.site-footer .btn--primary:hover { color: #fff; }
+.site-footer .foot-grid > nav { gap: 2px; }
+.site-footer .foot-grid a, .site-footer .foot-bottom a { display: inline-block; padding-block: 8px; }
+.faq details { padding: 0; }
+.faq summary { padding-block: 22px; }
+.faq details p { margin-top: 0; padding-bottom: 22px; }
+.check { padding-block: 8px; }
