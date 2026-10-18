@@ -17,6 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Overpass:wght@400;600;700&amp;display=swap">
 <link rel="stylesheet" href="assets/css/style.css?v=5">
+<link rel="stylesheet" href="assets/css/explorer.css?v=1">
 <script>try{if(sessionStorage.getItem('pt')){document.documentElement.classList.add('pt-in');sessionStorage.removeItem('pt');setTimeout(function(){document.documentElement.classList.remove('pt-in')},2500)}}catch(e){}</script>
 </head>
 <body class="page-dark">
@@ -48,19 +49,98 @@
 <p class="lead">Calidad medida, origen trazable y un tueste que respeta el grano. Todo lo que necesitas saber, explicado sin tecnicismos.</p>
 </div>
 </section>
-<section class="section">
+<section class="section xp-section" id="definicion" aria-labelledby="xp-title">
 <div class="wrap">
-<div class="dict">
-<div class="dict-head">
-<h2 class="dict-word">café de especialidad</h2>
-<span class="dict-gram">loc. sust. m.</span>
+<div class="xp" data-explorer>
+
+<header class="xp-head">
+<div>
+<p class="xp-eyebrow">Definición</p>
+<h2 class="xp-word" id="xp-title">café de especialidad</h2>
+<p class="xp-meta">
+<span class="xp-gram">loc. sust. m.</span>
+<span class="xp-syl">ca·fé de es·pe·cia·li·dad</span>
+<button type="button" class="xp-say" data-say hidden aria-pressed="false">&#9654; Escuchar</button>
+</p>
 </div>
-<ol class="dict-senses">
-<li><span class="dict-num">1.</span><span>Café que obtiene 80 puntos o más sobre 100 en la cata profesional de la Specialty Coffee Association (SCA).</span></li>
-<li><span class="dict-num">2.</span><span>Grano con origen trazable: se conoce la finca, la altitud, la variedad y el proceso.</span></li>
-<li><span class="dict-num">3.</span><span>Café tostado para mostrar su sabor propio, no para taparlo.</span></li>
-</ol>
-<p class="dict-note"><em>No confundir con torrefacto:</em> café tostado con azúcar, muy habitual en España, que oscurece el grano y tapa su sabor.</p>
+<p class="xp-lead">Tres claves lo definen. Elige una y compruébalo tú mismo.</p>
+</header>
+
+<div class="xp-tabs" role="tablist" aria-label="Las tres claves del café de especialidad">
+<button type="button" role="tab" id="xp-t1" class="xp-tab" aria-controls="xp-p1" aria-selected="true"><span class="xp-n">1</span><span class="xp-tl">Puntuación</span><span class="xp-ts">80 puntos o más</span></button>
+<button type="button" role="tab" id="xp-t2" class="xp-tab" aria-controls="xp-p2" aria-selected="false" tabindex="-1"><span class="xp-n">2</span><span class="xp-tl">Origen</span><span class="xp-ts">Trazable</span></button>
+<button type="button" role="tab" id="xp-t3" class="xp-tab" aria-controls="xp-p3" aria-selected="false" tabindex="-1"><span class="xp-n">3</span><span class="xp-tl">Tueste</span><span class="xp-ts">Respeta el grano</span></button>
+</div>
+
+<div class="xp-panel" id="xp-p1" role="tabpanel" aria-labelledby="xp-t1">
+<div>
+<h3 class="xp-ph">1 · Puntuación</h3>
+<p class="xp-sense"><span>1.</span>Café que obtiene 80 puntos o más sobre 100 en la cata profesional de la Specialty Coffee Association (SCA).</p>
+<p class="xp-note">Además, los defectos restan puntos: una taza con fallos baja de nota. Mueve el control y mira qué significa cada nota.</p>
+<p class="xp-fine">Escala clásica de 100 puntos. La SCA ha presentado un método nuevo, el CVA, pero esta escala sigue usándose mucho en el comercio del café.</p>
+</div>
+<div class="score" data-score data-band="1">
+<p class="score-out"><output data-score-out for="xp-score">84</output><span>/100</span></p>
+<p class="score-band" data-score-band>Muy bueno · ya es especialidad</p>
+<div class="score-track">
+<div class="score-segs" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<input id="xp-score" class="score-range" type="range" min="60" max="100" step="0.5" value="84" data-score-input aria-label="Puntuación del café" aria-describedby="xp-score-desc">
+</div>
+<ul class="score-scale" aria-hidden="true"><li>60</li><li>80</li><li>85</li><li>90</li><li>100</li></ul>
+<p class="score-desc" id="xp-score-desc" data-score-desc aria-live="polite">Limpio, dulce y con un carácter reconocible.</p>
+</div>
+</div>
+
+<div class="xp-panel" id="xp-p2" role="tabpanel" aria-labelledby="xp-t2">
+<div>
+<h3 class="xp-ph">2 · Origen</h3>
+<p class="xp-sense"><span>2.</span>Grano con origen trazable: se conoce la finca, la altitud, la variedad y el proceso.</p>
+<p class="xp-note">Toca cada dato de la etiqueta y descubre qué te cuenta. Así sabrás leer cualquier bolsa.</p>
+</div>
+<div class="label" data-label>
+<p class="label-tag">Etiqueta de ejemplo. No corresponde a un lote real.</p>
+<div class="label-card">
+<div class="label-top"><strong>Café de origen</strong><span>250 g · grano</span></div>
+<ul class="label-fields">
+<li><button type="button" data-key="origen" aria-pressed="true"><small>Origen</small><b>Colombia · Huila</b></button></li>
+<li><button type="button" data-key="finca" aria-pressed="false"><small>Finca</small><b>Finca de ejemplo</b></button></li>
+<li><button type="button" data-key="altitud" aria-pressed="false"><small>Altitud</small><b>1.800 m</b></button></li>
+<li><button type="button" data-key="variedad" aria-pressed="false"><small>Variedad</small><b>Caturra</b></button></li>
+<li><button type="button" data-key="proceso" aria-pressed="false"><small>Proceso</small><b>Lavado</b></button></li>
+<li><button type="button" data-key="tueste" aria-pressed="false"><small>Tostado el</small><b>12 oct 2026</b></button></li>
+<li class="full"><button type="button" data-key="notas" aria-pressed="false"><small>Notas de cata</small><b>Panela · cítrico · cacao</b></button></li>
+</ul>
+</div>
+<div class="label-info" aria-live="polite"><h3 data-label-title>País y región</h3><p data-label-text>Dónde se cultivó. Cuanto más concreto, mejor trazabilidad.</p></div>
+</div>
+</div>
+
+<div class="xp-panel" id="xp-p3" role="tabpanel" aria-labelledby="xp-t3">
+<div>
+<h3 class="xp-ph">3 · Tueste</h3>
+<p class="xp-sense"><span>3.</span>Café tostado para mostrar su sabor propio, no para taparlo.</p>
+<p class="xp-callout"><em>No confundir con torrefacto:</em> café tostado con azúcar, muy habitual en España, que oscurece el grano y tapa su sabor.</p>
+</div>
+<div class="rc" data-rc-root data-rc="esp">
+<div class="rc-switch" role="group" aria-label="Tipo de tueste">
+<button type="button" data-rc-btn="esp" aria-pressed="true">Especialidad</button>
+<button type="button" data-rc-btn="tor" aria-pressed="false">Torrefacto</button>
+</div>
+<div class="rc-body">
+<svg class="rc-bean" viewBox="0 0 200 260" role="img" aria-label="Grano de café: marrón y mate en especialidad, negro y brillante en torrefacto">
+<ellipse class="b" cx="100" cy="130" rx="86" ry="118"></ellipse>
+<ellipse class="sheen" cx="72" cy="88" rx="26" ry="48" fill="#ffffff"></ellipse>
+<path class="crack" d="M100 18 C 70 70, 130 120, 96 170 C 80 196, 104 226, 100 244" fill="none" stroke-width="7" stroke-linecap="round"></path>
+</svg>
+<dl class="rc-list">
+<div><dt>Tueste</dt><dd data-esp data-tor="Con azúcar añadida al final del tueste.">Sin azúcar, a medida de cada grano.</dd></div>
+<div><dt>Aspecto</dt><dd data-esp data-tor="Negro y brillante.">Marrón y mate.</dd></div>
+<div><dt>Sabor</dt><dd data-esp data-tor="Oscuro y amargo.">Notas del origen: fruta, flores, chocolate.</dd></div>
+</dl>
+</div>
+<a class="rc-link text-link" href="#tueste">Prueba el simulador de tueste &darr;</a>
+</div>
+</div>
 
 </div>
 </div>
@@ -215,5 +295,6 @@
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script defer src="assets/js/main.js"></script>
+<script defer src="assets/js/explorer.js?v=1"></script>
 </body>
 </html>
