@@ -238,3 +238,6 @@ html:not(.js) .quiz-actions { display: none; }
   .a-cards, .flips { grid-template-columns: 1fr; }
   .counters { grid-template-columns: 1fr; }
 }
+
+.tile-img { aspect-ratio: 4 / 3; overflow: hidden; border-radius: 12px; margin-bottom: 14px; background: var(--granito-2); }
+.tile-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
