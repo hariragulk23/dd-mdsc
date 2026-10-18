@@ -481,8 +481,6 @@ html.pt-in .pt { transform: translateY(0); visibility: visible; transition: tran
 .sec-head { margin-bottom: clamp(32px, 4vw, 56px); }
 .hero { padding-bottom: clamp(48px, 6vw, 88px); }
 .page-hero { padding-top: calc(84px + clamp(32px, 5vw, 72px)); padding-bottom: clamp(40px, 5vw, 64px); }
-.page-hero + .section { padding-top: clamp(40px, 5vw, 56px); }
-.page-hero + .section:not(.section--alt):not(.section--dark):not(.section--line) { padding-top: 0; }
 .section:not(.section--alt):not(.section--dark):not(.section--line) + .section:not(.section--alt):not(.section--dark):not(.section--line),
 .section--alt + .section--alt,
 .section--dark + .section--dark { padding-top: 0; }
@@ -498,3 +496,8 @@ html.pt-in .pt { transform: translateY(0); visibility: visible; transition: tran
 .faq summary { padding-block: 22px; }
 .faq details p { margin-top: 0; padding-bottom: 22px; }
 .check { padding-block: 8px; }
+
+/* ===== Header-to-content breathing room (fix) ===== */
+.page-hero { padding-bottom: clamp(48px, 6vw, 88px); }
+.page-hero + .section { padding-top: clamp(72px, 9vw, 120px) !important; }
+.page-hero--media + .section { padding-top: clamp(80px, 10vw, 136px) !important; }
