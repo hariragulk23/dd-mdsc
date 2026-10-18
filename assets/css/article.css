@@ -239,5 +239,12 @@ html:not(.js) .quiz-actions { display: none; }
   .counters { grid-template-columns: 1fr; }
 }
 
-.tile-img { aspect-ratio: 4 / 3; overflow: hidden; border-radius: 12px; margin-bottom: 14px; background: var(--granito-2); }
+.tile-img { aspect-ratio: 3 / 2; overflow: hidden; border-radius: 12px; margin: 0 0 14px; background: var(--granito-2); }
 .tile-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ---------- Journal: tarjetas en cuadrícula ---------- */
+.tiles { display: grid; grid-template-columns: 1fr; gap: 48px; }
+.tiles .tile { flex: none; width: 100%; }
+@media (min-width: 760px) {
+  .tiles { grid-template-columns: repeat(2, 1fr); }
+}
