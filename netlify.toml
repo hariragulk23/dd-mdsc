@@ -28,3 +28,15 @@
   for = "/assets/video/*"
   [headers.values]
     Cache-Control = "public, max-age=86400"
+
+[[redirects]]
+  from = "/madrid"
+  to = "/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/madrid.html"
+  to = "/"
+  status = 302
+  force = true
