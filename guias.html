@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Guías para preparar café de especialidad en casa | Madrid Specialty Coffee</title>
-<meta name="description" content="Calculadora de café y agua con temporizador, guías de V60, Chemex, AeroPress, prensa francesa, espresso y moka, y consejos para guardar el café.">
+<meta name="description" content="Calculadora con temporizador, recetas de V60, Chemex, AeroPress, prensa, espresso y moka, test de método, diagnóstico de sabor y guía de molienda y agua.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Guías para preparar café de especialidad en casa | Madrid Specialty Coffee">
 <meta property="og:description" content="Calculadora de café y agua con temporizador, guías de V60, Chemex, AeroPress, prensa francesa, espresso y moka, y consejos para guardar el café.">
@@ -17,6 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Overpass:wght@400;600;700&amp;display=swap">
 <link rel="stylesheet" href="assets/css/style.css?v=5">
+<link rel="stylesheet" href="assets/css/guias.css?v=1">
 <script>try{if(sessionStorage.getItem('pt')){document.documentElement.classList.add('pt-in');sessionStorage.removeItem('pt');setTimeout(function(){document.documentElement.classList.remove('pt-in')},2500)}}catch(e){}</script>
 </head>
 <body class="page-dark">
@@ -94,37 +95,423 @@
 </div>
 </section>
 
-<section class="section section--alt">
-<div class="wrap">
-<h2 class="h-xl" data-split style="margin-bottom:40px">Métodos de preparación</h2>
-<div class="method-cards">
-<article><h3>V60</h3><p class="muted small">Taza limpia y aromática. Ideal para cafés de tueste claro.</p>
-<dl><dt>Ratio</dt><dd>1:16</dd><dt>Molienda</dt><dd>Media-fina</dd><dt>Tiempo</dt><dd>2:30–3:30</dd><dt>Agua</dt><dd>92–96 °C</dd></dl></article>
-<article><h3>Chemex</h3><p class="muted small">Filtro grueso, taza muy limpia. Perfecto para compartir.</p>
-<dl><dt>Ratio</dt><dd>1:15</dd><dt>Molienda</dt><dd>Media-gruesa</dd><dt>Tiempo</dt><dd>3:30–4:30</dd><dt>Agua</dt><dd>92–96 °C</dd></dl></article>
-<article><h3>AeroPress</h3><p class="muted small">Versátil y fácil de viajar. Mucho margen para experimentar.</p>
-<dl><dt>Ratio</dt><dd>1:14</dd><dt>Molienda</dt><dd>Media</dd><dt>Tiempo</dt><dd>1:30–2:30</dd><dt>Agua</dt><dd>85–92 °C</dd></dl></article>
-<article><h3>Prensa francesa</h3><p class="muted small">Más cuerpo y textura. Muy sencilla de preparar.</p>
-<dl><dt>Ratio</dt><dd>1:15</dd><dt>Molienda</dt><dd>Gruesa</dd><dt>Tiempo</dt><dd>4:00</dd><dt>Agua</dt><dd>93–96 °C</dd></dl></article>
-<article><h3>Espresso</h3><p class="muted small">Concentrado e intenso. Necesita máquina y molino de precisión.</p>
-<dl><dt>Ratio</dt><dd>1:2</dd><dt>Molienda</dt><dd>Fina</dd><dt>Tiempo</dt><dd>25–32 s</dd><dt>Agua</dt><dd>90–94 °C</dd></dl></article>
-<article><h3>Moka</h3><p class="muted small">La cafetera de casa. Retírala del fuego en cuanto empiece a borbotear.</p>
-<dl><dt>Ratio</dt><dd>1:7 aprox.</dd><dt>Molienda</dt><dd>Media-fina</dd><dt>Tiempo</dt><dd>Hasta que borbotee</dd><dt>Agua</dt><dd>Fuego medio-bajo</dd></dl></article>
+<!-- ===== GUÍAS: new sections (from guias-part.html) ===== -->
+<section class="section section--alt g-sec" id="elige-metodo" data-chapter="Elige método">
+<div class="wrap g-quiz">
+<div class="g-quiz-head">
+<h2 class="h-xl" data-split>¿Qué método es para ti?</h2>
+<p class="lead">Tres preguntas y te decimos por dónde empezar.</p>
+</div>
+<div class="g-quiz-body" data-quiz>
+<fieldset class="g-q" data-q="q1"><legend>¿Para cuántas personas preparas?</legend><div class="g-q-opts"><button type="button" data-v="1" aria-pressed="false">Solo para mí</button><button type="button" data-v="2" aria-pressed="false">Para 2 o más</button></div></fieldset><fieldset class="g-q" data-q="q2"><legend>¿Qué taza te gusta?</legend><div class="g-q-opts"><button type="button" data-v="limpia" aria-pressed="false">Ligera y aromática</button><button type="button" data-v="cuerpo" aria-pressed="false">Con cuerpo e intensa</button></div></fieldset><fieldset class="g-q" data-q="q3"><legend>¿Cuánto quieres complicarte?</legend><div class="g-q-opts"><button type="button" data-v="facil" aria-pressed="false">Lo mínimo</button><button type="button" data-v="exp" aria-pressed="false">Me gusta experimentar</button></div></fieldset>
+<div class="g-quiz-result" aria-live="polite" data-quiz-result>
+<p class="muted">Responde las tres preguntas para ver tu método.</p>
+</div>
 </div>
 </div>
 </section>
 
-<section class="section">
+<section class="section g-sec g-methods-sec" id="metodos" data-chapter="Métodos">
 <div class="wrap">
-<h2 class="h-xl" data-split style="margin-bottom:56px">Tres reglas que cambian la taza</h2>
-<div class="cols tips">
-<div><h3>Muele justo antes</h3><p class="muted">El café molido pierde aroma en minutos. Un molino de muelas es la mejor inversión.</p></div>
-<div><h3>Cuida el agua</h3><p class="muted">Usa agua filtrada o mineral suave. El café es casi todo agua.</p></div>
-<div><h3>Guárdalo bien</h3><p class="muted">En su bolsa con válvula o en un bote opaco, lejos del calor y la luz.</p></div>
+<div class="g-sec-head">
+<h2 class="h-xl" data-split>Métodos de preparación</h2>
+<p class="lead">Seis formas de hacer café, de la más limpia a la más intensa. Cada una con su receta paso a paso.</p>
 </div>
-<div class="btn-row" style="margin-top:56px"><a class="btn btn--ghost" href="servicios.html#formacion-preparacion">Ver la formación en métodos</a></div>
+<div class="g-methods" data-methods>
+<div class="g-stage" aria-hidden="true">
+<div class="g-stage-card">
+<nav class="g-stage-tabs" aria-label="Métodos"><a href="#metodo-v60" data-tab="v60">V60</a><a href="#metodo-chemex" data-tab="chemex">Chemex</a><a href="#metodo-aeropress" data-tab="aeropress">AeroPress</a><a href="#metodo-prensa" data-tab="prensa">Prensa francesa</a><a href="#metodo-espresso" data-tab="espresso">Espresso</a><a href="#metodo-moka" data-tab="moka">Moka</a></nav>
+<div class="g-stage-arts"><div class="g-stage-art" data-stage="v60"><svg class="g-art g-art--v60" viewBox="0 0 220 280" role="img" aria-label="Ilustración: gotero V60 sobre una jarra" focusable="false">
+<defs><clipPath id="v60cs"><path d="M66 176 H154 L147 252 Q145 262 134 262 H86 Q75 262 73 252 Z"/></clipPath></defs>
+<line class="g-stream" x1="110" y1="0" x2="110" y2="96"/>
+<path class="g-bed" d="M62 96 H158 L122 158 H98 Z"/>
+<path class="g-line" d="M44 78 H176 L124 160 H96 Z"/>
+<path class="g-line g-thin" d="M66 84 L101 152 M86 82 L106 152 M134 82 L114 152 M154 84 L119 152"/>
+<path class="g-line" d="M176 92 Q204 92 204 114 Q204 134 168 136"/>
+<rect class="g-line" x="80" y="160" width="60" height="9" rx="3"/>
+<circle class="g-drop" cx="110" cy="178" r="3.5"/>
+<g clip-path="url(#v60cs)"><rect class="g-liquid" x="60" y="176" width="100" height="90"/></g>
+<path class="g-line" d="M66 176 H154 L147 252 Q145 262 134 262 H86 Q75 262 73 252 Z"/>
+<path class="g-line" d="M152 196 Q176 198 172 222 Q168 240 148 238"/></svg></div><div class="g-stage-art" data-stage="chemex"><svg class="g-art g-art--chemex" viewBox="0 0 220 280" role="img" aria-label="Ilustración: cafetera Chemex" focusable="false">
+<defs><clipPath id="chxcs"><path d="M98 150 L74 236 Q70 262 92 262 H128 Q150 262 146 236 L122 150 Z"/></clipPath></defs>
+<line class="g-stream" x1="110" y1="0" x2="110" y2="70"/>
+<path class="g-paper" d="M58 52 L84 22 L110 52 L136 22 L162 52"/>
+<path class="g-bed" d="M74 74 H146 L118 118 H102 Z"/>
+<circle class="g-drop" cx="110" cy="150" r="3.5"/>
+<g clip-path="url(#chxcs)"><rect class="g-liquid" x="60" y="150" width="100" height="120"/></g>
+<path class="g-line" d="M58 52 H162 L122 130 V150 L146 236 Q150 262 128 262 H92 Q70 262 74 236 L98 150 V130 Z"/>
+<path class="g-wood" d="M95 118 H125 L130 156 H90 Z"/>
+<path class="g-line g-thin" d="M130 136 Q150 140 146 158"/>
+<circle class="g-knot" cx="146" cy="162" r="4"/></svg></div><div class="g-stage-art" data-stage="aeropress"><svg class="g-art g-art--aeropress" viewBox="0 0 220 280" role="img" aria-label="Ilustración: AeroPress sobre una taza" focusable="false">
+<defs><clipPath id="aercs"><path d="M66 196 H154 L148 256 Q146 266 136 266 H84 Q74 266 72 256 Z"/></clipPath></defs>
+<g class="g-plunger">
+  <rect class="g-line g-fillbg" x="74" y="18" width="72" height="12" rx="4"/>
+  <rect class="g-line g-fillbg" x="84" y="30" width="52" height="118" rx="3"/>
+</g>
+<rect class="g-brew" x="80" y="120" width="60" height="58"/>
+<rect class="g-line" x="76" y="84" width="68" height="100" rx="4"/>
+<path class="g-line g-thin" d="M76 104 H86 M76 124 H86 M76 144 H86 M76 164 H86"/>
+<rect class="g-line" x="70" y="182" width="80" height="10" rx="3"/>
+<circle class="g-drop" cx="110" cy="200" r="3.5"/>
+<g clip-path="url(#aercs)"><rect class="g-liquid" x="60" y="196" width="100" height="80"/></g>
+<path class="g-line" d="M66 196 H154 L148 256 Q146 266 136 266 H84 Q74 266 72 256 Z"/>
+<path class="g-line" d="M152 212 Q178 214 174 236 Q170 252 146 250"/></svg></div><div class="g-stage-art" data-stage="prensa"><svg class="g-art g-art--prensa" viewBox="0 0 220 280" role="img" aria-label="Ilustración: prensa francesa" focusable="false">
+<defs><clipPath id="prcs"><rect x="62" y="74" width="96" height="174" rx="4"/></clipPath></defs>
+<g clip-path="url(#prcs)">
+  <rect class="g-brew" x="60" y="96" width="100" height="160"/>
+  <rect class="g-bed" x="60" y="222" width="100" height="40"/>
+</g>
+<g class="g-press">
+  <line class="g-line" x1="110" y1="14" x2="110" y2="100"/>
+  <circle class="g-line g-fillbg" cx="110" cy="14" r="9"/>
+  <rect class="g-mesh" x="64" y="98" width="92" height="6" rx="2"/>
+</g>
+<rect class="g-line g-fillbg" x="54" y="54" width="112" height="16" rx="5"/>
+<rect class="g-line" x="60" y="70" width="100" height="182" rx="6"/>
+<path class="g-line" d="M160 98 Q196 100 196 140 Q196 184 160 190"/>
+<path class="g-line" d="M54 252 H166 M70 252 V266 M150 252 V266"/></svg></div><div class="g-stage-art" data-stage="espresso"><svg class="g-art g-art--espresso" viewBox="0 0 220 280" role="img" aria-label="Ilustración: portafiltro sirviendo un espresso" focusable="false">
+<defs><clipPath id="espcs"><path d="M74 196 H146 L140 244 Q138 254 128 254 H92 Q82 254 80 244 Z"/></clipPath></defs>
+<rect class="g-line" x="40" y="14" width="140" height="34" rx="6"/>
+<path class="g-line" d="M64 48 H156 L148 84 Q146 92 138 92 H82 Q74 92 72 84 Z"/>
+<path class="g-line" d="M156 62 H206 Q214 62 214 70 Q214 78 206 78 H152"/>
+<path class="g-line" d="M98 92 V104 M122 92 V104"/>
+<line class="g-stream g-stream--a" x1="98" y1="106" x2="98" y2="200"/>
+<line class="g-stream g-stream--b" x1="122" y1="106" x2="122" y2="200"/>
+<g clip-path="url(#espcs)"><rect class="g-liquid" x="70" y="196" width="80" height="62"/><rect class="g-crema" x="70" y="196" width="80" height="7"/></g>
+<path class="g-line" d="M74 196 H146 L140 244 Q138 254 128 254 H92 Q82 254 80 244 Z"/>
+<path class="g-line" d="M144 206 Q166 208 162 226 Q158 240 140 238"/>
+<path class="g-line" d="M48 262 Q110 276 172 262"/></svg></div><div class="g-stage-art" data-stage="moka"><svg class="g-art g-art--moka" viewBox="0 0 220 280" role="img" aria-label="Ilustración: cafetera moka al fuego" focusable="false">
+<defs><clipPath id="mokcs"><path d="M74 64 H146 L156 140 H64 Z"/></clipPath></defs>
+<g clip-path="url(#mokcs)"><rect class="g-liquid g-liquid--moka" x="60" y="64" width="100" height="80"/></g>
+<circle class="g-bubble" cx="104" cy="128" r="3"/><circle class="g-bubble g-bubble--2" cx="116" cy="132" r="2.5"/>
+<path class="g-line" d="M74 64 H146 L156 140 H64 Z"/>
+<path class="g-line" d="M146 70 L170 58 L162 82"/>
+<path class="g-line" d="M80 64 Q110 40 140 64"/>
+<rect class="g-line g-fillbg" x="104" y="36" width="12" height="10" rx="3"/>
+<path class="g-line" d="M64 92 Q34 96 34 120 Q34 140 60 134"/>
+<rect class="g-line" x="60" y="140" width="100" height="12" rx="3"/>
+<path class="g-line" d="M64 152 H156 L146 226 H74 Z"/>
+<path class="g-line g-thin" d="M92 152 L86 226 M128 152 L134 226"/>
+<g class="g-flame"><path d="M92 260 Q86 246 96 236 Q96 248 104 252 Q104 262 92 260 Z"/><path d="M112 262 Q104 244 114 230 Q116 244 124 250 Q124 264 112 262 Z"/><path d="M132 260 Q126 248 134 238 Q136 250 142 252 Q142 262 132 260 Z"/></g>
+<path class="g-line" d="M70 268 H150"/></svg></div></div>
+<p class="g-stage-name" data-stage-name>V60</p>
+</div>
+</div>
+<div class="g-method-list">
+<article class="g-method" id="metodo-v60" data-method-id="v60" aria-labelledby="mt-v60">
+<div class="g-method-art" aria-hidden="true"><svg class="g-art g-art--v60" viewBox="0 0 220 280" role="img" aria-label="Ilustración: gotero V60 sobre una jarra" focusable="false">
+<defs><clipPath id="v60cm"><path d="M66 176 H154 L147 252 Q145 262 134 262 H86 Q75 262 73 252 Z"/></clipPath></defs>
+<line class="g-stream" x1="110" y1="0" x2="110" y2="96"/>
+<path class="g-bed" d="M62 96 H158 L122 158 H98 Z"/>
+<path class="g-line" d="M44 78 H176 L124 160 H96 Z"/>
+<path class="g-line g-thin" d="M66 84 L101 152 M86 82 L106 152 M134 82 L114 152 M154 84 L119 152"/>
+<path class="g-line" d="M176 92 Q204 92 204 114 Q204 134 168 136"/>
+<rect class="g-line" x="80" y="160" width="60" height="9" rx="3"/>
+<circle class="g-drop" cx="110" cy="178" r="3.5"/>
+<g clip-path="url(#v60cm)"><rect class="g-liquid" x="60" y="176" width="100" height="90"/></g>
+<path class="g-line" d="M66 176 H154 L147 252 Q145 262 134 262 H86 Q75 262 73 252 Z"/>
+<path class="g-line" d="M152 196 Q176 198 172 222 Q168 240 148 238"/></svg></div>
+<p class="g-method-tag">Taza limpia y aromática</p>
+<h3 class="h-l" id="mt-v60">V60</h3>
+<p class="g-method-intro">El gotero cónico más popular. Saca lo mejor de los cafés de tueste claro, con notas de fruta y flores.</p>
+<dl class="g-recipe">
+<div><dt>Ratio</dt><dd>1:16</dd></div>
+<div><dt>Receta</dt><dd>15 g de café, 240 ml de agua</dd></div>
+<div><dt>Molienda</dt><dd>Media-fina</dd></div>
+<div><dt>Tiempo</dt><dd>2:30–3:30</dd></div>
+<div><dt>Agua</dt><dd>92–96 °C</dd></div>
+</dl>
+<dl class="g-bars"><div class="g-bar"><dt>Cuerpo</dt><dd><span class="g-bar-track" style="--v:2"><span></span></span><span class="g-sr">2 de 5</span></dd></div><div class="g-bar"><dt>Limpieza en taza</dt><dd><span class="g-bar-track" style="--v:5"><span></span></span><span class="g-sr">5 de 5</span></dd></div><div class="g-bar"><dt>Dificultad</dt><dd><span class="g-bar-track" style="--v:4"><span></span></span><span class="g-sr">4 de 5</span></dd></div></dl>
+<ol class="g-steps"><li>Coloca el filtro, enjuágalo con agua caliente y tira esa agua.</li><li>Añade 15 g de café molido medio-fino y nivela la cama.</li><li>Vierte 30–45 ml de agua para mojar todo el café y espera 30–45 segundos.</li><li>Vierte en espiral lenta hasta 240 ml, sin echar agua directamente sobre el papel.</li><li>Gira el gotero con suavidad para nivelar y deja que termine entre 2:30 y 3:30.</li></ol>
+<button type="button" class="btn btn--primary g-use" data-use-method="v60">Usar en la calculadora</button>
+</article>
+<article class="g-method" id="metodo-chemex" data-method-id="chemex" aria-labelledby="mt-chemex">
+<div class="g-method-art" aria-hidden="true"><svg class="g-art g-art--chemex" viewBox="0 0 220 280" role="img" aria-label="Ilustración: cafetera Chemex" focusable="false">
+<defs><clipPath id="chxcm"><path d="M98 150 L74 236 Q70 262 92 262 H128 Q150 262 146 236 L122 150 Z"/></clipPath></defs>
+<line class="g-stream" x1="110" y1="0" x2="110" y2="70"/>
+<path class="g-paper" d="M58 52 L84 22 L110 52 L136 22 L162 52"/>
+<path class="g-bed" d="M74 74 H146 L118 118 H102 Z"/>
+<circle class="g-drop" cx="110" cy="150" r="3.5"/>
+<g clip-path="url(#chxcm)"><rect class="g-liquid" x="60" y="150" width="100" height="120"/></g>
+<path class="g-line" d="M58 52 H162 L122 130 V150 L146 236 Q150 262 128 262 H92 Q70 262 74 236 L98 150 V130 Z"/>
+<path class="g-wood" d="M95 118 H125 L130 156 H90 Z"/>
+<path class="g-line g-thin" d="M130 136 Q150 140 146 158"/>
+<circle class="g-knot" cx="146" cy="162" r="4"/></svg></div>
+<p class="g-method-tag">Para compartir</p>
+<h3 class="h-l" id="mt-chemex">Chemex</h3>
+<p class="g-method-intro">Su filtro grueso retiene más aceites, así que la taza sale muy limpia. Prepara varias tazas a la vez.</p>
+<dl class="g-recipe">
+<div><dt>Ratio</dt><dd>1:15</dd></div>
+<div><dt>Receta</dt><dd>30 g de café, 450 ml de agua</dd></div>
+<div><dt>Molienda</dt><dd>Media-gruesa</dd></div>
+<div><dt>Tiempo</dt><dd>3:30–4:30</dd></div>
+<div><dt>Agua</dt><dd>92–96 °C</dd></div>
+</dl>
+<dl class="g-bars"><div class="g-bar"><dt>Cuerpo</dt><dd><span class="g-bar-track" style="--v:2"><span></span></span><span class="g-sr">2 de 5</span></dd></div><div class="g-bar"><dt>Limpieza en taza</dt><dd><span class="g-bar-track" style="--v:5"><span></span></span><span class="g-sr">5 de 5</span></dd></div><div class="g-bar"><dt>Dificultad</dt><dd><span class="g-bar-track" style="--v:3"><span></span></span><span class="g-sr">3 de 5</span></dd></div></dl>
+<ol class="g-steps"><li>Coloca el filtro con la parte de tres capas hacia el pico y enjuágalo.</li><li>Añade 30 g de café molido medio-grueso.</li><li>Vierte 60 ml de agua y espera 45 segundos.</li><li>Sigue vertiendo por tandas hasta 450 ml.</li><li>Retira el filtro hacia los 4 minutos y remueve la jarra antes de servir.</li></ol>
+<button type="button" class="btn btn--primary g-use" data-use-method="chemex">Usar en la calculadora</button>
+</article>
+<article class="g-method" id="metodo-aeropress" data-method-id="aeropress" aria-labelledby="mt-aeropress">
+<div class="g-method-art" aria-hidden="true"><svg class="g-art g-art--aeropress" viewBox="0 0 220 280" role="img" aria-label="Ilustración: AeroPress sobre una taza" focusable="false">
+<defs><clipPath id="aercm"><path d="M66 196 H154 L148 256 Q146 266 136 266 H84 Q74 266 72 256 Z"/></clipPath></defs>
+<g class="g-plunger">
+  <rect class="g-line g-fillbg" x="74" y="18" width="72" height="12" rx="4"/>
+  <rect class="g-line g-fillbg" x="84" y="30" width="52" height="118" rx="3"/>
+</g>
+<rect class="g-brew" x="80" y="120" width="60" height="58"/>
+<rect class="g-line" x="76" y="84" width="68" height="100" rx="4"/>
+<path class="g-line g-thin" d="M76 104 H86 M76 124 H86 M76 144 H86 M76 164 H86"/>
+<rect class="g-line" x="70" y="182" width="80" height="10" rx="3"/>
+<circle class="g-drop" cx="110" cy="200" r="3.5"/>
+<g clip-path="url(#aercm)"><rect class="g-liquid" x="60" y="196" width="100" height="80"/></g>
+<path class="g-line" d="M66 196 H154 L148 256 Q146 266 136 266 H84 Q74 266 72 256 Z"/>
+<path class="g-line" d="M152 212 Q178 214 174 236 Q170 252 146 250"/></svg></div>
+<p class="g-method-tag">Rápida y viajera</p>
+<h3 class="h-l" id="mt-aeropress">AeroPress</h3>
+<p class="g-method-intro">Inmersión y presión suave en un cilindro irrompible. Perdona errores y deja mucho margen para experimentar.</p>
+<dl class="g-recipe">
+<div><dt>Ratio</dt><dd>1:14</dd></div>
+<div><dt>Receta</dt><dd>15 g de café, 210 ml de agua</dd></div>
+<div><dt>Molienda</dt><dd>Media</dd></div>
+<div><dt>Tiempo</dt><dd>1:30–2:30</dd></div>
+<div><dt>Agua</dt><dd>85–92 °C</dd></div>
+</dl>
+<dl class="g-bars"><div class="g-bar"><dt>Cuerpo</dt><dd><span class="g-bar-track" style="--v:3"><span></span></span><span class="g-sr">3 de 5</span></dd></div><div class="g-bar"><dt>Limpieza en taza</dt><dd><span class="g-bar-track" style="--v:4"><span></span></span><span class="g-sr">4 de 5</span></dd></div><div class="g-bar"><dt>Dificultad</dt><dd><span class="g-bar-track" style="--v:2"><span></span></span><span class="g-sr">2 de 5</span></dd></div></dl>
+<ol class="g-steps"><li>Pon el filtro de papel en la tapa y enjuágalo.</li><li>Añade 15 g de café molido medio a la cámara.</li><li>Vierte 210 ml de agua y remueve 10 segundos.</li><li>Coloca el émbolo sin presionar y espera hasta el minuto 1:30.</li><li>Presiona despacio durante unos 30 segundos y para al oír el siseo.</li></ol>
+<button type="button" class="btn btn--primary g-use" data-use-method="aeropress">Usar en la calculadora</button>
+</article>
+<article class="g-method" id="metodo-prensa" data-method-id="prensa" aria-labelledby="mt-prensa">
+<div class="g-method-art" aria-hidden="true"><svg class="g-art g-art--prensa" viewBox="0 0 220 280" role="img" aria-label="Ilustración: prensa francesa" focusable="false">
+<defs><clipPath id="prcm"><rect x="62" y="74" width="96" height="174" rx="4"/></clipPath></defs>
+<g clip-path="url(#prcm)">
+  <rect class="g-brew" x="60" y="96" width="100" height="160"/>
+  <rect class="g-bed" x="60" y="222" width="100" height="40"/>
+</g>
+<g class="g-press">
+  <line class="g-line" x1="110" y1="14" x2="110" y2="100"/>
+  <circle class="g-line g-fillbg" cx="110" cy="14" r="9"/>
+  <rect class="g-mesh" x="64" y="98" width="92" height="6" rx="2"/>
+</g>
+<rect class="g-line g-fillbg" x="54" y="54" width="112" height="16" rx="5"/>
+<rect class="g-line" x="60" y="70" width="100" height="182" rx="6"/>
+<path class="g-line" d="M160 98 Q196 100 196 140 Q196 184 160 190"/>
+<path class="g-line" d="M54 252 H166 M70 252 V266 M150 252 V266"/></svg></div>
+<p class="g-method-tag">Cuerpo y textura</p>
+<h3 class="h-l" id="mt-prensa">Prensa francesa</h3>
+<p class="g-method-intro">El café reposa en el agua y un filtro metálico deja pasar los aceites. Taza densa y redonda, sin complicaciones.</p>
+<dl class="g-recipe">
+<div><dt>Ratio</dt><dd>1:15</dd></div>
+<div><dt>Receta</dt><dd>30 g de café, 450 ml de agua</dd></div>
+<div><dt>Molienda</dt><dd>Gruesa</dd></div>
+<div><dt>Tiempo</dt><dd>4:00</dd></div>
+<div><dt>Agua</dt><dd>93–96 °C</dd></div>
+</dl>
+<dl class="g-bars"><div class="g-bar"><dt>Cuerpo</dt><dd><span class="g-bar-track" style="--v:5"><span></span></span><span class="g-sr">5 de 5</span></dd></div><div class="g-bar"><dt>Limpieza en taza</dt><dd><span class="g-bar-track" style="--v:2"><span></span></span><span class="g-sr">2 de 5</span></dd></div><div class="g-bar"><dt>Dificultad</dt><dd><span class="g-bar-track" style="--v:1"><span></span></span><span class="g-sr">1 de 5</span></dd></div></dl>
+<ol class="g-steps"><li>Precalienta la jarra con agua caliente y tírala.</li><li>Añade 30 g de café molido grueso.</li><li>Vierte 450 ml de agua, remueve y pon la tapa sin bajar el émbolo.</li><li>Espera 4 minutos.</li><li>Retira la espuma de arriba con una cuchara, baja el émbolo despacio y sirve todo.</li></ol>
+<button type="button" class="btn btn--primary g-use" data-use-method="prensa">Usar en la calculadora</button>
+</article>
+<article class="g-method" id="metodo-espresso" data-method-id="espresso" aria-labelledby="mt-espresso">
+<div class="g-method-art" aria-hidden="true"><svg class="g-art g-art--espresso" viewBox="0 0 220 280" role="img" aria-label="Ilustración: portafiltro sirviendo un espresso" focusable="false">
+<defs><clipPath id="espcm"><path d="M74 196 H146 L140 244 Q138 254 128 254 H92 Q82 254 80 244 Z"/></clipPath></defs>
+<rect class="g-line" x="40" y="14" width="140" height="34" rx="6"/>
+<path class="g-line" d="M64 48 H156 L148 84 Q146 92 138 92 H82 Q74 92 72 84 Z"/>
+<path class="g-line" d="M156 62 H206 Q214 62 214 70 Q214 78 206 78 H152"/>
+<path class="g-line" d="M98 92 V104 M122 92 V104"/>
+<line class="g-stream g-stream--a" x1="98" y1="106" x2="98" y2="200"/>
+<line class="g-stream g-stream--b" x1="122" y1="106" x2="122" y2="200"/>
+<g clip-path="url(#espcm)"><rect class="g-liquid" x="70" y="196" width="80" height="62"/><rect class="g-crema" x="70" y="196" width="80" height="7"/></g>
+<path class="g-line" d="M74 196 H146 L140 244 Q138 254 128 254 H92 Q82 254 80 244 Z"/>
+<path class="g-line" d="M144 206 Q166 208 162 226 Q158 240 140 238"/>
+<path class="g-line" d="M48 262 Q110 276 172 262"/></svg></div>
+<p class="g-method-tag">Concentrado e intenso</p>
+<h3 class="h-l" id="mt-espresso">Espresso</h3>
+<p class="g-method-intro">Agua a presión a través de café muy fino. Es el método más exigente: necesita máquina y un molino preciso.</p>
+<dl class="g-recipe">
+<div><dt>Ratio</dt><dd>1:2</dd></div>
+<div><dt>Receta</dt><dd>18 g de café, unos 36 g en la taza</dd></div>
+<div><dt>Molienda</dt><dd>Fina</dd></div>
+<div><dt>Tiempo</dt><dd>25–32 s</dd></div>
+<div><dt>Agua</dt><dd>90–94 °C</dd></div>
+</dl>
+<dl class="g-bars"><div class="g-bar"><dt>Cuerpo</dt><dd><span class="g-bar-track" style="--v:5"><span></span></span><span class="g-sr">5 de 5</span></dd></div><div class="g-bar"><dt>Limpieza en taza</dt><dd><span class="g-bar-track" style="--v:3"><span></span></span><span class="g-sr">3 de 5</span></dd></div><div class="g-bar"><dt>Dificultad</dt><dd><span class="g-bar-track" style="--v:5"><span></span></span><span class="g-sr">5 de 5</span></dd></div></dl>
+<ol class="g-steps"><li>Purga el grupo y seca el portafiltro.</li><li>Añade 18 g de café molido fino.</li><li>Distribuye el café y préñsalo bien nivelado.</li><li>Extrae hasta unos 36 g en la taza, en 25–32 segundos.</li><li>Si sale antes de tiempo, muele más fino. Si tarda más, muele más grueso.</li></ol>
+<button type="button" class="btn btn--primary g-use" data-use-method="espresso">Usar en la calculadora</button>
+</article>
+<article class="g-method" id="metodo-moka" data-method-id="moka" aria-labelledby="mt-moka">
+<div class="g-method-art" aria-hidden="true"><svg class="g-art g-art--moka" viewBox="0 0 220 280" role="img" aria-label="Ilustración: cafetera moka al fuego" focusable="false">
+<defs><clipPath id="mokcm"><path d="M74 64 H146 L156 140 H64 Z"/></clipPath></defs>
+<g clip-path="url(#mokcm)"><rect class="g-liquid g-liquid--moka" x="60" y="64" width="100" height="80"/></g>
+<circle class="g-bubble" cx="104" cy="128" r="3"/><circle class="g-bubble g-bubble--2" cx="116" cy="132" r="2.5"/>
+<path class="g-line" d="M74 64 H146 L156 140 H64 Z"/>
+<path class="g-line" d="M146 70 L170 58 L162 82"/>
+<path class="g-line" d="M80 64 Q110 40 140 64"/>
+<rect class="g-line g-fillbg" x="104" y="36" width="12" height="10" rx="3"/>
+<path class="g-line" d="M64 92 Q34 96 34 120 Q34 140 60 134"/>
+<rect class="g-line" x="60" y="140" width="100" height="12" rx="3"/>
+<path class="g-line" d="M64 152 H156 L146 226 H74 Z"/>
+<path class="g-line g-thin" d="M92 152 L86 226 M128 152 L134 226"/>
+<g class="g-flame"><path d="M92 260 Q86 246 96 236 Q96 248 104 252 Q104 262 92 260 Z"/><path d="M112 262 Q104 244 114 230 Q116 244 124 250 Q124 264 112 262 Z"/><path d="M132 260 Q126 248 134 238 Q136 250 142 252 Q142 262 132 260 Z"/></g>
+<path class="g-line" d="M70 268 H150"/></svg></div>
+<p class="g-method-tag">La cafetera de casa</p>
+<h3 class="h-l" id="mt-moka">Moka</h3>
+<p class="g-method-intro">La cafetera italiana que hay en casi todas las cocinas. Con café de especialidad y dos trucos, cambia por completo.</p>
+<dl class="g-recipe">
+<div><dt>Ratio</dt><dd>1:7 aprox.</dd></div>
+<div><dt>Receta</dt><dd>Filtro lleno, sin prensar</dd></div>
+<div><dt>Molienda</dt><dd>Media-fina</dd></div>
+<div><dt>Tiempo</dt><dd>Hasta que borbotee</dd></div>
+<div><dt>Agua</dt><dd>Fuego medio-bajo</dd></div>
+</dl>
+<dl class="g-bars"><div class="g-bar"><dt>Cuerpo</dt><dd><span class="g-bar-track" style="--v:4"><span></span></span><span class="g-sr">4 de 5</span></dd></div><div class="g-bar"><dt>Limpieza en taza</dt><dd><span class="g-bar-track" style="--v:2"><span></span></span><span class="g-sr">2 de 5</span></dd></div><div class="g-bar"><dt>Dificultad</dt><dd><span class="g-bar-track" style="--v:2"><span></span></span><span class="g-sr">2 de 5</span></dd></div></dl>
+<ol class="g-steps"><li>Llena el depósito con agua ya caliente, justo por debajo de la válvula.</li><li>Llena el filtro de café molido medio-fino, sin prensar, y nivélalo.</li><li>Enrosca con un paño, porque la base quema, y ponla a fuego medio-bajo con la tapa abierta.</li><li>Retírala del fuego en cuanto el café empiece a borbotear.</li><li>Enfría la base bajo el grifo para cortar la extracción y remueve antes de servir.</li></ol>
+<p class="small muted">La moka no necesita báscula: llena el filtro hasta arriba, sin prensar.</p>
+</article>
+</div>
+</div>
 </div>
 </section>
+
+<section class="section section--alt g-sec" id="molienda" data-chapter="Molienda">
+<div class="wrap g-grind" data-grind>
+<div>
+<h2 class="h-xl" data-split>La molienda manda</h2>
+<p class="lead">Cuanto más fino, más rápido sale el sabor. Por eso cada método pide su punto. Mueve el control para verlo.</p>
+<div class="g-grind-ctrl">
+<label for="g-grind-r">Tamaño de molienda</label>
+<input id="g-grind-r" type="range" min="0" max="5" step="1" value="2" data-grind-range aria-describedby="g-grind-now">
+<div class="g-grind-scale" aria-hidden="true"><span>Fina</span><span>Gruesa</span></div>
+</div>
+<div class="g-grind-now" id="g-grind-now" aria-live="polite">
+<p class="g-grind-name" data-grind-name>Media-fina</p>
+<p><span data-grind-like>Como arena fina</span>. <span data-grind-use>V60 y moka</span>.</p>
+</div>
+</div>
+<div class="g-grind-vis" aria-hidden="true"><svg viewBox="0 0 320 320" data-grind-svg></svg></div>
+<ol class="g-grind-data" hidden><li data-g="0" data-r="0.9"><b>Extra fina</b><span>Como harina</span><span>Café turco</span></li><li data-g="1" data-r="1.6"><b>Fina</b><span>Como sal fina</span><span>Espresso</span></li><li data-g="2" data-r="2.4"><b>Media-fina</b><span>Como arena fina</span><span>V60 y moka</span></li><li data-g="3" data-r="3.2"><b>Media</b><span>Como arena de playa</span><span>AeroPress y cafetera de goteo</span></li><li data-g="4" data-r="4.1"><b>Media-gruesa</b><span>Como azúcar moreno</span><span>Chemex</span></li><li data-g="5" data-r="5.2"><b>Gruesa</b><span>Como sal gorda</span><span>Prensa francesa y cold brew</span></li></ol>
+</div>
+</section>
+
+<section class="section section--dark g-sec" id="diagnostico" data-chapter="Diagnóstico">
+<div class="wrap">
+<div class="g-sec-head">
+<h2 class="h-xl" data-split>¿Cómo sabe tu taza?</h2>
+<p class="lead">Elige lo que notas y te decimos qué ajustar. Un solo cambio cada vez.</p>
+</div>
+<div class="g-diag" data-diag>
+<div class="g-syms" role="group" aria-label="Cómo sabe tu café"><button type="button" class="g-sym" data-sym="agrio" aria-pressed="false">Agrio o salado</button><button type="button" class="g-sym" data-sym="amargo" aria-pressed="false">Amargo y seco</button><button type="button" class="g-sym" data-sym="aguado" aria-pressed="false">Aguado, sin cuerpo</button><button type="button" class="g-sym" data-sym="pesado" aria-pressed="false">Muy intenso, pesado</button><button type="button" class="g-sym" data-sym="amargo-aguado" aria-pressed="false">Amargo y aguado</button><button type="button" class="g-sym" data-sym="equilibrado" aria-pressed="false">Dulce y equilibrado</button></div>
+<div class="g-compass" aria-hidden="true">
+<div class="g-compass-grid"><span class="g-ideal"></span><span class="g-dot" data-dot></span></div>
+<span class="g-ax g-ax--l">Poca extracción</span><span class="g-ax g-ax--r">Mucha extracción</span>
+<span class="g-ax g-ax--t">Intenso</span><span class="g-ax g-ax--b">Suave</span>
+</div>
+<div class="g-diag-res" aria-live="polite">
+<div class="g-diag-out" data-out="none"><h3 class="h-m">Empieza por tu sensación</h3><p>Pulsa una de las opciones. El punto del mapa muestra dónde está tu taza y el centro es el equilibrio.</p></div>
+<div class="g-diag-out" data-out="agrio" data-x="0.18" data-y="0.5" hidden>
+<h3 class="h-m">Le falta extracción</h3><p>El agua no ha sacado suficiente sabor del café. Por eso predomina la acidez punzante.</p><ul><li>Muele un punto más fino.</li><li>Usa agua más caliente, cerca de 96 °C.</li><li>Alarga un poco el tiempo de contacto.</li></ul></div><div class="g-diag-out" data-out="amargo" data-x="0.82" data-y="0.5" hidden>
+<h3 class="h-m">Le sobra extracción</h3><p>El agua ha sacado también los compuestos ásperos. Deja la boca seca y un final amargo.</p><ul><li>Muele un punto más grueso.</li><li>Acorta el tiempo de preparación.</li><li>Baja un poco la temperatura del agua.</li></ul></div><div class="g-diag-out" data-out="aguado" data-x="0.5" data-y="0.84" hidden>
+<h3 class="h-m">Demasiado diluido</h3><p>La extracción puede estar bien, pero hay poco café para tanta agua.</p><ul><li>Usa más café: pasa de 1:17 a 1:15.</li><li>Comprueba la dosis con una báscula.</li></ul></div><div class="g-diag-out" data-out="pesado" data-x="0.5" data-y="0.16" hidden>
+<h3 class="h-m">Demasiado concentrado</h3><p>Hay demasiado café para la cantidad de agua. El sabor satura.</p><ul><li>Usa menos café o más agua: prueba 1:16 o 1:17.</li><li>Si prefieres esa intensidad, añade un poco de agua caliente a la taza.</li></ul></div><div class="g-diag-out" data-out="amargo-aguado" data-x="0.8" data-y="0.82" hidden>
+<h3 class="h-m">Sobreextraído y diluido</h3><p>La molienda es tan fina que el agua tarda mucho en pasar, y además hay poco café.</p><ul><li>Muele más grueso.</li><li>Sube la dosis de café.</li></ul></div><div class="g-diag-out" data-out="equilibrado" data-x="0.5" data-y="0.5" hidden>
+<h3 class="h-m">Lo has clavado</h3><p>Dulzor, acidez agradable y un final limpio. Apunta la receta para repetirla.</p><ul><li>Cambia una sola variable cada vez si quieres explorar.</li><li>Prueba el mismo café con otro método.</li></ul></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section g-sec" id="agua" data-chapter="Agua">
+<div class="wrap g-water">
+<div class="g-water-big" aria-hidden="true">
+<svg viewBox="0 0 200 240"><defs><clipPath id="gdropc"><path d="M100 10 C130 60 170 100 170 150 A70 70 0 0 1 30 150 C30 100 70 60 100 10 Z"/></clipPath></defs>
+<g clip-path="url(#gdropc)"><rect class="g-water-fill" x="0" y="0" width="200" height="240"/><rect class="g-water-cafe" x="0" y="214" width="200" height="30"/></g>
+<path class="g-line" d="M100 10 C130 60 170 100 170 150 A70 70 0 0 1 30 150 C30 100 70 60 100 10 Z"/></svg>
+<p class="g-water-num"><b>98&nbsp;%</b><span>de una taza de filtro es agua</span></p>
+</div>
+<div>
+<h2 class="h-xl" data-split>El agua también es receta</h2>
+<p class="lead">Si el agua sabe mal, el café también. Fíjate en dos cosas: la temperatura y los minerales.</p>
+<div class="g-water-tips">
+<div><h3 class="h-m">Temperatura</h3><p>Entre 90 y 96 °C para casi todos los métodos. Sin termómetro: lleva el agua a ebullición y espera unos 30 segundos.</p></div>
+<div><h3 class="h-m">Minerales</h3><p>Mira el «residuo seco» en la etiqueta del agua embotellada. Prueba qué tal va la tuya:</p>
+<div class="g-tds" data-tds>
+<label for="g-tds-in">Residuo seco (mg/L)</label>
+<div class="g-tds-row"><input id="g-tds-in" type="number" inputmode="numeric" min="0" max="2000" step="1" placeholder="Ej.: 150" data-tds-in><span class="g-tds-out" aria-live="polite" data-tds-out>Escribe el número de la etiqueta.</span></div>
+<p class="small muted">Referencia: la Specialty Coffee Association recomienda unos 150 mg/L, dentro de un rango de 75 a 250.</p>
+</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section section--alt g-sec" id="etiqueta" data-chapter="Etiqueta">
+<div class="wrap">
+<div class="g-sec-head">
+<h2 class="h-xl" data-split>Cómo leer una bolsa de café</h2>
+<p class="lead">Todo lo que necesitas saber está en la etiqueta. Toca cada número.</p>
+</div>
+<div class="g-label" data-label>
+<div class="g-bag">
+<div class="g-bag-body">
+<span class="g-bag-valve" aria-hidden="true"></span>
+<div class="g-bag-lab">
+<p class="g-bl-1"><button type="button" class="g-spot" data-spot="origen" aria-pressed="true" aria-label="1. Origen y región"><span aria-hidden="true">1</span></button>Colombia, Huila</p>
+<p class="g-bl-2"><button type="button" class="g-spot" data-spot="productor" aria-pressed="false" aria-label="2. Productor o finca"><span aria-hidden="true">2</span></button>Finca La Esperanza</p>
+<p class="g-bl-3"><button type="button" class="g-spot" data-spot="variedad" aria-pressed="false" aria-label="3. Variedad"><span aria-hidden="true">3</span></button>Variedad Caturra</p>
+<p class="g-bl-4"><button type="button" class="g-spot" data-spot="proceso" aria-pressed="false" aria-label="4. Proceso"><span aria-hidden="true">4</span></button>Proceso lavado</p>
+<p class="g-bl-5"><button type="button" class="g-spot" data-spot="altitud" aria-pressed="false" aria-label="5. Altitud"><span aria-hidden="true">5</span></button>1.750 m</p>
+<p class="g-bl-6"><button type="button" class="g-spot" data-spot="tueste" aria-pressed="false" aria-label="6. Fecha de tueste"><span aria-hidden="true">6</span></button>Tostado el 02/10</p>
+<p class="g-bl-7"><button type="button" class="g-spot" data-spot="notas" aria-pressed="false" aria-label="7. Notas de cata"><span aria-hidden="true">7</span></button>Panela, naranja, cacao</p>
+</div>
+</div>
+</div>
+<ol class="g-label-info"><li data-spot-info="origen" class="is-on"><h3>Origen y región</h3><p>País y zona donde se cultivó. Cuanto más concreto, mejor: una región o una finca dicen mucho más que solo el país.</p></li><li data-spot-info="productor"><h3>Productor o finca</h3><p>Quién lo cultivó. Si aparece el nombre, hay trazabilidad: se sabe de dónde viene cada saco.</p></li><li data-spot-info="variedad"><h3>Variedad</h3><p>El tipo de planta de café, como Bourbon, Caturra o Geisha. Influye en el sabor, igual que la uva en el vino.</p></li><li data-spot-info="proceso"><h3>Proceso</h3><p>Cómo se separó el grano de la fruta. Lavado suele dar tazas más limpias; natural, más afrutadas y dulces.</p></li><li data-spot-info="altitud"><h3>Altitud</h3><p>A más altura, el grano madura más despacio y suele tener más acidez y complejidad.</p></li><li data-spot-info="tueste"><h3>Fecha de tueste</h3><p>El dato más útil de la bolsa. Una fecha de caducidad sin fecha de tueste es mala señal.</p></li><li data-spot-info="notas"><h3>Notas de cata</h3><p>Sabores que recuerda el café, como frutos rojos o chocolate. No lleva aromas añadidos: salen del propio grano.</p></li></ol>
+</div>
+</div>
+</section>
+
+<section class="section g-sec" id="conservar" data-chapter="Conservar">
+<div class="wrap">
+<div class="g-sec-head">
+<h2 class="h-xl" data-split>Guárdalo bien</h2>
+<p class="lead">Las dudas más habituales sobre cómo conservar el café. Toca cada pregunta para ver la respuesta.</p>
+</div>
+<div class="g-myths"><button type="button" class="g-myth" aria-pressed="false"><span class="g-myth-q">¿Lo guardo en la nevera?</span><span class="g-myth-a"><b>No.</b> La nevera tiene humedad y olores que el café absorbe. Mejor en un armario fresco y oscuro.</span></button><button type="button" class="g-myth" aria-pressed="false"><span class="g-myth-q">¿Y en el congelador?</span><span class="g-myth-a"><b>Solo bien hecho.</b> Funciona si lo congelas en porciones herméticas y sacas solo la que vas a usar. No lo vuelvas a congelar.</span></button><button type="button" class="g-myth" aria-pressed="false"><span class="g-myth-q">¿En grano o molido?</span><span class="g-myth-a"><b>En grano.</b> El café molido pierde gran parte del aroma en minutos. Muele justo antes de preparar.</span></button><button type="button" class="g-myth" aria-pressed="false"><span class="g-myth-q">¿Un bote de cristal a la vista?</span><span class="g-myth-a"><b>Mejor opaco.</b> La luz y el aire lo degradan. Usa su bolsa con válvula bien cerrada o un bote opaco y hermético.</span></button><button type="button" class="g-myth" aria-pressed="false"><span class="g-myth-q">¿Cuanto más fresco, mejor?</span><span class="g-myth-a"><b>Casi.</b> Recién tostado suelta mucho gas. Deja reposar unos días: unos 3–7 para filtro y 7–14 para espresso.</span></button><button type="button" class="g-myth" aria-pressed="false"><span class="g-myth-q">¿Cuánto dura una bolsa abierta?</span><span class="g-myth-a"><b>Unas semanas.</b> Lo ideal es terminarla en 2–4 semanas. Compra cantidades que vayas a usar en ese tiempo.</span></button></div>
+</div>
+</section>
+
+<section class="section section--alt g-sec" id="equipo" data-chapter="Equipo">
+<div class="wrap">
+<div class="g-sec-head">
+<h2 class="h-xl" data-split>Tu equipo, paso a paso</h2>
+<p class="lead">No necesitas comprarlo todo. Empieza por la izquierda y avanza cuando quieras más.</p>
+</div>
+<div class="g-kit"><div class="g-kit-col"><p class="g-kit-n">1</p><h3 class="h-m">Para empezar</h3><p class="muted">Lo mínimo para una taza que ya sabe a especialidad.</p><ul><li><svg class="g-ico" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="6" y="18" width="36" height="22" rx="4"/><rect x="14" y="24" width="20" height="8" rx="2"/><path d="M10 18 V12 H38 V18"/></svg><div><b>Báscula de cocina</b><span>Mejor si pesa en décimas de gramo.</span></div></li><li><svg class="g-ico" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10 H42 L28 28 H20 Z"/><path d="M16 28 H32 V32 H16 Z"/><path d="M14 36 H34 L32 44 H16 Z"/></svg><div><b>Un método sencillo</b><span>Un gotero, una AeroPress o una prensa.</span></div></li><li><svg class="g-ico" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><ellipse cx="24" cy="24" rx="12" ry="17" transform="rotate(30 24 24)"/><path d="M18 12 Q28 22 30 36"/></svg><div><b>Café en grano recién tostado</b><span>Con fecha de tueste en la bolsa.</span></div></li></ul></div><div class="g-kit-col"><p class="g-kit-n">2</p><h3 class="h-m">El gran salto</h3><p class="muted">Lo que más mejora la taza por cada euro.</p><ul><li><svg class="g-ico" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M16 6 H32 L30 18 H18 Z"/><rect x="14" y="18" width="20" height="22" rx="3"/><path d="M34 26 H42 M42 26 V20"/><circle cx="42" cy="18" r="2"/></svg><div><b>Molino de muelas</b><span>Muele parejo. Es la mejor inversión.</span></div></li><li><svg class="g-ico" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M12 40 H34 L36 16 H10 Z"/><path d="M36 22 Q44 22 44 30 Q44 36 35 36"/><path d="M10 20 Q4 14 2 6"/><path d="M18 16 Q23 10 28 16"/></svg><div><b>Hervidor de cuello de cisne</b><span>Controla el chorro al verter.</span></div></li></ul></div><div class="g-kit-col"><p class="g-kit-n">3</p><h3 class="h-m">Nivel barista</h3><p class="muted">Para quien quiere repetir la taza perfecta cada día.</p><ul><li><svg class="g-ico" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M20 8 a4 4 0 0 1 8 0 V30 a8 8 0 1 1 -8 0 Z"/><path d="M24 16 V34"/></svg><div><b>Control de temperatura</b><span>Hervidor con temperatura o termómetro.</span></div></li><li><svg class="g-ico" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M14 6 H34 L36 42 Q36 44 34 44 H14 Q12 44 12 42 Z"/><path d="M24 16 Q18 24 24 30 Q30 24 24 16 Z"/></svg><div><b>Agua filtrada</b><span>Una jarra con filtro basta.</span></div></li><li><svg class="g-ico" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 20 H34 L32 40 H12 Z"/><path d="M34 24 Q42 24 40 32 Q38 36 33 36"/><path d="M18 6 Q16 11 19 14 M26 6 Q24 11 27 14"/></svg><div><b>Máquina de espresso</b><span>Siempre con un molino a su altura.</span></div></li></ul></div></div>
+</div>
+</section>
+
+<section class="section g-sec" id="reglas" data-chapter="Reglas de oro">
+<div class="wrap">
+<h2 class="h-xl" data-split style="margin-bottom:48px">Tres reglas que cambian la taza</h2>
+<div class="g-rules">
+<div><p class="g-rule-n">1</p><h3 class="h-m">Muele justo antes</h3><p class="muted">El café molido pierde aroma en minutos. Un molino de muelas es la mejor inversión.</p></div>
+<div><p class="g-rule-n">2</p><h3 class="h-m">Pesa, no midas a ojo</h3><p class="muted">Una báscula hace que cada taza salga igual. Es el cambio más barato y más eficaz.</p></div>
+<div><p class="g-rule-n">3</p><h3 class="h-m">Cambia una cosa cada vez</h3><p class="muted">Si ajustas molienda y dosis a la vez, no sabrás qué funcionó.</p></div>
+</div>
+<div class="g-cta">
+<div><h3 class="h-l">¿Prefieres aprenderlo con un barista?</h3><p class="muted">Formación práctica en V60, Chemex, AeroPress y espresso para particulares, baristas y cafeterías.</p></div>
+<a class="btn btn--primary" href="servicios.html#formacion-preparacion">Ver la formación en métodos</a>
+</div>
+</div>
+</section>
+
+<nav class="g-toc" aria-label="Capítulos de la guía" data-toc hidden>
+<button type="button" class="g-toc-btn" aria-expanded="false" aria-controls="g-toc-list" data-toc-btn>
+<svg class="g-toc-ring" viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="15"/><circle class="g-toc-prog" cx="18" cy="18" r="15" data-toc-prog/></svg>
+<span class="g-toc-now" data-toc-now>Índice</span>
+</button>
+<ol class="g-toc-list" id="g-toc-list" data-toc-list hidden></ol>
+</nav>
+<!-- ===== /GUÍAS ===== -->
+
 </main>
 <footer class="site-footer">
 <div class="wrap">
@@ -180,5 +567,6 @@
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script defer src="assets/js/main.js"></script>
+<script defer src="assets/js/guias.js?v=1"></script>
 </body>
 </html>

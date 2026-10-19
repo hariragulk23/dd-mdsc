@@ -260,6 +260,7 @@
   /* ---------- Scroll suave ---------- */
   if (window.Lenis) {
     var lenis = new window.Lenis({ lerp: 0.1, smoothWheel: true });
+    window.lenis = lenis;
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
     gsap.ticker.lagSmoothing(0);
