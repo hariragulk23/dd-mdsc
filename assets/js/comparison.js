@@ -1,30 +1,74 @@
-/* comparison.js: column focus, expandable rows */
+/* comparison.js v2: photo slider with auto-peek, scroll reveal, row highlight */
 (function () {
   'use strict';
-  var root = document.querySelector('[data-compare]');
+  var root = document.querySelector('[data-cv]');
   if (!root) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasIO = 'IntersectionObserver' in window;
   root.classList.add('is-ready');
 
-  var picks = [].slice.call(root.querySelectorAll('[data-pick]'));
-  var heads = [].slice.call(root.querySelectorAll('.cmp-col'));
-
-  function setPick(k) {
-    if (k !== 'all' && root.getAttribute('data-pick') === k) k = 'all';
-    root.setAttribute('data-pick', k);
-    picks.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-pick') === k)); });
-    heads.forEach(function (h) { h.setAttribute('aria-pressed', String(h.getAttribute('data-col') === k)); });
+  /* Photo slider */
+  var slider = root.querySelector('[data-cv-slider]');
+  if (slider) {
+    var range = slider.querySelector('.cv-range');
+    var touched = false;
+    var setPos = function (v) {
+      v = Math.max(0, Math.min(100, v));
+      slider.style.setProperty('--pos', v + '%');
+      range.value = String(Math.round(v));
+      range.setAttribute('aria-valuetext', Math.round(v) + '% especialidad, ' + Math.round(100 - v) + '% torrefacto');
+    };
+    range.addEventListener('input', function () { touched = true; setPos(parseFloat(range.value)); });
+    var peek = function () {
+      var keys = [[0, 50], [700, 26], [1500, 74], [2200, 50]];
+      var start = null;
+      var frame = function (t) {
+        if (touched) return;
+        if (start === null) start = t;
+        var el = t - start;
+        if (el >= 2200) { setPos(50); return; }
+        var i = 0;
+        while (i < keys.length - 2 && el >= keys[i + 1][0]) i++;
+        var p = (el - keys[i][0]) / (keys[i + 1][0] - keys[i][0]);
+        var e = 0.5 - 0.5 * Math.cos(Math.PI * p);
+        setPos(keys[i][1] + (keys[i + 1][1] - keys[i][1]) * e);
+        requestAnimationFrame(frame);
+      };
+      requestAnimationFrame(frame);
+    };
+    setPos(50);
+    if (!reduce && hasIO) {
+      var sio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { sio.disconnect(); if (!touched) peek(); }
+        });
+      }, { threshold: 0.6 });
+      sio.observe(slider);
+    }
   }
-  picks.forEach(function (b) { b.addEventListener('click', function () { setPick(b.getAttribute('data-pick')); }); });
-  heads.forEach(function (h) { h.addEventListener('click', function () { setPick(h.getAttribute('data-col')); }); });
 
-  [].slice.call(root.querySelectorAll('.cmp-label')).forEach(function (btn) {
-    var panel = document.getElementById(btn.getAttribute('aria-controls'));
-    btn.addEventListener('click', function () {
-      var open = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!open));
-      panel.hidden = open;
-    });
+  /* Cards appear on scroll */
+  var cards = [].slice.call(root.querySelectorAll('.cv-card'));
+  if (hasIO && !reduce) {
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-in'); cio.unobserve(e.target); }
+      });
+    }, { threshold: 0.2 });
+    cards.forEach(function (c) { cio.observe(c); });
+  } else {
+    cards.forEach(function (c) { c.classList.add('is-in'); });
+  }
+
+  /* Highlight the same row in all three cards */
+  var rows = [].slice.call(root.querySelectorAll('.cv-list > div[data-row]'));
+  var hot = function (key) {
+    rows.forEach(function (r) { r.classList.toggle('is-hot', key !== null && r.getAttribute('data-row') === key); });
+  };
+  rows.forEach(function (r) {
+    var key = r.getAttribute('data-row');
+    r.addEventListener('mouseenter', function () { hot(key); });
+    r.addEventListener('mouseleave', function () { hot(null); });
+    r.addEventListener('click', function () { hot(r.classList.contains('is-hot') ? null : key); });
   });
-
-  setPick('all');
 })();

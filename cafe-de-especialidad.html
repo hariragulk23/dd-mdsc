@@ -18,7 +18,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Overpass:wght@400;600;700&amp;display=swap">
 <link rel="stylesheet" href="assets/css/style.css?v=5">
 <link rel="stylesheet" href="assets/css/explorer.css?v=1">
-<link rel="stylesheet" href="assets/css/comparison.css?v=1">
+<link rel="stylesheet" href="assets/css/comparison.css?v=2">
+<link rel="stylesheet" href="assets/css/glossary.css?v=1">
 <script>try{if(sessionStorage.getItem('pt')){document.documentElement.classList.add('pt-in');sessionStorage.removeItem('pt');setTimeout(function(){document.documentElement.classList.remove('pt-in')},2500)}}catch(e){}</script>
 </head>
 <body class="page-dark">
@@ -206,110 +207,189 @@
 </div>
 </section>
 
-<section class="section section--alt cmp-section" id="comparar" aria-labelledby="cmp-title">
+<section class="section section--alt cv" id="comparar" data-cv aria-labelledby="cv-title">
 <div class="wrap">
-<div class="cmp" data-compare data-pick="all">
-
-<header class="cmp-head">
+<div class="cv-head">
 <div>
-<p class="cmp-eyebrow">Compara</p>
-<h2 class="cmp-title" id="cmp-title">Especialidad, comercial y torrefacto</h2>
+<p class="cv-eyebrow">Compara</p>
+<h2 class="h-xl" id="cv-title">Especialidad, comercial y torrefacto</h2>
 </div>
-<p class="cmp-hint"><span class="cmp-dot" aria-hidden="true"></span>Interactivo: toca una columna o una fila</p>
-</header>
-
-<div class="cmp-pick" role="group" aria-label="Destacar una columna">
-<button type="button" data-pick="all" aria-pressed="true">Todas</button>
-<button type="button" data-pick="esp" aria-pressed="false">Especialidad</button>
-<button type="button" data-pick="com" aria-pressed="false">Comercial</button>
-<button type="button" data-pick="tor" aria-pressed="false">Torrefacto</button>
+<p class="lead">Tres maneras de llegar a tu taza. Arrastra la foto y mira la diferencia en el grano.</p>
 </div>
 
-<div class="cmp-table">
+<figure class="cv-slider" data-cv-slider>
+<img src="assets/images/granos-torrefacto.jpg" alt="Granos de café torrefacto, negros y brillantes por el azúcar" width="1168" height="880" loading="lazy" decoding="async">
+<div class="cv-b"><img src="assets/images/granos-especialidad.jpg" alt="Granos de café de especialidad, marrones y mates" width="1168" height="880" loading="lazy" decoding="async"></div>
+<span class="cv-line" aria-hidden="true"><span class="cv-knob">‹ ›</span></span>
+<span class="cv-tag cv-tag-l" aria-hidden="true">Especialidad</span>
+<span class="cv-tag cv-tag-r" aria-hidden="true">Torrefacto</span>
+<input class="cv-range" type="range" min="0" max="100" value="50" aria-label="Comparar granos de especialidad y de torrefacto">
+<figcaption class="cv-cap">Arrastra para comparar</figcaption>
+</figure>
 
-<div class="cmp-row cmp-row--head">
-<div class="cmp-cell" aria-hidden="true"></div>
-<div class="cmp-cell"><button type="button" class="cmp-col" data-col="esp" aria-pressed="false">Especialidad</button></div>
-<div class="cmp-cell"><button type="button" class="cmp-col" data-col="com" aria-pressed="false">Comercial</button></div>
-<div class="cmp-cell"><button type="button" class="cmp-col" data-col="tor" aria-pressed="false">Torrefacto</button></div>
+<div class="cv-cards">
+<article class="cv-card">
+<figure class="cv-media"><img src="assets/images/granos-especialidad.jpg" alt="Granos de café de especialidad, marrones y mates" width="1168" height="880" loading="lazy" decoding="async"></figure>
+<div class="cv-body">
+<p class="cv-kind cv-kind--esp">Especialidad</p>
+<h3>El grano habla por sí solo</h3>
+<dl class="cv-list">
+<div data-row="origen"><dt>Origen</dt><dd>Finca o cooperativa concreta</dd></div>
+<div data-row="calidad"><dt>Calidad</dt><dd>80 puntos o más en cata</dd></div>
+<div data-row="tueste"><dt>Tueste</dt><dd>Reciente, a medida del grano</dd></div>
+<div data-row="sabor"><dt>Sabor</dt><dd>Notas propias: fruta, flores, chocolate</dd></div>
+<div data-row="productor"><dt>Productor</dt><dd>A menudo negociado directamente con el productor</dd></div>
+</dl>
 </div>
+</article>
+<article class="cv-card">
+<figure class="cv-media"><img src="assets/images/granos-comercial.jpg" alt="Granos de café comercial, muy oscuros y aceitosos" width="1168" height="880" loading="lazy" decoding="async"></figure>
+<div class="cv-body">
+<p class="cv-kind cv-kind--com">Comercial</p>
+<h3>Producido a gran escala</h3>
+<dl class="cv-list">
+<div data-row="origen"><dt>Origen</dt><dd>Mezcla de orígenes</dd></div>
+<div data-row="calidad"><dt>Calidad</dt><dd>Sin puntuación de cata</dd></div>
+<div data-row="tueste"><dt>Tueste</dt><dd>Industrial, suele ser oscuro</dd></div>
+<div data-row="sabor"><dt>Sabor</dt><dd>Suele ser plano y amargo</dd></div>
+<div data-row="productor"><dt>Productor</dt><dd>Ligado al precio de bolsa</dd></div>
+</dl>
+</div>
+</article>
+<article class="cv-card">
+<figure class="cv-media"><img src="assets/images/granos-torrefacto.jpg" alt="Granos de café torrefacto, negros y brillantes por el azúcar" width="1168" height="880" loading="lazy" decoding="async"></figure>
+<div class="cv-body">
+<p class="cv-kind cv-kind--tor">Torrefacto</p>
+<h3>El azúcar tapa el grano</h3>
+<dl class="cv-list">
+<div data-row="origen"><dt>Origen</dt><dd>Mezcla de orígenes</dd></div>
+<div data-row="calidad"><dt>Calidad</dt><dd>Sin puntuación de cata</dd></div>
+<div data-row="tueste"><dt>Tueste</dt><dd>Con azúcar añadida al final</dd></div>
+<div data-row="sabor"><dt>Sabor</dt><dd>Amargo y quemado</dd></div>
+<div data-row="productor"><dt>Productor</dt><dd>Ligado al precio de bolsa</dd></div>
+</dl>
+</div>
+</article>
+</div>
+<p class="cv-hint">Pasa el ratón por una fila para verla en los tres cafés a la vez.</p>
 
-<div class="cmp-item">
-<div class="cmp-row">
-<button type="button" class="cmp-label" aria-expanded="false" aria-controls="cmp-w1"><span>Origen</span><span class="cmp-plus" aria-hidden="true">+</span></button>
-<div class="cmp-cell" data-col="esp" data-name="Especialidad">Finca o cooperativa concreta</div>
-<div class="cmp-cell" data-col="com" data-name="Comercial">Mezcla de orígenes</div>
-<div class="cmp-cell" data-col="tor" data-name="Torrefacto">Mezcla de orígenes</div>
+<div class="cv-spot">
+<h3>Distínguelos en 10 segundos</h3>
+<ol>
+<li><b>Mira la etiqueta</b>Origen concreto y fecha de tueste: pista de especialidad.</li>
+<li><b>Mira el grano</b>Negro y brillante: suele ser torrefacto.</li>
+<li><b>Lee el envase</b>Si pone «torrefacto» o «mezcla», lleva café tostado con azúcar.</li>
+</ol>
 </div>
-<div class="cmp-why" id="cmp-w1" hidden><span class="cmp-why-tag">Por qué importa</span><p>Cuanto más concreto es el origen, más sabes de dónde viene tu café y quién lo cultivó.</p></div>
-</div>
-
-<div class="cmp-item">
-<div class="cmp-row">
-<button type="button" class="cmp-label" aria-expanded="false" aria-controls="cmp-w2"><span>Calidad</span><span class="cmp-plus" aria-hidden="true">+</span></button>
-<div class="cmp-cell" data-col="esp" data-name="Especialidad">80 puntos o más en cata</div>
-<div class="cmp-cell" data-col="com" data-name="Comercial">Sin puntuación</div>
-<div class="cmp-cell" data-col="tor" data-name="Torrefacto">Sin puntuación</div>
-</div>
-<div class="cmp-why" id="cmp-w2" hidden><span class="cmp-why-tag">Por qué importa</span><p>80 es el mínimo de la escala de 100 de la SCA. Mira cómo funciona en la sección de arriba: <a href="#definicion">ver la escala</a>.</p></div>
-</div>
-
-<div class="cmp-item">
-<div class="cmp-row">
-<button type="button" class="cmp-label" aria-expanded="false" aria-controls="cmp-w3"><span>Tueste</span><span class="cmp-plus" aria-hidden="true">+</span></button>
-<div class="cmp-cell" data-col="esp" data-name="Especialidad">Reciente, a medida del grano</div>
-<div class="cmp-cell" data-col="com" data-name="Comercial">Industrial, suele ser oscuro</div>
-<div class="cmp-cell" data-col="tor" data-name="Torrefacto">Tostado con azúcar</div>
-</div>
-<div class="cmp-why" id="cmp-w3" hidden><span class="cmp-why-tag">Por qué importa</span><p>Un tueste a medida deja ver el origen. El azúcar del torrefacto oscurece el grano y tapa su sabor.</p></div>
-</div>
-
-<div class="cmp-item">
-<div class="cmp-row">
-<button type="button" class="cmp-label" aria-expanded="false" aria-controls="cmp-w4"><span>Sabor</span><span class="cmp-plus" aria-hidden="true">+</span></button>
-<div class="cmp-cell" data-col="esp" data-name="Especialidad">Notas propias: fruta, flores, chocolate</div>
-<div class="cmp-cell" data-col="com" data-name="Comercial">Plano, amargo</div>
-<div class="cmp-cell" data-col="tor" data-name="Torrefacto">Amargo y quemado</div>
-</div>
-<div class="cmp-why" id="cmp-w4" hidden><span class="cmp-why-tag">Por qué importa</span><p>Es lo que notas en la taza. Si la carta no dice nada del sabor, pregunta qué notas tiene el café.</p></div>
-</div>
-
-<div class="cmp-item">
-<div class="cmp-row">
-<button type="button" class="cmp-label" aria-expanded="false" aria-controls="cmp-w5"><span>Productor</span><span class="cmp-plus" aria-hidden="true">+</span></button>
-<div class="cmp-cell" data-col="esp" data-name="Especialidad">A menudo negociado directamente con el productor</div>
-<div class="cmp-cell" data-col="com" data-name="Comercial">Ligado al precio de bolsa</div>
-<div class="cmp-cell" data-col="tor" data-name="Torrefacto">Ligado al precio de bolsa</div>
-</div>
-<div class="cmp-why" id="cmp-w5" hidden><span class="cmp-why-tag">Por qué importa</span><p>En especialidad el precio suele negociarse con quien cultiva. En comercial sigue el precio de bolsa del mercado.</p></div>
-</div>
-
-</div>
-
-<div class="cmp-foot">
-<span>Compara tendencias generales, no marcas concretas.</span>
-<a href="#definicion">Volver a la definición ↑</a>
-</div>
-
-</div>
+<p class="cv-note">Tendencias generales, no marcas concretas. Fotos generadas con IA.</p>
 </div>
 </section>
 
-<section class="section">
+<section class="section gl" id="glosario" data-gl aria-labelledby="gl-title">
 <div class="wrap">
-<h2 class="h-xl" data-split style="margin-bottom:40px">Glosario rápido</h2>
-<dl class="glossary">
-<div><dt>Origen</dt><dd>País, región y finca donde se cultivó el café. Cuanto más concreto, mejor trazabilidad.</dd></div>
-<div><dt>Variedad</dt><dd>El tipo de planta de café: Bourbon, Typica, Caturra, Geisha… Cada una aporta un perfil distinto.</dd></div>
-<div><dt>Lavado</dt><dd>Proceso en el que se retira la pulpa antes de secar. Da tazas limpias y acidez brillante.</dd></div>
-<div><dt>Natural</dt><dd>El grano se seca dentro de la cereza. Más cuerpo y notas a fruta madura.</dd></div>
-<div><dt>Honey</dt><dd>Se retira la piel pero se deja parte del mucílago. Dulzor y equilibrio.</dd></div>
-<div><dt>Tueste</dt><dd>Aplicar calor al grano verde para desarrollar aroma y sabor. Cada origen pide su perfil.</dd></div>
-<div><dt>Ratio</dt><dd>Relación entre café y agua. Por ejemplo, 1:16 son 16 g de agua por cada gramo de café.</dd></div>
-<div><dt>Extracción</dt><dd>Cuánto sabor sacamos del café molido. Poca: sabe ácido. Demasiada: sabe amargo.</dd></div>
-<div><dt>Cata</dt><dd>Evaluación profesional del café con un protocolo fijo para puntuar aroma, sabor, acidez y cuerpo.</dd></div>
-<div><dt>SCA</dt><dd>Specialty Coffee Association, la asociación que define los estándares del café de especialidad.</dd></div>
-</dl>
+<div class="gl-head">
+<div>
+<p class="gl-eyebrow">Glosario</p>
+<h2 class="h-xl" id="gl-title">Las palabras del café, sin tecnicismos</h2>
+</div>
+<div class="gl-tools">
+<label class="gl-search"><span class="sr">Buscar un término</span><input type="search" placeholder="Busca: lavado, ratio, tueste…" autocomplete="off" data-gl-search></label>
+<div class="gl-chips" role="group" aria-label="Filtrar por tema">
+<button type="button" data-gl-cat="all" aria-pressed="true">Todo</button>
+<button type="button" data-gl-cat="origen" aria-pressed="false">Origen y proceso</button>
+<button type="button" data-gl-cat="taza" aria-pressed="false">Tueste y preparación</button>
+<button type="button" data-gl-cat="calidad" aria-pressed="false">Calidad</button>
+</div>
+</div>
+</div>
+<p class="gl-count" aria-live="polite" data-gl-count>10 términos</p>
+<ul class="gl-grid">
+<li class="gl-card" data-cat="origen" data-terms="pais region finca trazabilidad">
+<figure class="gl-media"><img src="assets/images/cuanto-cuesta-cerezas.jpg" alt="Cerezas de café maduras en la rama" width="1168" height="880" loading="lazy" decoding="async"><span class="gl-badge">Origen</span></figure>
+<div class="gl-body">
+<p class="gl-tag">Origen y proceso</p>
+<h3>Origen</h3>
+<p class="gl-def">País, región y finca donde se cultivó el café. Cuanto más concreto, mejor trazabilidad.</p>
+</div>
+</li>
+<li class="gl-card" data-cat="origen" data-terms="planta bourbon typica caturra geisha">
+<figure class="gl-media gl-media--type" aria-hidden="true"><span class="gl-vars">Bourbon · Typica<br>Caturra · Geisha</span><small>Algunas variedades</small></figure>
+<div class="gl-body">
+<p class="gl-tag">Origen y proceso</p>
+<h3>Variedad</h3>
+<p class="gl-def">El tipo de planta de café. Cada variedad aporta un perfil distinto.</p>
+</div>
+</li>
+<li class="gl-card" data-cat="origen" data-terms="proceso lavado washed agua">
+<figure class="gl-media"><img src="assets/images/proceso-lavado.jpg" alt="Café en pergamino lavándose en un canal de agua" width="1168" height="880" loading="lazy" decoding="async"><span class="gl-badge">Lavado</span></figure>
+<div class="gl-body">
+<p class="gl-tag">Origen y proceso</p>
+<h3>Lavado</h3>
+<p class="gl-def">Se retira la pulpa antes de secar el grano. Da tazas limpias y acidez brillante.</p>
+</div>
+</li>
+<li class="gl-card" data-cat="origen" data-terms="proceso natural seco cereza">
+<figure class="gl-media"><img src="assets/images/proceso-natural.jpg" alt="Cerezas de café secándose al sol en camas elevadas" width="1168" height="880" loading="lazy" decoding="async"><span class="gl-badge">Natural</span></figure>
+<div class="gl-body">
+<p class="gl-tag">Origen y proceso</p>
+<h3>Natural</h3>
+<p class="gl-def">El grano se seca dentro de la cereza. Más cuerpo y notas a fruta madura.</p>
+</div>
+</li>
+<li class="gl-card" data-cat="origen" data-terms="proceso honey miel mucilago">
+<figure class="gl-media"><img src="assets/images/proceso-honey.jpg" alt="Granos de café cubiertos de mucílago secándose al sol" width="1168" height="880" loading="lazy" decoding="async"><span class="gl-badge">Honey</span></figure>
+<div class="gl-body">
+<p class="gl-tag">Origen y proceso</p>
+<h3>Honey</h3>
+<p class="gl-def">Se retira la piel pero se deja parte del mucílago. Dulzor y equilibrio.</p>
+</div>
+</li>
+<li class="gl-card" data-cat="taza" data-terms="tostar tostado roast">
+<figure class="gl-media"><img src="assets/images/tostadora.jpg" alt="Café recién tostado saliendo de la tostadora" width="1856" height="2304" loading="lazy" decoding="async"><span class="gl-badge">Tueste</span></figure>
+<div class="gl-body">
+<p class="gl-tag">Tueste y preparación</p>
+<h3>Tueste</h3>
+<p class="gl-def">Calor que transforma el grano verde y desarrolla aroma y sabor. Cada origen pide su perfil.</p>
+<a class="gl-link text-link" href="#tueste">Prueba el simulador de tueste →</a>
+</div>
+</li>
+<li class="gl-card" data-cat="taza" data-terms="proporcion agua gramos 1:16">
+<figure class="gl-media"><img src="assets/images/como-empezar-balanza.jpg" alt="Granos de café en un cuenco sobre una báscula" width="1024" height="1024" loading="lazy" decoding="async"><span class="gl-badge">Ratio</span></figure>
+<div class="gl-body">
+<p class="gl-tag">Tueste y preparación</p>
+<h3>Ratio</h3>
+<p class="gl-def">Relación entre café y agua. Por ejemplo, 1:16 son 16 g de agua por cada gramo de café.</p>
+<a class="gl-link text-link" href="guias.html">Calcula tu ratio →</a>
+</div>
+</li>
+<li class="gl-card" data-cat="taza" data-terms="extraccion acido amargo molienda">
+<figure class="gl-media"><img src="assets/images/como-empezar-vertido.jpg" alt="Agua vertiéndose sobre café en un V60" width="1168" height="880" loading="lazy" decoding="async"><span class="gl-badge">Extracción</span></figure>
+<div class="gl-body">
+<p class="gl-tag">Tueste y preparación</p>
+<h3>Extracción</h3>
+<p class="gl-def">Cuánto sabor sacamos del café molido. Poca: sabe ácido. Demasiada: sabe amargo.</p>
+<a class="gl-link text-link" href="guias.html">Ver métodos de preparación →</a>
+</div>
+</li>
+<li class="gl-card" data-cat="calidad" data-terms="cupping catar puntuacion">
+<figure class="gl-media"><img src="assets/images/cata.jpg" alt="Mesa de cata con cuencos de café y cuchara" width="1168" height="880" loading="lazy" decoding="async"><span class="gl-badge">Cata</span></figure>
+<div class="gl-body">
+<p class="gl-tag">Calidad</p>
+<h3>Cata</h3>
+<p class="gl-def">Evaluación profesional del café con un protocolo fijo para puntuar aroma, sabor, acidez y cuerpo.</p>
+<a class="gl-link text-link" href="#definicion">Ver la escala de puntos →</a>
+</div>
+</li>
+<li class="gl-card" data-cat="calidad" data-terms="specialty coffee association estandares">
+<figure class="gl-media gl-media--type" aria-hidden="true"><b>80+</b><small>El mínimo para ser especialidad</small></figure>
+<div class="gl-body">
+<p class="gl-tag">Calidad</p>
+<h3>SCA</h3>
+<p class="gl-def">Specialty Coffee Association, la asociación que define los estándares del café de especialidad.</p>
+</div>
+</li>
+</ul>
+<p class="gl-empty" data-gl-empty hidden>Sin resultados. Prueba con otra palabra.</p>
 </div>
 </section>
 </main>
@@ -368,6 +448,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script defer src="assets/js/main.js"></script>
 <script defer src="assets/js/explorer.js?v=1"></script>
-<script defer src="assets/js/comparison.js?v=1"></script>
+<script defer src="assets/js/comparison.js?v=2"></script>
+<script defer src="assets/js/glossary.js?v=1"></script>
 </body>
 </html>
