@@ -108,6 +108,8 @@ exports.handler = async (event) => {
   const summary = clean.map((l) => `${l.qty}x ${CATALOG[l.id].name} (${GRINDS[l.grind]})`).join('; ').slice(0, 450);
   p.append('metadata[pedido]', summary);
   p.append('metadata[codigo_postal]', postal);
+  p.append('payment_intent_data[metadata][pedido]', summary);
+  p.append('payment_intent_data[metadata][marca]', 'Madrid Specialty Coffee');
 
   try {
     const res = await fetch('https://api.stripe.com/v1/checkout/sessions', {
