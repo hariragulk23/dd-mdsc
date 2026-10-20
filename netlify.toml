@@ -40,3 +40,6 @@
   to = "/"
   status = 302
   force = true
+
+[functions]
+  directory = "netlify/functions"

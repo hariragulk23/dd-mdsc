@@ -53,9 +53,12 @@
   drawer.innerHTML = '<div class="sp-dh"><h2 id="sp-cart-title">Tu carrito</h2><button type="button" class="sp-x" aria-label="Cerrar carrito">×</button></div>' +
     '<div class="sp-ship" data-ship></div><ul class="sp-lines" data-lines></ul>' +
     '<div class="sp-df"><div class="sp-total"><span>Total</span><b data-total>0,00 €</b></div>' +
-    '<a class="sp-btn" data-wa href="#" target="_blank" rel="noopener">Pedir por WhatsApp</a>' +
-    '<button type="button" class="sp-btn sp-btn--ghost" disabled>Pago con tarjeta: muy pronto</button>' +
-    '<small>Te confirmamos disponibilidad, envío y pago por WhatsApp. Precios con IVA incluido.</small></div>';
+    '<label class="sp-postal"><span>Código postal de envío</span><input type="text" inputmode="numeric" maxlength="5" autocomplete="postal-code" data-postal placeholder="28001"></label>' +
+    '<p class="sp-postal-msg" data-postal-msg role="status"></p>' +
+    '<label class="sp-terms"><input type="checkbox" data-terms> <span>He leído y acepto las <a href="condiciones-compra.html" target="_blank" rel="noopener">condiciones de compra</a></span></label>' +
+    '<button type="button" class="sp-btn" data-pay disabled>Pagar con tarjeta o Bizum</button>' +
+    '<a class="sp-btn sp-btn--ghost" data-wa href="#" target="_blank" rel="noopener">Pedir por WhatsApp</a>' +
+    '<small>Precios con IVA incluido. Pago seguro con Stripe. Envíos solo a la España peninsular por ahora.</small></div>';
   var toastEl = document.createElement('div'); toastEl.className = 'sp-toast'; toastEl.setAttribute('role', 'status');
   document.body.appendChild(fab); document.body.appendChild(scrim); document.body.appendChild(drawer); document.body.appendChild(toastEl);
   var lastFocus = null;
@@ -107,10 +110,49 @@
     var ship = $('[data-ship]', drawer); var left = CFG.freeShip - tot;
     ship.innerHTML = (tot <= 0 ? 'Envío gratis a partir de ' + eur(CFG.freeShip) : left > 0 ? 'Te faltan <b>' + eur(left) + '</b> para el envío gratis' : '<b>Tienes envío gratis</b>') +
       '<div class="sp-ship-bar"><i style="--p:' + Math.min(100, Math.round(tot / CFG.freeShip * 100)) + '%"></i></div>';
+    refreshPay();
     var wa = $('[data-wa]', drawer);
     if (cart.length && CFG.wa) { wa.removeAttribute('aria-disabled'); wa.href = 'https://wa.me/' + CFG.wa + '?text=' + encodeURIComponent(waText()); }
     else { wa.setAttribute('aria-disabled', 'true'); wa.href = '#'; }
   }
+  var postalIn = $('[data-postal]', drawer), termsIn = $('[data-terms]', drawer), payBtn = $('[data-pay]', drawer), postalMsg = $('[data-postal-msg]', drawer);
+  var NON_MAINLAND = /^(07|35|38|51|52)/;
+  var postalState = function () {
+    var v = (postalIn.value || '').trim();
+    if (!v) return 'empty';
+    if (!/^\d{5}$/.test(v)) return 'bad';
+    if (NON_MAINLAND.test(v)) return 'island';
+    return 'ok';
+  };
+  function refreshPay() {
+    var st = postalState();
+    var msg = st === 'empty' ? 'Introduce tu código postal para calcular el envío.'
+      : st === 'bad' ? 'Revisa el código postal (5 cifras).'
+      : st === 'island' ? 'De momento enviamos solo a la España peninsular. Escríbenos por WhatsApp para consultar tu envío.'
+      : '';
+    postalMsg.textContent = msg;
+    var ready = cart.length > 0 && st === 'ok' && termsIn.checked && !!CFG.stripe;
+    payBtn.disabled = !ready;
+    if (!CFG.stripe) payBtn.textContent = 'Pago con tarjeta: muy pronto';
+    else payBtn.textContent = 'Pagar con tarjeta o Bizum';
+  }
+  postalIn.addEventListener('input', refreshPay);
+  termsIn.addEventListener('change', refreshPay);
+  payBtn.addEventListener('click', function () {
+    if (payBtn.disabled) return;
+    payBtn.disabled = true; payBtn.textContent = 'Abriendo pago…';
+    fetch('/.netlify/functions/create-checkout', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ postal: postalIn.value.trim(), items: cart.map(function (l) { return { id: l.id, grind: l.grind, qty: l.qty }; }) })
+    }).then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+      .then(function (x) {
+        if (x.ok && x.d.url) { window.location.href = x.d.url; return; }
+        toast(x.d.error || 'No se pudo abrir el pago. Pide tu café por WhatsApp.');
+        refreshPay();
+      })
+      .catch(function () { toast('Sin conexión. Inténtalo de nuevo o pide por WhatsApp.'); refreshPay(); });
+  });
+
   drawer.addEventListener('click', function (e) {
     var t = e.target;
     if (t.hasAttribute('data-inc')) { var i = +t.getAttribute('data-inc'); setQty(i, cart[i].qty + 1); }

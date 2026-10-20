@@ -277,3 +277,11 @@
   .js-shop .sp-reveal { opacity: 1; transform: none; }
 }
 .sr { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.sp-postal { display: grid; gap: 6px; font-size: 14px; font-weight: 700; }
+.sp-postal input { min-height: 46px; padding: 0 12px; border: 2px solid var(--tinta); border-radius: 10px; background: var(--crema); color: var(--tinta); font: 600 16px var(--sans); width: 100%; }
+.sp-postal input:focus { outline: 3px solid #1D4F91; outline-offset: 2px; }
+.sp-postal-msg { margin: 0; min-height: 1.2em; font-size: 13px; color: var(--cereza-oscura); font-weight: 700; }
+.sp-terms { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.4; }
+.sp-terms input { margin-top: 3px; width: 18px; height: 18px; accent-color: var(--cereza); }
+.sp-terms a { color: var(--tinta); font-weight: 700; }
+.sp-df .sp-btn[disabled] { opacity: .45; cursor: not-allowed; }

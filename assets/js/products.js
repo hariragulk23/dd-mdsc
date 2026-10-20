@@ -1,5 +1,5 @@
 /* products.js: catálogo. Los precios son provisionales. */
-window.MSC_SHOP = { wa: "34665747463", freeShip: 35 };
+window.MSC_SHOP = { wa: "34665747463", freeShip: 35, stripe: false };
 window.MSC_PRODUCTS = [
  {
   "id": "colombia",
