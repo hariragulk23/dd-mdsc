@@ -56,7 +56,7 @@
     '<label class="sp-postal"><span>Código postal de envío</span><input type="text" inputmode="numeric" maxlength="5" autocomplete="postal-code" data-postal placeholder="28001"></label>' +
     '<p class="sp-postal-msg" data-postal-msg role="status"></p>' +
     '<label class="sp-terms"><input type="checkbox" data-terms> <span>He leído y acepto las <a href="condiciones-compra.html" target="_blank" rel="noopener">condiciones de compra</a></span></label>' +
-    '<button type="button" class="sp-btn" data-pay disabled>Pagar con tarjeta o Bizum</button>' +
+    '<button type="button" class="sp-btn" data-pay disabled>Pagar con tarjeta</button>' +
     '<a class="sp-btn sp-btn--ghost" data-wa href="#" target="_blank" rel="noopener">Pedir por WhatsApp</a>' +
     '<small>Precios con IVA incluido. Pago seguro con Stripe. Envíos solo a la España peninsular por ahora.</small></div>';
   var toastEl = document.createElement('div'); toastEl.className = 'sp-toast'; toastEl.setAttribute('role', 'status');
@@ -133,8 +133,8 @@
     postalMsg.textContent = msg;
     var ready = cart.length > 0 && st === 'ok' && termsIn.checked && !!CFG.stripe;
     payBtn.disabled = !ready;
-    if (!CFG.stripe) payBtn.textContent = 'Pago con tarjeta: muy pronto';
-    else payBtn.textContent = 'Pagar con tarjeta o Bizum';
+    if (!CFG.stripe) payBtn.textContent = 'Pagar con tarjeta';
+    else payBtn.textContent = 'Pagar con tarjeta';
   }
   postalIn.addEventListener('input', refreshPay);
   termsIn.addEventListener('change', refreshPay);
