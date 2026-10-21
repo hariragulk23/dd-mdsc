@@ -110,6 +110,7 @@ exports.handler = async (event) => {
   p.append('metadata[codigo_postal]', postal);
   p.append('payment_intent_data[metadata][pedido]', summary);
   p.append('payment_intent_data[metadata][marca]', 'Madrid Specialty Coffee');
+  p.append('custom_text[submit][message]', 'Al pulsar «Pagar» haces un pedido con obligación de pago. Vendedor: THE COFFEE PROJECT OF 69 SL, NIF B19853563. [Condiciones de compra](https://madridspecialtycoffee.com/condiciones-compra.html)');
 
   try {
     const res = await fetch('https://api.stripe.com/v1/checkout/sessions', {
