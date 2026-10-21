@@ -49,7 +49,7 @@
 
 /* ---------- Filtros + rejilla ---------- */
 .sp-filters { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
-.js-shop .sp-filters { position: sticky; top: 84px; z-index: 20; padding: 12px 0; background: var(--granito); }
+.js-shop .sp-filters { padding: 12px 0; }
 .sp-frow { display: flex; flex-wrap: nowrap; gap: 8px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
 .sp-frow::-webkit-scrollbar { display: none; }
 .sp-flabel { flex: 0 0 auto; align-self: center; margin-right: 4px; font-size: 13px; font-weight: 700; color: var(--tinta-suave); }
@@ -296,3 +296,4 @@
 .sp-food__note { margin: 16px 0 0; font-size: 14px; color: var(--tinta-suave, #5A524D); }
 .sp-food__note a { color: var(--tinta, #231915); font-weight: 700; }
 @media (max-width: 560px) { .sp-food__list > div { grid-template-columns: 1fr; gap: 4px; } }
+.pd-foodlink { display: inline-block; margin-top: 8px; font-size: 14px; font-weight: 700; color: var(--tinta, #231915); }
