@@ -506,6 +506,3 @@ html.pt-in .pt { transform: translateY(0); visibility: visible; transition: tran
 .form-privacy a { color: var(--tinta, #231915); font-weight: 700; }
 .form-check { display: flex; gap: 10px; align-items: flex-start; margin: 12px 0; font-size: 14px; line-height: 1.4; }
 .form-check input { margin-top: 3px; width: 18px; height: 18px; accent-color: var(--cereza, #A3132B); }
-
-.page-figure { margin: 0 0 32px; border-radius: var(--radius, 6px); overflow: hidden; }
-.page-figure img { display: block; width: 100%; height: auto; }
