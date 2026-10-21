@@ -1,8 +1,9 @@
-/* products.js: catálogo. Los precios son provisionales. */
+/* products.js: catálogo. Para marcar un café agotado: "available": false, y añade su id a UNAVAILABLE en netlify/functions/create-checkout.js. */
 window.MSC_SHOP = { wa: "34665747463", freeShip: 35, stripe: true };
 window.MSC_PRODUCTS = [
  {
   "id": "colombia",
+  "available": true,
   "order": 1,
   "name": "Colombia Huila",
   "price": 11.9,
@@ -33,6 +34,7 @@ window.MSC_PRODUCTS = [
  },
  {
   "id": "guatemala",
+  "available": true,
   "order": 2,
   "name": "Guatemala Huehuetenango",
   "price": 11.9,
@@ -61,6 +63,7 @@ window.MSC_PRODUCTS = [
  },
  {
   "id": "india",
+  "available": true,
   "order": 3,
   "name": "India Karnataka",
   "price": 12.5,
@@ -89,6 +92,7 @@ window.MSC_PRODUCTS = [
  },
  {
   "id": "ecologico",
+  "available": true,
   "order": 4,
   "name": "Ecológico Isnos",
   "price": 13.9,
@@ -115,6 +119,7 @@ window.MSC_PRODUCTS = [
  },
  {
   "id": "italian-blend",
+  "available": true,
   "order": 5,
   "name": "Italian Blend",
   "price": 10.9,
@@ -141,6 +146,7 @@ window.MSC_PRODUCTS = [
  },
  {
   "id": "descafeinado",
+  "available": true,
   "order": 6,
   "name": "Descafeinado Colombia",
   "price": 13.5,

@@ -506,3 +506,8 @@ html.pt-in .pt { transform: translateY(0); visibility: visible; transition: tran
 .form-privacy a { color: var(--tinta, #231915); font-weight: 700; }
 .form-check { display: flex; gap: 10px; align-items: flex-start; margin: 12px 0; font-size: 14px; line-height: 1.4; }
 .form-check input { margin-top: 3px; width: 18px; height: 18px; accent-color: var(--cereza, #A3132B); }
+
+/* Errores de formulario */
+.field-error { margin: 6px 0 0; font-size: 13.5px; font-weight: 700; color: var(--cereza-oscura, #7d0f21); }
+.field-error:empty { display: none; }
+[aria-invalid="true"] { border-color: var(--cereza, #A3132B) !important; box-shadow: 0 0 0 1px var(--cereza, #A3132B); }

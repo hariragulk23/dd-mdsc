@@ -69,7 +69,12 @@
 <fieldset><legend>Molienda</legend><div class="pd-grinds" role="group"><button type="button" class="sp-opt" data-grind="grano" aria-pressed="true">En grano<small>Lo más fresco</small></button><button type="button" class="sp-opt" data-grind="espresso" aria-pressed="false">Espresso<small>Fino</small></button><button type="button" class="sp-opt" data-grind="moka" aria-pressed="false">Moka<small>Fino-medio</small></button><button type="button" class="sp-opt" data-grind="filtro" aria-pressed="false">Filtro<small>Medio</small></button><button type="button" class="sp-opt" data-grind="prensa" aria-pressed="false">Prensa<small>Grueso</small></button></div></fieldset>
 <div class="pd-row"><div class="pd-qty"><button type="button" data-qty-dec aria-label="Una bolsa menos">−</button><output data-qty-out aria-live="polite">1</output><button type="button" data-qty-inc aria-label="Una bolsa más">+</button></div>
 <button type="button" class="sp-btn" data-buy>Añadir al carrito</button></div>
-<p class="pd-small">Pago seguro con tarjeta. Envío gratis desde 35 €.</p>
+<ul class="pd-trust" aria-label="Envío, devolución y pago">
+ <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg><span><b>Enviamos en 24–48 h</b> laborables</span></li>
+ <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h16v11H4zM12 9v11M4 13h16M12 9c-2-4-6-4-6-1.5S10 9 12 9c2 0 6 .5 6-1.5S14 5 12 9z"/></svg><span><b>Envío gratis</b> desde 35 €</span></li>
+ <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.3-5.6M4 4v4h4"/></svg><span><a href="devoluciones.html"><b>14 días</b> para desistir</a></span></li>
+ <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 11h12v9H6zM8.5 11V8a3.5 3.5 0 0 1 7 0v3"/></svg><span><b>Pago seguro</b> con tarjeta</span></li>
+</ul>
 <a class="pd-foodlink" href="#informacion-alimentaria">Información alimentaria y alérgenos ↓</a>
 <p class="sp-note-js">Para comprar necesitas JavaScript. También puedes <a href="https://wa.me/34665747463">pedir por WhatsApp</a>.</p>
 </div>
@@ -256,6 +261,7 @@
 <script defer src="assets/js/vendor/lenis.min.js"></script>
 <script defer src="assets/js/main.js"></script>
 <script defer src="assets/js/products.js?v=1"></script>
+<script defer src="assets/js/soldout.js?v=1"></script>
 <script defer src="assets/js/shop.js?v=1"></script>
 <script src="assets/js/fq.js" defer></script>
 </body>

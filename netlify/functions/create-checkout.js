@@ -29,6 +29,9 @@ const CATALOG = {
  }
 };
 
+// Cafés agotados: debe coincidir con "available": false en assets/js/products.js
+const UNAVAILABLE = [];
+
 const GRINDS = {
   grano: 'En grano',
   espresso: 'Molido para espresso',
@@ -71,6 +74,7 @@ exports.handler = async (event) => {
   })).filter((l) => CATALOG[l.id] && l.qty >= 1 && l.qty <= 20);
 
   if (!clean.length) return json(400, { error: 'Tu carrito está vacío.' });
+  if (clean.some((l) => UNAVAILABLE.includes(l.id))) return json(400, { error: 'Uno de los cafés de tu carrito está agotado. Quítalo e inténtalo de nuevo.' });
   const totalQty = clean.reduce((s, l) => s + l.qty, 0);
   if (totalQty > MAX_ITEMS) return json(400, { error: 'Máximo 50 bolsas por pedido. Escríbenos por WhatsApp para pedidos grandes.' });
 

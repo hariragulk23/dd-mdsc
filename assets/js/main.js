@@ -223,6 +223,7 @@
     document.addEventListener('click', function (e) {
       var a = e.target.closest ? e.target.closest('a') : null;
       if (!a || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0 || !isInternal(a)) return;
+      if (!hasGSAP) return;
       e.preventDefault();
       try { sessionStorage.setItem('pt', '1'); } catch (err) {}
       if (hasGSAP) {
@@ -258,7 +259,7 @@
   gsap.registerPlugin(ScrollTrigger);
 
   /* ---------- Scroll suave ---------- */
-  if (window.Lenis) {
+  if (window.Lenis && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
     var lenis = new window.Lenis({ lerp: 0.1, smoothWheel: true });
     window.lenis = lenis;
     lenis.on('scroll', ScrollTrigger.update);
