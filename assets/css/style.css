@@ -511,3 +511,28 @@ html.pt-in .pt { transform: translateY(0); visibility: visible; transition: tran
 .field-error { margin: 6px 0 0; font-size: 13.5px; font-weight: 700; color: var(--cereza-oscura, #7d0f21); }
 .field-error:empty { display: none; }
 [aria-invalid="true"] { border-color: var(--cereza, #A3132B) !important; box-shadow: 0 0 0 1px var(--cereza, #A3132B); }
+
+/* Resumen del pedido (pedido-ok) */
+.order-summary { margin: 0 0 36px; padding: clamp(20px, 3vw, 32px); background: var(--crema, #F1ECE6); border: 1px solid var(--linea, rgba(35,25,21,.18)); border-top: 3px solid var(--cereza, #A3132B); border-radius: var(--radius, 6px); max-width: 640px; }
+.order-summary[hidden] { display: none; }
+.order-summary__head { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
+.order-summary__eyebrow { margin: 0 0 2px; font: 700 12px/1 var(--sans, sans-serif); letter-spacing: .14em; text-transform: uppercase; color: var(--cereza, #A3132B); }
+.order-summary__title { margin: 0; font-family: var(--serif, Georgia, serif); font-size: clamp(26px, 3vw, 34px); line-height: 1.1; color: var(--tinta, #231915); }
+.order-summary__check { flex: none; width: 52px; height: 52px; fill: none; stroke: var(--cereza, #A3132B); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.order-summary__check circle { stroke-dasharray: 145; stroke-dashoffset: 145; }
+.order-summary__check path { stroke-dasharray: 40; stroke-dashoffset: 40; }
+.order-summary.is-in .order-summary__check circle { animation: os-draw .7s cubic-bezier(.65, 0, .35, 1) forwards; }
+.order-summary.is-in .order-summary__check path { animation: os-draw .45s .55s cubic-bezier(.65, 0, .35, 1) forwards; }
+@keyframes os-draw { to { stroke-dashoffset: 0; } }
+.order-summary__list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--linea, rgba(35,25,21,.18)); }
+.order-summary__list li { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--linea, rgba(35,25,21,.18)); font-size: 16px; line-height: 1.35; }
+.order-summary__list b { color: var(--tinta, #231915); }
+.order-summary__list span { color: var(--tinta-suave, #5A524D); text-align: right; }
+.order-summary__totals { margin: 0; }
+.order-summary__totals > div { display: flex; justify-content: space-between; padding: 10px 0 0; font-size: 16px; }
+.order-summary__totals dt, .order-summary__totals dd { margin: 0; }
+.order-summary__total { font-weight: 700; font-size: 20px !important; }
+.order-summary__mail { margin: 16px 0 0; font-size: 14.5px; line-height: 1.5; color: var(--tinta-suave, #5A524D); }
+@media (prefers-reduced-motion: reduce) {
+  .order-summary__check circle, .order-summary__check path { stroke-dashoffset: 0; animation: none !important; }
+}

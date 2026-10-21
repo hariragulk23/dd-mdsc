@@ -47,8 +47,20 @@
 <main id="contenido">
 <section class="page-hero"><div class="wrap"><p class="crumbs"><a href="index.html">Inicio</a> / Pedido confirmado</p><h1 class="h-xl">Gracias por tu pedido</h1></div></section>
 <section class="section" style="padding-top:0"><div class="wrap prose">
-<h2>Gracias por tu pedido</h2>
-<p>Hemos recibido tu pago. En los próximos minutos recibirás un email de confirmación con el resumen de tu pedido.</p>
+<div class="order-summary" id="order-summary" hidden role="status" aria-live="polite">
+ <div class="order-summary__head">
+  <svg class="order-summary__check" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="23"/><path d="M15 27l8 8 14-16"/></svg>
+  <div><p class="order-summary__eyebrow">Pago recibido</p><p class="order-summary__title">Tu pedido</p></div>
+ </div>
+ <ul class="order-summary__list" data-os-items></ul>
+ <dl class="order-summary__totals">
+  <div><dt>Envío</dt><dd data-os-shipping></dd></div>
+  <div class="order-summary__total"><dt>Total pagado</dt><dd data-os-total></dd></div>
+ </dl>
+ <p class="order-summary__mail" data-os-mail hidden></p>
+</div>
+<h2>Hemos recibido tu pago</h2>
+<p>En los próximos minutos recibirás un email con el recibo de tu pedido. Si no lo ves, revisa la carpeta de spam.</p>
 <h2>Qué pasa ahora</h2>
 <ul>
 <li>Preparamos tu café y lo enviamos en un plazo de <strong>24 a 48 horas laborables</strong>.</li>
@@ -105,5 +117,6 @@
 </div>
 </footer>
 <script defer src="assets/js/main.js"></script>
+<script defer src="assets/js/order-summary.js?v=1"></script>
 </body>
 </html>

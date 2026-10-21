@@ -88,7 +88,7 @@ exports.handler = async (event) => {
   const p = new URLSearchParams();
   p.append('mode', 'payment');
   p.append('locale', 'es');
-  p.append('success_url', SITE + '/pedido-ok.html');
+  p.append('success_url', SITE + '/pedido-ok.html?session_id={CHECKOUT_SESSION_ID}');
   p.append('cancel_url', SITE + '/tienda.html');
   p.append('shipping_address_collection[allowed_countries][0]', 'ES');
   p.append('phone_number_collection[enabled]', 'true');
