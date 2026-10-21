@@ -1,0 +1,41 @@
+/* ===== Franja de fotos "Del grano a la taza" ===== */
+.photo-band {
+  padding-block: var(--sec, clamp(56px, 8vw, 112px));
+  background: var(--tinta, #231915);
+  color: var(--crema, #F1ECE6);
+}
+.photo-band__wrap { max-width: var(--max, 1240px); margin-inline: auto; padding-inline: var(--pad, clamp(20px, 4vw, 40px)); }
+.photo-band__head { max-width: 640px; margin-bottom: clamp(28px, 4vw, 52px); }
+.photo-band__eyebrow {
+  display: flex; align-items: center; gap: 10px; margin: 0 0 16px;
+  font: 700 12px/1 var(--sans, sans-serif); letter-spacing: .14em; text-transform: uppercase; color: var(--cielo, #A9C3DA);
+}
+.photo-band__eyebrow::before { content: ""; width: 28px; height: 2px; background: currentColor; }
+.photo-band__title { margin: 0 0 14px; font-family: var(--serif, Georgia, serif); font-weight: 500; font-size: clamp(32px, 4.2vw, 56px); line-height: 1.05; color: var(--crema, #F1ECE6); }
+.photo-band__lead { margin: 0; font-size: 17px; line-height: 1.5; color: var(--crema-suave, #C9BFB8); }
+.photo-band__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+.photo-band__item:nth-child(even) { margin-top: 36px; }
+.photo-band__card { position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; border-radius: var(--radius, 6px); color: inherit; text-decoration: none; background: #3a2d27; }
+.photo-band__card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease, cubic-bezier(.16, 1, .3, 1)); }
+.photo-band__card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(35, 25, 21, 0) 42%, rgba(35, 25, 21, .88) 100%); }
+.photo-band__card:hover img, .photo-band__card:focus-visible img { transform: scale(1.06); }
+.photo-band__card:focus-visible { outline: 3px solid var(--cielo, #A9C3DA); outline-offset: 3px; }
+.photo-band__n { position: absolute; z-index: 2; top: 14px; left: 16px; font: 700 12px var(--sans, sans-serif); letter-spacing: .12em; color: #fff; text-shadow: 0 1px 8px rgba(0, 0, 0, .55); }
+.photo-band__cap { position: absolute; z-index: 2; left: 16px; right: 16px; bottom: 16px; display: grid; gap: 4px; }
+.photo-band__cap strong { font-family: var(--serif, Georgia, serif); font-weight: 500; font-size: clamp(20px, 1.7vw, 24px); line-height: 1.1; }
+.photo-band__cap span { font-size: 13.5px; line-height: 1.4; color: var(--crema, #F1ECE6); }
+
+/* entrada suave al hacer scroll (solo con JavaScript) */
+.pb-js .photo-band__item { opacity: 0; transform: translateY(26px); }
+.pb-js .photo-band.is-in .photo-band__item { opacity: 1; transform: none; transition: opacity .8s var(--ease, ease), transform .8s var(--ease, ease); transition-delay: calc(var(--i, 0) * 110ms); }
+
+@media (max-width: 980px) {
+  .photo-band__list { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; -webkit-overflow-scrolling: touch; }
+  .photo-band__item { flex: 0 0 min(72%, 300px); scroll-snap-align: start; }
+  .photo-band__item:nth-child(even) { margin-top: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .photo-band *, .photo-band *::before, .photo-band *::after { transition: none !important; }
+  .pb-js .photo-band__item { opacity: 1; transform: none; }
+  .photo-band__list { scroll-behavior: auto; }
+}
