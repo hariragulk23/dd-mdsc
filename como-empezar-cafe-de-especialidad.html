@@ -15,11 +15,12 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#231915">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Overpass:wght@400;600;700&amp;display=swap">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/overpass-latin.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/ibarra-real-nova-latin.woff2">
+<link rel="stylesheet" href="assets/css/fonts.css?v=1">
 <link rel="stylesheet" href="assets/css/style.css?v=5">
 <link rel="stylesheet" href="assets/css/article.css?v=3">
+<link rel="stylesheet" href="assets/css/fq.css?v=1">
 <script>try{if(sessionStorage.getItem('pt')){document.documentElement.classList.add('pt-in');sessionStorage.removeItem('pt');setTimeout(function(){document.documentElement.classList.remove('pt-in')},2500)}}catch(e){}</script>
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">
@@ -272,18 +273,20 @@
 </div>
 </section>
 
-<section class="a-sec" id="faq" data-reveal>
-<div class="art-body">
-<h2 class="h-l">Preguntas frecuentes</h2>
-<div class="faq">
-<div class="faq-list">
-<details><summary>¿Necesito una cafetera cara?</summary><p>No. Una báscula, un molinillo de muelas y un gotero bastan para empezar.</p></details>
-<details><summary>¿Cuánto café uso por taza?</summary><p>Para empezar, 15 g de café y 240 ml de agua. El estándar de la SCA ronda 1:18. Muchos profesionales usan entre 1:15 y 1:17.</p></details>
-<details><summary>¿Cuánto tiempo aguanta una bolsa de café?</summary><p>Los granos conservan el sabor varias semanas tras el tueste; el café molido lo pierde en minutos. Mira la recomendación de tu tostador.</p></details>
-<details><summary>¿Y si compro el café ya molido?</summary><p>Pierde aroma muy rápido. Si no tienes molinillo, pide que te lo muelan al momento y bébelo pronto.</p></details>
-</div>
-</div>
-</div>
+<section class="fq" id="faq" aria-labelledby="fq-h">
+ <div class="fq__wrap">
+  <header class="fq__head">
+   <p class="fq__eyebrow">Preguntas</p>
+   <h2 class="fq__title" id="fq-h">Preguntas frecuentes</h2>
+   <a class="fq__cta" href="https://wa.me/34665747463">¿Otra duda? Escríbenos →</a>
+  </header>
+  <div class="fq__list">
+    <details class="fq__item" data-fq-reveal style="--i:0"><summary><span class="fq__n">01</span><span class="fq__q">¿Necesito una cafetera cara?</span><span class="fq__i" aria-hidden="true"></span></summary><div class="fq__a"><div class="fq__a-in"><p>No. Una báscula, un molinillo de muelas y un gotero bastan para empezar.</p></div></div></details>
+    <details class="fq__item" data-fq-reveal style="--i:1"><summary><span class="fq__n">02</span><span class="fq__q">¿Cuánto café uso por taza?</span><span class="fq__i" aria-hidden="true"></span></summary><div class="fq__a"><div class="fq__a-in"><p>Para empezar, 15 g de café y 240 ml de agua. El estándar de la SCA ronda 1:18. Muchos profesionales usan entre 1:15 y 1:17.</p></div></div></details>
+    <details class="fq__item" data-fq-reveal style="--i:2"><summary><span class="fq__n">03</span><span class="fq__q">¿Cuánto tiempo aguanta una bolsa de café?</span><span class="fq__i" aria-hidden="true"></span></summary><div class="fq__a"><div class="fq__a-in"><p>Los granos conservan el sabor varias semanas tras el tueste; el café molido lo pierde en minutos. Mira la recomendación de tu tostador.</p></div></div></details>
+    <details class="fq__item" data-fq-reveal style="--i:3"><summary><span class="fq__n">04</span><span class="fq__q">¿Y si compro el café ya molido?</span><span class="fq__i" aria-hidden="true"></span></summary><div class="fq__a"><div class="fq__a-in"><p>Pierde aroma muy rápido. Si no tienes molinillo, pide que te lo muelan al momento y bébelo pronto.</p></div></div></details>
+  </div>
+ </div>
 </section>
 
 <section class="a-sec" id="siguiente" data-reveal>
@@ -333,7 +336,7 @@
 <p class="foot-title">Contacto</p>
 <a href="https://wa.me/34665747463">WhatsApp +34 665 74 74 63</a>
 <a href="contacto.html">Contacto</a>
-<span class="muted-dark">Madrid, España</span>
+<span class="muted-dark">Sede social: Torrevieja (Alicante)</span>
 </div>
 </div>
 <div class="foot-bottom">
@@ -351,10 +354,11 @@
 </div>
 </div>
 </footer>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script defer src="assets/js/vendor/gsap.min.js"></script>
+<script defer src="assets/js/vendor/ScrollTrigger.min.js"></script>
+<script defer src="assets/js/vendor/lenis.min.js"></script>
 <script defer src="assets/js/main.js"></script>
 <script defer src="assets/js/article.js?v=3"></script>
+<script src="assets/js/fq.js" defer></script>
 </body>
 </html>

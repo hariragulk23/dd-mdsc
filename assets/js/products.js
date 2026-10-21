@@ -120,7 +120,7 @@ window.MSC_PRODUCTS = [
   "price": 10.9,
   "img": "assets/images/tienda/bolsa-italian-blend.jpg",
   "url": "cafe-italian-blend.html",
-  "desc": "Chocolate negro, especias y malta tostada, con mucho cuerpo y una crema generosa. 80% arábica, 20% robusta.",
+  "desc": "Chocolate negro, especias y malta tostada, con mucho cuerpo y una crema generosa. 80 % arábica de Colombia y 20 % robusta de la India.",
   "families": [
    "chocolate",
    "especiado"

@@ -8,15 +8,19 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Servicios de café de especialidad en Madrid | Madrid Specialty Coffee">
 <meta property="og:description" content="Asesoría para abrir tu cafetería, crea tu marca de café, café verde y tostado para negocios, cursos de tueste y cata, formación de baristas y barras para eventos.">
-<meta property="og:image" content="https://madridspecialtycoffee.com/assets/images/metodos.jpg">
+<meta property="og:image" content="https://madridspecialtycoffee.com/assets/images/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Madrid Specialty Coffee, café de especialidad">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#231915">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Overpass:wght@400;600;700&amp;display=swap">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/overpass-latin.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/ibarra-real-nova-latin.woff2">
+<link rel="stylesheet" href="assets/css/fonts.css?v=1">
 <link rel="stylesheet" href="assets/css/style.css?v=5">
+<link rel="stylesheet" href="assets/css/fq.css?v=1">
 <script>try{if(sessionStorage.getItem('pt')){document.documentElement.classList.add('pt-in');sessionStorage.removeItem('pt');setTimeout(function(){document.documentElement.classList.remove('pt-in')},2500)}}catch(e){}</script>
 </head>
 <body class="page-dark">
@@ -143,15 +147,20 @@
 </div>
 </section>
 
-<section class="section faq">
-<div class="wrap">
-<h2 class="h-xl" data-split style="margin-bottom:40px">Dudas sobre los servicios</h2>
-<div class="faq-list">
-<details><summary>¿Trabajáis solo en Madrid?</summary><p>Nuestra base es Madrid, pero la asesoría, el suministro y algunos cursos también se pueden hacer en otras ciudades. Pregúntanos.</p></details>
-<details><summary>¿Hay un mínimo para el café verde o tostado?</summary><p>Depende del lote y del formato. Te lo indicamos en el presupuesto.</p></details>
-<details><summary>¿Los cursos dan certificado?</summary><p>Entregamos un diploma de asistencia. Para certificaciones oficiales de la SCA te orientamos sobre dónde obtenerlas.</p></details>
-</div>
-</div>
+<section class="fq" id="preguntas" aria-labelledby="fq-h">
+ <div class="fq__wrap">
+  <header class="fq__head">
+   <p class="fq__eyebrow">Servicios</p>
+   <h2 class="fq__title" id="fq-h">Dudas sobre los servicios</h2>
+   <p class="fq__lead">Lo que nos preguntan antes de empezar un proyecto.</p>
+   <a class="fq__cta" href="https://wa.me/34665747463">¿Otra duda? Escríbenos →</a>
+  </header>
+  <div class="fq__list">
+    <details class="fq__item" data-fq-reveal style="--i:0"><summary><span class="fq__n">01</span><span class="fq__q">¿Trabajáis solo en Madrid?</span><span class="fq__i" aria-hidden="true"></span></summary><div class="fq__a"><div class="fq__a-in"><p>Atendemos a clientes de Madrid y de toda España. Nuestra sede social está en Torrevieja (Alicante). La asesoría, el suministro y algunos cursos también se pueden hacer en otras ciudades. Pregúntanos.</p></div></div></details>
+    <details class="fq__item" data-fq-reveal style="--i:1"><summary><span class="fq__n">02</span><span class="fq__q">¿Hay un mínimo para el café verde o tostado?</span><span class="fq__i" aria-hidden="true"></span></summary><div class="fq__a"><div class="fq__a-in"><p>Depende del lote y del formato. Te lo indicamos en el presupuesto.</p></div></div></details>
+    <details class="fq__item" data-fq-reveal style="--i:2"><summary><span class="fq__n">03</span><span class="fq__q">¿Los cursos dan certificado?</span><span class="fq__i" aria-hidden="true"></span></summary><div class="fq__a"><div class="fq__a-in"><p>Entregamos un diploma de asistencia. Para certificaciones oficiales de la SCA te orientamos sobre dónde obtenerlas.</p></div></div></details>
+  </div>
+ </div>
 </section>
 </main>
 <footer class="site-footer">
@@ -190,7 +199,7 @@
 <p class="foot-title">Contacto</p>
 <a href="https://wa.me/34665747463">WhatsApp +34 665 74 74 63</a>
 <a href="contacto.html">Contacto</a>
-<span class="muted-dark">Madrid, España</span>
+<span class="muted-dark">Sede social: Torrevieja (Alicante)</span>
 </div>
 </div>
 <div class="foot-bottom">
@@ -208,9 +217,10 @@
 </div>
 </div>
 </footer>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script defer src="assets/js/vendor/gsap.min.js"></script>
+<script defer src="assets/js/vendor/ScrollTrigger.min.js"></script>
+<script defer src="assets/js/vendor/lenis.min.js"></script>
 <script defer src="assets/js/main.js"></script>
+<script src="assets/js/fq.js" defer></script>
 </body>
 </html>

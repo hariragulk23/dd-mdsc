@@ -16,11 +16,12 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#231915">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Overpass:wght@400;600;700&amp;display=swap">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/overpass-latin.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/ibarra-real-nova-latin.woff2">
+<link rel="stylesheet" href="assets/css/fonts.css?v=1">
 <link rel="stylesheet" href="assets/css/style.css?v=5">
 <link rel="stylesheet" href="assets/css/shop.css?v=1">
+<link rel="stylesheet" href="assets/css/fq.css?v=1">
 <script>try{if(sessionStorage.getItem('pt')){document.documentElement.classList.add('pt-in');sessionStorage.removeItem('pt');setTimeout(function(){document.documentElement.classList.remove('pt-in')},2500)}}catch(e){}</script>
 </head>
 <body class="">
@@ -132,11 +133,11 @@
 </div>
 </article>
 <article class="sp-card" data-order="5" data-fam="chocolate especiado" data-met="espresso moka" data-price="10.9" data-sca="0" data-eco="0" data-decaf="0" style="--band:#3B2A22">
-<a class="sp-card-link" href="cafe-italian-blend.html" tabindex="-1" aria-hidden="true"><figure class="sp-card-media"><div class="sp-badges"><span class="sp-badge">80% arábica · 20% robusta</span></div><img src="assets/images/tienda/bolsa-italian-blend.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"></figure></a>
+<a class="sp-card-link" href="cafe-italian-blend.html" tabindex="-1" aria-hidden="true"><figure class="sp-card-media"><div class="sp-badges"><span class="sp-badge">80 % arábica · 20 % robusta</span></div><img src="assets/images/tienda/bolsa-italian-blend.jpg" alt="" width="1024" height="1024" loading="lazy" decoding="async"></figure></a>
 <div class="sp-card-body">
 <p class="sp-card-origin">Colombia e India · Blend</p>
 <h3><a href="cafe-italian-blend.html">Italian Blend</a></h3>
-<p class="sp-card-desc">Chocolate negro, especias y malta tostada, con mucho cuerpo y una crema generosa. 80% arábica, 20% robusta.</p>
+<p class="sp-card-desc">Chocolate negro, especias y malta tostada, con mucho cuerpo y una crema generosa. 80 % arábica de Colombia y 20 % robusta de la India.</p>
 <ul class="sp-notes"><li style="--c:#5A3A2A">Chocolate negro</li><li style="--c:#6E3A24">Especias</li><li style="--c:#6E3A24">Malta tostada</li></ul>
 <div class="sp-card-meta"><span>Intensidad</span><span class="sp-meter" role="img" aria-label="Intensidad 5 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span>· Espresso y moka</span></div>
 <div class="sp-card-foot"><span class="sp-price">10,90 € <small>/ 250 g</small></span><button type="button" class="sp-add" data-add="italian-blend" aria-label="Añadir Italian Blend en grano al carrito">Añadir</button></div>
@@ -205,16 +206,21 @@
 </div>
 </section>
 
-<section class="section section--alt faq" aria-labelledby="sp-faq-t">
-<div class="wrap">
-<h2 class="h-xl" id="sp-faq-t">Preguntas sobre la tienda</h2>
-<div class="faq-list">
-<details><summary>¿Cómo hago un pedido?</summary><p>Añade tus cafés al carrito y pulsa «Pedir por WhatsApp». Te llega el pedido escrito y te confirmamos disponibilidad, envío y pago. Pago seguro con tarjeta mediante Stripe.</p></details>
-<details><summary>¿En grano o molido?</summary><p>En grano se mantiene fresco más tiempo. Si no tienes molinillo, elige la molienda de tu método en el carrito. Te ayudamos en nuestras <a href="guias.html">guías</a>.</p></details>
-<details><summary>¿Cuánto cuesta el envío?</summary><p>Envío gratis a partir de 35 €. Por debajo, te confirmamos el coste antes de pagar.</p></details>
-<details><summary>¿Vendéis a cafeterías y oficinas?</summary><p>Sí. Para volúmenes mayores tenemos <a href="servicios.html#cafe-tostado">café tostado para negocios</a>.</p></details>
-</div>
-</div>
+<section class="fq" id="preguntas" aria-labelledby="fq-h">
+ <div class="fq__wrap">
+  <header class="fq__head">
+   <p class="fq__eyebrow">Tienda</p>
+   <h2 class="fq__title" id="fq-h">Preguntas sobre la tienda</h2>
+   <p class="fq__lead">Pedidos, envíos y moliendas.</p>
+   <a class="fq__cta" href="https://wa.me/34665747463">¿Otra duda? Escríbenos →</a>
+  </header>
+  <div class="fq__list">
+    <details class="fq__item" data-fq-reveal style="--i:0"><summary><span class="fq__n">01</span><span class="fq__q">¿Cómo hago un pedido?</span><span class="fq__i" aria-hidden="true"></span></summary><div class="fq__a"><div class="fq__a-in"><p>Añade tus cafés al carrito, escribe tu código postal y paga con tarjeta de forma segura con Stripe. También puedes pedir por WhatsApp y te confirmamos disponibilidad, envío y pago.</p></div></div></details>
+    <details class="fq__item" data-fq-reveal style="--i:1"><summary><span class="fq__n">02</span><span class="fq__q">¿En grano o molido?</span><span class="fq__i" aria-hidden="true"></span></summary><div class="fq__a"><div class="fq__a-in"><p>En grano se mantiene fresco más tiempo. Si no tienes molinillo, elige la molienda de tu método en el carrito. Te ayudamos en nuestras <a href="guias.html">guías</a>.</p></div></div></details>
+    <details class="fq__item" data-fq-reveal style="--i:2"><summary><span class="fq__n">03</span><span class="fq__q">¿Cuánto cuesta el envío?</span><span class="fq__i" aria-hidden="true"></span></summary><div class="fq__a"><div class="fq__a-in"><p>Envío gratis a partir de 35 €. Por debajo de 35 €, el envío cuesta 4,95 €. Hoy enviamos a la España peninsular.</p></div></div></details>
+    <details class="fq__item" data-fq-reveal style="--i:3"><summary><span class="fq__n">04</span><span class="fq__q">¿Vendéis a cafeterías y oficinas?</span><span class="fq__i" aria-hidden="true"></span></summary><div class="fq__a"><div class="fq__a-in"><p>Sí. Para volúmenes mayores tenemos <a href="servicios.html#cafe-tostado">café tostado para negocios</a>.</p></div></div></details>
+  </div>
+ </div>
 </section>
 </main>
 <footer class="site-footer">
@@ -253,7 +259,7 @@
 <p class="foot-title">Contacto</p>
 <a href="https://wa.me/34665747463">WhatsApp +34 665 74 74 63</a>
 <a href="contacto.html">Contacto</a>
-<span class="muted-dark">Madrid, España</span>
+<span class="muted-dark">Sede social: Torrevieja (Alicante)</span>
 </div>
 </div>
 <div class="foot-bottom">
@@ -271,11 +277,12 @@
 </div>
 </div>
 </footer>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script defer src="assets/js/vendor/gsap.min.js"></script>
+<script defer src="assets/js/vendor/ScrollTrigger.min.js"></script>
+<script defer src="assets/js/vendor/lenis.min.js"></script>
 <script defer src="assets/js/main.js"></script>
 <script defer src="assets/js/products.js?v=1"></script>
 <script defer src="assets/js/shop.js?v=1"></script>
+<script src="assets/js/fq.js" defer></script>
 </body>
 </html>

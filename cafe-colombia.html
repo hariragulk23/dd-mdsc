@@ -16,11 +16,12 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#231915">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Overpass:wght@400;600;700&amp;display=swap">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/overpass-latin.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/ibarra-real-nova-latin.woff2">
+<link rel="stylesheet" href="assets/css/fonts.css?v=1">
 <link rel="stylesheet" href="assets/css/style.css?v=5">
 <link rel="stylesheet" href="assets/css/shop.css?v=1">
+<link rel="stylesheet" href="assets/css/fq.css?v=1">
 <script>try{if(sessionStorage.getItem('pt')){document.documentElement.classList.add('pt-in');sessionStorage.removeItem('pt');setTimeout(function(){document.documentElement.classList.remove('pt-in')},2500)}}catch(e){}</script>
 </head>
 <body class="">
@@ -72,6 +73,36 @@
 </div>
 </div>
 </div>
+</section>
+
+<section class="pdp-info" id="informacion-alimentaria" aria-label="Información alimentaria y preguntas frecuentes">
+ <div class="pdp-info__wrap">
+  <article class="pdp-food">
+   <h2>Información alimentaria</h2>
+   <dl>
+    <div class="pdp-food__full"><dt>Denominación de venta</dt><dd>Café de tueste natural. Si eliges molido: «Café molido de tueste natural».</dd></div>
+    <div><dt>Ingredientes</dt><dd>Café 100 % arábica.</dd></div>
+    <div><dt>Alérgenos</dt><dd>Sin alérgenos entre sus ingredientes.</dd></div>
+    <div><dt>Cantidad neta</dt><dd>250 g</dd></div>
+    <div><dt>Origen</dt><dd>Colombia (Huila)</dd></div>
+    <div class="pdp-food__full"><dt>Conservación</dt><dd>Lugar fresco y seco, protegido de la luz. Una vez abierta, cerrar bien la bolsa.</dd></div>
+    <div><dt>Consumo preferente y lote</dt><dd>En el envase.</dd></div>
+    <div><dt>Información nutricional</dt><dd>No obligatoria para el café sin aromatizar.</dd></div>
+    <div class="pdp-food__full"><dt>Responsable</dt><dd>THE COFFEE PROJECT OF 69 SL, Avenida Virgen del Carmen, 2, 3.º A, 03188 Torrevieja (Alicante), España</dd></div>
+   </dl>
+   <p class="pdp-food__note">Imágenes ilustrativas. El envase real puede variar. <a href="condiciones-compra.html">Condiciones de compra</a>.</p>
+  </article>
+  <div class="pdp-faq fq fq--compact" aria-labelledby="pdp-faq-h">
+   <h2 id="pdp-faq-h">Preguntas sobre este café</h2>
+   <div class="fq__list">
+    <details class="fq__item" data-fq-reveal style="--i:0"><summary><span class="fq__n">01</span><span class="fq__q">¿En grano o molido?</span><span class="fq__i" aria-hidden="true"></span></summary><div class="fq__a"><div class="fq__a-in"><p>En grano se conserva fresco más tiempo. Si no tienes molinillo, elige la molienda de tu método: la preparamos para ti.</p></div></div></details>
+    <details class="fq__item" data-fq-reveal style="--i:1"><summary><span class="fq__n">02</span><span class="fq__q">¿Cómo lo conservo?</span><span class="fq__i" aria-hidden="true"></span></summary><div class="fq__a"><div class="fq__a-in"><p>Cierra bien la bolsa con su zip y guárdala lejos de la luz y el calor. Más consejos en <a href="guias.html#conservar">nuestras guías</a>.</p></div></div></details>
+    <details class="fq__item" data-fq-reveal style="--i:2"><summary><span class="fq__n">03</span><span class="fq__q">¿Cuándo se tostó?</span><span class="fq__i" aria-hidden="true"></span></summary><div class="fq__a"><div class="fq__a-in"><p>Tostamos por lotes. En el envase figuran el lote y la fecha de consumo preferente. Si quieres saber la fecha de tueste, escríbenos.</p></div></div></details>
+    <details class="fq__item" data-fq-reveal style="--i:3"><summary><span class="fq__n">04</span><span class="fq__q">¿Cómo hago el pedido?</span><span class="fq__i" aria-hidden="true"></span></summary><div class="fq__a"><div class="fq__a-in"><p>Añádelo al carrito, escribe tu código postal y paga con tarjeta de forma segura con Stripe. También puedes pedir por WhatsApp.</p></div></div></details>
+    <details class="fq__item" data-fq-reveal style="--i:4"><summary><span class="fq__n">05</span><span class="fq__q">¿Cuánto tarda en llegar?</span><span class="fq__i" aria-hidden="true"></span></summary><div class="fq__a"><div class="fq__a-in"><p>Preparamos tu pedido en 24 a 48 horas laborables y lo enviamos a la España peninsular. Envío gratis desde 35 €; por debajo, 4,95 €. Más detalles en <a href="envios.html">envíos</a>.</p></div></div></details>
+   </div>
+  </div>
+ </div>
 </section>
 
 <section class="sp-sec sp-sec--alt" aria-labelledby="pd-taste-t">
@@ -158,37 +189,8 @@
 </div>
 </section>
 
-<section class="section section--alt faq" aria-labelledby="pd-faq-t">
-<div class="wrap">
-<h2 class="h-xl" id="pd-faq-t">Preguntas frecuentes</h2>
-<div class="faq-list">
-<details><summary>¿En grano o molido?</summary><p>En grano se conserva fresco más tiempo. Si no tienes molinillo, elige la molienda de tu método: la preparamos para ti.</p></details>
-<details><summary>¿Cómo lo conservo?</summary><p>Cierra bien la bolsa con su zip y guárdala lejos de la luz y el calor. Más consejos en <a href="guias.html#conservar">nuestras guías</a>.</p></details>
-<details><summary>¿Cuándo se tostó?</summary><p>Tostamos por lotes. Pregúntanos por la fecha de tueste del lote actual al hacer tu pedido.</p></details>
-<details><summary>¿Cómo hago el pedido?</summary><p>Añádelo al carrito y pulsa «Pedir por WhatsApp». Te confirmamos disponibilidad, envío y pago.</p></details>
-</div>
-</div>
-</section>
-
 <div class="pd-sticky" data-sticky aria-hidden="false"><div><b>Colombia Huila</b><br><span>11,90 € · 250 g</span></div><button type="button" class="sp-btn" data-sticky-buy>Añadir</button></div>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "Colombia Huila 250 g", "image": "https://madridspecialtycoffee.com/assets/images/tienda/bolsa-colombia.jpg", "description": "Chocolate, avellana y caña de azúcar, con un final cítrico que limpia el paladar. Equilibrado en cualquier método.", "brand": {"@type": "Brand", "name": "Madrid Specialty Coffee"}, "offers": {"@type": "Offer", "price": "11.90", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://madridspecialtycoffee.com/cafe-colombia"}}</script>
-<section class="section sp-food" id="informacion-alimentaria" aria-labelledby="sp-food-h">
-<div class="wrap">
-<h2 id="sp-food-h">Información alimentaria</h2>
-<dl class="sp-food__list">
-<div><dt>Denominación de venta</dt><dd>Café de tueste natural. En grano, o «Café molido de tueste natural» si eliges molido.</dd></div>
-<div><dt>Ingredientes</dt><dd>Café 100 % arábica.</dd></div>
-<div><dt>Alérgenos</dt><dd>Sin alérgenos entre sus ingredientes.</dd></div>
-<div><dt>Cantidad neta</dt><dd>250 g (bolsa con válvula)</dd></div>
-<div><dt>Origen</dt><dd>Colombia (Huila)</dd></div>
-<div><dt>Conservación</dt><dd>Conservar en un lugar fresco y seco, protegido de la luz. Una vez abierta la bolsa, cerrarla bien.</dd></div>
-<div><dt>Fecha de consumo preferente y lote</dt><dd>Figuran en el envase que recibes, junto con el lote.</dd></div>
-<div><dt>Información nutricional</dt><dd>No es obligatoria para el café sin aromatizar.</dd></div>
-<div><dt>Responsable</dt><dd>THE COFFEE PROJECT OF 69 SL, Avenida Virgen del Carmen, 2, 3.º A, 03188 Torrevieja (Alicante), España</dd></div>
-</dl>
-<p class="sp-food__note">Las imágenes son ilustrativas. El envase real puede variar. Consulta las <a href="condiciones-compra.html">condiciones de compra</a>.</p>
-</div>
-</section>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "Colombia Huila 250 g", "description": "Chocolate, avellana y caña de azúcar, con un final cítrico que limpia el paladar. Equilibrado en cualquier método.", "image": "https://madridspecialtycoffee.com/assets/images/tienda/bolsa-colombia.jpg", "brand": {"@type": "Brand", "name": "Madrid Specialty Coffee"}, "weight": {"@type": "QuantitativeValue", "value": 250, "unitCode": "GRM"}, "offers": {"@type": "Offer", "priceCurrency": "EUR", "price": "11.90", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition", "url": "https://madridspecialtycoffee.com/cafe-colombia", "seller": {"@id": "https://madridspecialtycoffee.com/#organization"}}}</script>
 </main>
 <footer class="site-footer">
 <div class="wrap">
@@ -226,7 +228,7 @@
 <p class="foot-title">Contacto</p>
 <a href="https://wa.me/34665747463">WhatsApp +34 665 74 74 63</a>
 <a href="contacto.html">Contacto</a>
-<span class="muted-dark">Madrid, España</span>
+<span class="muted-dark">Sede social: Torrevieja (Alicante)</span>
 </div>
 </div>
 <div class="foot-bottom">
@@ -244,11 +246,12 @@
 </div>
 </div>
 </footer>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script defer src="assets/js/vendor/gsap.min.js"></script>
+<script defer src="assets/js/vendor/ScrollTrigger.min.js"></script>
+<script defer src="assets/js/vendor/lenis.min.js"></script>
 <script defer src="assets/js/main.js"></script>
 <script defer src="assets/js/products.js?v=1"></script>
 <script defer src="assets/js/shop.js?v=1"></script>
+<script src="assets/js/fq.js" defer></script>
 </body>
 </html>
