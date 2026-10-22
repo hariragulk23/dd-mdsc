@@ -1,6 +1,7 @@
 /* Cafés agotados.
-   Para marcar un café sin stock: en assets/js/products.js pon "available": false
-   y añade su id a UNAVAILABLE en netlify/functions/create-checkout.js.
+   Los precios existen en dos sitios: assets/js/products.js (lo que ve el cliente) y
+   netlify/functions/lib/catalog.js (pago y feed de Google). Para marcar un café sin stock:
+   "available": false en products.js y añade su id a UNAVAILABLE en netlify/functions/lib/catalog.js.
    Este archivo se carga DESPUÉS de products.js y ANTES de shop.js. */
 (function () {
   'use strict';

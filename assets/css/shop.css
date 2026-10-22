@@ -313,3 +313,11 @@
 .sp-badge--out { background: var(--tinta, #231915); color: #fff; }
 .pd-soldout { margin: 8px 0 0; padding: 10px 14px; border-left: 3px solid var(--cereza, #A3132B); background: var(--crema, #F1ECE6); font-size: 14.5px; font-weight: 700; color: var(--tinta, #231915); }
 .pd-soldout a { color: var(--cereza, #A3132B); }
+
+
+/* Precio por kg */
+.unit-price { margin-left: 8px; font-size: .78em; font-weight: 400; white-space: nowrap; color: var(--tinta-suave, #5A524D); }
+.unit-price::before { content: "· "; }
+
+/* Fila de confianza: elemento ancho */
+.pd-trust__wide { grid-column: 1 / -1; }

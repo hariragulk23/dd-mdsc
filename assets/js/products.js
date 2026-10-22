@@ -1,4 +1,4 @@
-/* products.js: catálogo. Para marcar un café agotado: "available": false, y añade su id a UNAVAILABLE en netlify/functions/create-checkout.js. */
+/* products.js: catálogo. Los precios existen en dos sitios: assets/js/products.js (lo que ve el cliente) y netlify/functions/lib/catalog.js (pago y feed de Google). Para marcar un café agotado: "available": false aquí, y añade su id a UNAVAILABLE en netlify/functions/lib/catalog.js. */
 window.MSC_SHOP = { wa: "34665747463", freeShip: 35, stripe: true };
 window.MSC_PRODUCTS = [
  {

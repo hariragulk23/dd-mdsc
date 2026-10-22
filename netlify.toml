@@ -49,3 +49,9 @@
 
 [functions]
   directory = "netlify/functions"
+
+[[redirects]]
+  from = "/merchant-feed.xml"
+  to = "/.netlify/functions/merchant-feed"
+  status = 200
+  force = true
