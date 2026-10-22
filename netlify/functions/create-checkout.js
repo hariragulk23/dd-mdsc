@@ -1,5 +1,5 @@
 // Creates a Stripe Checkout session for the Madrid Specialty Coffee cart.
-// Prices are read from this file, never from the browser.
+// Prices are read from ./lib/catalog.js, never from the browser.
 // Set STRIPE_SECRET_KEY in Netlify (Site settings > Environment variables).
 
 const { CATALOG, UNAVAILABLE } = require('./lib/catalog.js');
