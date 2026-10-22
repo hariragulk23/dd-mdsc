@@ -281,6 +281,8 @@ html:not(.js) .quiz-actions { display: none; }
 .j-card:hover .j-cta span { transform: translateX(5px); }
 @media (min-width: 800px) {
   .j-card { grid-template-columns: 5fr 7fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+  .j-card:nth-of-type(even) { grid-template-columns: 7fr 5fr; }
+  .j-card:nth-of-type(even) .j-media { order: 2; }
 }
 .j-soon { display: grid; grid-template-columns: 1fr; gap: 0 48px; margin: 0; padding: 0; list-style: none; }
 .j-soon li { display: flex; flex-direction: column; gap: 4px; padding: 20px 0; border-top: 1px solid var(--linea); }
