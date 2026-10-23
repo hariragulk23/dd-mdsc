@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url><loc>https://madridspecialtycoffee.com/</loc><lastmod>2026-10-21</lastmod></url>
-  <url><loc>https://madridspecialtycoffee.com/cafe-de-especialidad</loc><lastmod>2026-10-21</lastmod></url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/cafe-de-especialidad</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/cafe-de-especialidad"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/specialty-coffee"/>
+  </url>
   <url>
     <loc>https://madridspecialtycoffee.com/servicios</loc>
     <lastmod>2026-10-21</lastmod>
@@ -98,5 +103,11 @@
     <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/servicios"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/services"/>
+  </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/en/specialty-coffee</loc>
+    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/cafe-de-especialidad"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/specialty-coffee"/>
   </url>
 </urlset>

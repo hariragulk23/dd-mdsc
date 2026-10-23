@@ -20,6 +20,7 @@
 
 ## English
 - [Specialty coffee in Madrid, explained simply](https://madridspecialtycoffee.com/en/): English landing page with guides, tools and services.
+- [What is specialty coffee?](https://madridspecialtycoffee.com/en/specialty-coffee): the score, origin and roast that define it, a roast simulator, a bean comparison and a glossary.
 - [Specialty coffee journal](https://madridspecialtycoffee.com/en/journal): English articles about specialty coffee, with calculators and tools.
 - [How much does specialty coffee cost?](https://madridspecialtycoffee.com/en/how-much-does-specialty-coffee-cost): a calculator and five signs to tell if the price makes sense.
 - [How to make coffee in a moka pot](https://madridspecialtycoffee.com/en/how-to-make-coffee-in-a-moka-pot): six steps and a diagnosis if it comes out bitter or watery.
