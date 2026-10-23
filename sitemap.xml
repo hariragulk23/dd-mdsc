@@ -2,11 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url><loc>https://madridspecialtycoffee.com/</loc><lastmod>2026-10-21</lastmod></url>
   <url><loc>https://madridspecialtycoffee.com/cafe-de-especialidad</loc><lastmod>2026-10-21</lastmod></url>
-  <url><loc>https://madridspecialtycoffee.com/servicios</loc><lastmod>2026-10-21</lastmod></url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/servicios</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/servicios"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/services"/>
+  </url>
   <url><loc>https://madridspecialtycoffee.com/guias</loc><lastmod>2026-10-21</lastmod></url>
   <url><loc>https://madridspecialtycoffee.com/journal</loc><lastmod>2026-10-21</lastmod></url>
-  <url><loc>https://madridspecialtycoffee.com/como-empezar-cafe-de-especialidad</loc><lastmod>2026-10-21</lastmod></url>
-  <url><loc>https://madridspecialtycoffee.com/historia-cafe-de-especialidad-espana</loc><lastmod>2026-10-21</lastmod></url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/como-empezar-cafe-de-especialidad</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/como-empezar-cafe-de-especialidad"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/how-to-start-with-specialty-coffee"/>
+  </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/historia-cafe-de-especialidad-espana</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/historia-cafe-de-especialidad-espana"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/history-of-specialty-coffee-in-spain"/>
+  </url>
   <url>
     <loc>https://madridspecialtycoffee.com/cuanto-cuesta-cafe-de-especialidad</loc>
     <lastmod>2026-10-22</lastmod>
@@ -26,7 +41,12 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/decaf-coffee-how-its-made"/>
   </url>
   <url><loc>https://madridspecialtycoffee.com/contacto</loc><lastmod>2026-10-21</lastmod></url>
-  <url><loc>https://madridspecialtycoffee.com/sobre-nosotros</loc><lastmod>2026-10-21</lastmod></url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/sobre-nosotros</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/sobre-nosotros"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/about-us"/>
+  </url>
   <url><loc>https://madridspecialtycoffee.com/aviso-legal</loc><lastmod>2026-10-21</lastmod></url>
   <url><loc>https://madridspecialtycoffee.com/privacidad</loc><lastmod>2026-10-21</lastmod></url>
   <url><loc>https://madridspecialtycoffee.com/cookies</loc><lastmod>2026-10-21</lastmod></url>
@@ -55,4 +75,28 @@
   </url>
   <url><loc>https://madridspecialtycoffee.com/en/</loc><lastmod>2026-10-23</lastmod></url>
   <url><loc>https://madridspecialtycoffee.com/en/journal</loc><lastmod>2026-10-23</lastmod></url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/en/about-us</loc>
+    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/sobre-nosotros"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/about-us"/>
+  </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/en/how-to-start-with-specialty-coffee</loc>
+    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/como-empezar-cafe-de-especialidad"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/how-to-start-with-specialty-coffee"/>
+  </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/en/history-of-specialty-coffee-in-spain</loc>
+    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/historia-cafe-de-especialidad-espana"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/history-of-specialty-coffee-in-spain"/>
+  </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/en/services</loc>
+    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/servicios"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/services"/>
+  </url>
 </urlset>

@@ -19,6 +19,12 @@
   }
   if (typeof document === 'undefined') return;
 
+  var EN = (document.documentElement.getAttribute('lang') || 'es').slice(0, 2) === 'en';
+  var LOC = EN ? 'en-GB' : 'es-ES';
+  var T = EN
+    ? { quizMsg: 'Answer the three questions to see your method.' }
+    : { quizMsg: 'Responde las tres preguntas para ver tu método.' };
+
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hasIO = 'IntersectionObserver' in window;
 
@@ -81,7 +87,7 @@
         var a1 = answer('q1'), a2 = answer('q2'), a3 = answer('q3');
         hideResults();
         if (!a1 || !a2 || !a3) {
-          if (msg) msg.textContent = 'Responde las tres preguntas para ver tu método.';
+          if (msg) msg.textContent = T.quizMsg;
           return;
         }
         if (msg) msg.textContent = '';
@@ -145,12 +151,13 @@
       var end = parseFloat(el.getAttribute('data-count'));
       var dec = parseInt(el.getAttribute('data-decimals') || '0', 10);
       var suffix = el.getAttribute('data-suffix') || '';
+      var prefix = el.getAttribute('data-prefix') || '';
       var t0 = null;
       var tick = function (t) {
         if (t0 === null) t0 = t;
         var p = Math.min(1, (t - t0) / 1200);
         var v = end * (1 - Math.pow(1 - p, 3));
-        el.textContent = v.toLocaleString('es-ES', { minimumFractionDigits: dec, maximumFractionDigits: dec }) + suffix;
+        el.textContent = prefix + v.toLocaleString(LOC, { minimumFractionDigits: dec, maximumFractionDigits: dec }) + suffix;
         if (p < 1) window.requestAnimationFrame(tick);
         else el.textContent = original;
       };
