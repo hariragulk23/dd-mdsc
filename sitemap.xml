@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url><loc>https://madridspecialtycoffee.com/</loc><lastmod>2026-10-21</lastmod></url>
   <url><loc>https://madridspecialtycoffee.com/cafe-de-especialidad</loc><lastmod>2026-10-21</lastmod></url>
   <url><loc>https://madridspecialtycoffee.com/servicios</loc><lastmod>2026-10-21</lastmod></url>
@@ -7,9 +7,24 @@
   <url><loc>https://madridspecialtycoffee.com/journal</loc><lastmod>2026-10-21</lastmod></url>
   <url><loc>https://madridspecialtycoffee.com/como-empezar-cafe-de-especialidad</loc><lastmod>2026-10-21</lastmod></url>
   <url><loc>https://madridspecialtycoffee.com/historia-cafe-de-especialidad-espana</loc><lastmod>2026-10-21</lastmod></url>
-  <url><loc>https://madridspecialtycoffee.com/cuanto-cuesta-cafe-de-especialidad</loc><lastmod>2026-10-22</lastmod></url>
-  <url><loc>https://madridspecialtycoffee.com/como-hacer-cafe-en-cafetera-italiana</loc><lastmod>2026-10-22</lastmod></url>
-  <url><loc>https://madridspecialtycoffee.com/cafe-descafeinado-como-se-hace</loc><lastmod>2026-10-22</lastmod></url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/cuanto-cuesta-cafe-de-especialidad</loc>
+    <lastmod>2026-10-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/cuanto-cuesta-cafe-de-especialidad"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/how-much-does-specialty-coffee-cost"/>
+  </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/como-hacer-cafe-en-cafetera-italiana</loc>
+    <lastmod>2026-10-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/como-hacer-cafe-en-cafetera-italiana"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/how-to-make-coffee-in-a-moka-pot"/>
+  </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/cafe-descafeinado-como-se-hace</loc>
+    <lastmod>2026-10-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/cafe-descafeinado-como-se-hace"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/decaf-coffee-how-its-made"/>
+  </url>
   <url><loc>https://madridspecialtycoffee.com/contacto</loc><lastmod>2026-10-21</lastmod></url>
   <url><loc>https://madridspecialtycoffee.com/sobre-nosotros</loc><lastmod>2026-10-21</lastmod></url>
   <url><loc>https://madridspecialtycoffee.com/aviso-legal</loc><lastmod>2026-10-21</lastmod></url>
@@ -20,4 +35,24 @@
   <url><loc>https://madridspecialtycoffee.com/devoluciones</loc><lastmod>2026-10-21</lastmod></url>
   <url><loc>https://madridspecialtycoffee.com/atencion-cliente</loc><lastmod>2026-10-21</lastmod></url>
   <url><loc>https://madridspecialtycoffee.com/desistir</loc><lastmod>2026-10-21</lastmod></url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/en/how-much-does-specialty-coffee-cost</loc>
+    <lastmod>2026-10-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/cuanto-cuesta-cafe-de-especialidad"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/how-much-does-specialty-coffee-cost"/>
+  </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/en/how-to-make-coffee-in-a-moka-pot</loc>
+    <lastmod>2026-10-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/como-hacer-cafe-en-cafetera-italiana"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/how-to-make-coffee-in-a-moka-pot"/>
+  </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/en/decaf-coffee-how-its-made</loc>
+    <lastmod>2026-10-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/cafe-descafeinado-como-se-hace"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/decaf-coffee-how-its-made"/>
+  </url>
+  <url><loc>https://madridspecialtycoffee.com/en/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://madridspecialtycoffee.com/en/journal</loc><lastmod>2026-10-23</lastmod></url>
 </urlset>

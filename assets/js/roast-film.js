@@ -1,13 +1,17 @@
-/* Vídeo del tueste: carga solo cuando se ve, se pausa al salir, con botón de pausa.
+/* Vídeo del tueste (ES / EN): carga solo cuando se ve, se pausa al salir, con botón de pausa.
    Con "reducir movimiento" o ahorro de datos no arranca solo. */
 (function () {
   'use strict';
   var films = document.querySelectorAll('[data-roast-film]');
   if (!films.length) return;
+  var EN = (document.documentElement.getAttribute('lang') || 'es').slice(0, 2) === 'en';
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var saveData = !!(navigator.connection && navigator.connection.saveData);
   var small = window.matchMedia ? window.matchMedia('(max-width: 700px)') : { matches: false };
-  var CH = [[0, 'Carga y control'], [2, 'Curva de tueste'], [4, 'Toma de muestra'], [6, 'Descarga'], [8, 'Enfriado']];
+  var CH = EN
+    ? [[0, 'Loading and control'], [2, 'Roast curve'], [4, 'Sampling'], [6, 'Discharge'], [8, 'Cooling']]
+    : [[0, 'Carga y control'], [2, 'Curva de tueste'], [4, 'Toma de muestra'], [6, 'Descarga'], [8, 'Enfriado']];
+  var PLAY = EN ? 'Play video' : 'Reproducir vídeo', PAUSE = EN ? 'Pause video' : 'Pausar vídeo';
 
   function chapter(t) { var c = CH[0][1]; for (var i = 0; i < CH.length; i++) if (t >= CH[i][0]) c = CH[i][1]; return c; }
 
@@ -23,7 +27,7 @@
       loaded = true;
     }
     function label(playing) {
-      btn.textContent = playing ? 'Pausar vídeo' : 'Reproducir vídeo';
+      btn.textContent = playing ? PAUSE : PLAY;
       btn.setAttribute('aria-pressed', playing ? 'true' : 'false');
     }
     function play() {

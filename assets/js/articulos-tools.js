@@ -1,6 +1,7 @@
-/* Diagnóstico de la cafetera italiana y comparador de cafeína. Sin dependencias. */
+/* Diagnóstico de la cafetera italiana y comparador de cafeína (ES / EN). Sin dependencias. */
 (function () {
   'use strict';
+  var EN = (document.documentElement.getAttribute('lang') || 'es').slice(0, 2) === 'en';
   var dx = document.querySelector('[data-dx]');
   if (dx) {
     var opts = dx.querySelectorAll('[data-dx-key]');
@@ -26,7 +27,9 @@
       mgOut.textContent = mg + ' mg';
       bar.setAttribute('data-mg', String(mg));
       bar.style.width = Math.min(100, (mg / MAX) * 100) + '%';
-      sum.textContent = 'Con ' + g + ' g de café descafeinado, la taza tiene como máximo unos ' + mg + ' mg de cafeína.';
+      sum.textContent = EN
+        ? 'With ' + g + ' g of decaf coffee, the cup has at most about ' + mg + ' mg of caffeine.'
+        : 'Con ' + g + ' g de café descafeinado, la taza tiene como máximo unos ' + mg + ' mg de cafeína.';
     };
     inp.addEventListener('input', upd);
     upd();
