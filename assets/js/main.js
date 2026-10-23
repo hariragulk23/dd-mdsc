@@ -9,6 +9,7 @@
   var root = document.documentElement;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hasGSAP = !!(window.gsap && window.ScrollTrigger);
+  var EN = (document.documentElement.getAttribute('lang') || 'es').slice(0, 2) === 'en';
 
   /* ---------- Año del pie ---------- */
   document.querySelectorAll('[data-year]').forEach(function (el) {
@@ -56,6 +57,15 @@
     { at: 75,  color: '#5A3420', name: 'Tueste medio', meta: 'Ideal para espresso', text: 'Equilibrio entre dulzor, cuerpo y acidez. Caramelo, chocolate con leche, frutos secos.' },
     { at: 100, color: '#2E1B12', name: 'Tueste oscuro', meta: 'Aprox. 224 °C, segundo crack', text: 'Cuerpo intenso y amargor. Las notas del tueste tapan las del origen.' }
   ];
+  var ROAST_EN = [
+    { name: 'Green coffee', meta: 'Raw bean', text: 'It smells of grass and grain. It cannot be brewed yet: roasting is what wakes up the flavour.' },
+    { name: 'Drying', meta: 'The bean turns yellow', text: 'It loses moisture and changes colour. Aromas of bread, hay and light toast appear.' },
+    { name: 'First crack', meta: 'Approx. 196 °C', text: 'The bean expands and cracks. From here on it is coffee and flavour development begins.' },
+    { name: 'Light roast', meta: 'Ideal for filter coffee', text: 'Bright acidity and floral or fruity notes. This is where the origin shows best.' },
+    { name: 'Medium roast', meta: 'Ideal for espresso', text: 'A balance of sweetness, body and acidity. Caramel, milk chocolate, nuts.' },
+    { name: 'Dark roast', meta: 'Approx. 224 °C, second crack', text: 'Intense body and bitterness. The roast flavours mask the origin\'s notes.' }
+  ];
+  if (EN) ROAST.forEach(function (stage, i) { stage.name = ROAST_EN[i].name; stage.meta = ROAST_EN[i].meta; stage.text = ROAST_EN[i].text; });
   function hex(h) { return [1, 3, 5].map(function (i) { return parseInt(h.substr(i, 2), 16); }); }
   function mix(a, b, t) {
     var A = hex(a), B = hex(b);
@@ -93,6 +103,14 @@
     prensa:   { name: 'Prensa francesa',ratio: 15, time: 240, grind: 'Gruesa', temp: '93-96 °C', unit: 'agua', filter: false },
     espresso: { name: 'Espresso',       ratio: 2,  time: 28,  grind: 'Fina', temp: '90-94 °C', unit: 'bebida', filter: false }
   };
+  var METHODS_EN = {
+    v60:      { name: 'V60',          grind: 'Medium-fine' },
+    chemex:   { name: 'Chemex',       grind: 'Medium-coarse' },
+    aeropress:{ name: 'AeroPress',    grind: 'Medium' },
+    prensa:   { name: 'French press', grind: 'Coarse' },
+    espresso: { name: 'Espresso',     grind: 'Fine' }
+  };
+  if (EN) Object.keys(METHODS).forEach(function (k) { METHODS[k].name = METHODS_EN[k].name; METHODS[k].grind = METHODS_EN[k].grind; });
   var brew = document.querySelector('[data-brew]');
   if (brew) {
     var current = 'v60';
@@ -111,6 +129,9 @@
     var startBtn = brew.querySelector('[data-timer-start]');
     var resetBtn = brew.querySelector('[data-timer-reset]');
     var timerId = null, seconds = 0;
+    var B = EN
+      ? { water: 'Water', drink: 'Liquid in the cup', extract: 'Extracting. Look for a thin stream, like warm honey.', tasted: 'Done. Taste it and adjust the grind if it tastes sour or bitter.', bloom: 'Bloom: pour {n} ml and wait for the coffee to breathe.', pour: 'Pour in slow circles until you reach {n} ml.', wait: 'Let it finish filtering.', done: 'Done. Serve and enjoy.', start: 'Start', pause: 'Pause', hint: 'Press Start when you pour in the first water.' }
+      : { water: 'Agua', drink: 'Bebida en taza', extract: 'Extrayendo. Busca un chorro fino, como miel caliente.', tasted: 'Listo. Prueba y ajusta la molienda si sabe ácido o amargo.', bloom: 'Bloom: vierte {n} ml y espera a que el café respire.', pour: 'Vierte en círculos lentos hasta llegar a {n} ml.', wait: 'Deja que termine de filtrar.', done: 'Listo. Sirve y disfruta.', start: 'Empezar', pause: 'Pausar', hint: 'Pulsa empezar cuando eches el primer agua.' };
 
     var fmt = function (s) { var m = Math.floor(s / 60), r = s % 60; return m + ':' + (r < 10 ? '0' : '') + r; };
     var calc = function () {
@@ -118,7 +139,7 @@
       var g = Number(dose.value);
       doseOut.textContent = g + ' g';
       out.water.textContent = Math.round(g * m.ratio) + (m.unit === 'agua' ? ' ml' : ' g');
-      out.waterLabel.textContent = m.unit === 'agua' ? 'Agua' : 'Bebida en taza';
+      out.waterLabel.textContent = m.unit === 'agua' ? B.water : B.drink;
       out.ratio.textContent = '1:' + m.ratio;
       out.time.textContent = fmt(m.time);
       out.grind.textContent = m.grind;
@@ -128,14 +149,14 @@
       var m = METHODS[current];
       var g = Number(dose.value);
       var total = Math.round(g * m.ratio);
-      if (current === 'espresso') return seconds < m.time ? 'Extrayendo. Busca un chorro fino, como miel caliente.' : 'Listo. Prueba y ajusta la molienda si sabe ácido o amargo.';
-      if (m.filter && seconds < 40) return 'Bloom: vierte ' + (g * 2) + ' ml y espera a que el café respire.';
-      if (seconds < m.time - 30) return 'Vierte en círculos lentos hasta llegar a ' + total + ' ml.';
-      if (seconds < m.time) return 'Deja que termine de filtrar.';
-      return 'Listo. Sirve y disfruta.';
+      if (current === 'espresso') return seconds < m.time ? B.extract : B.tasted;
+      if (m.filter && seconds < 40) return B.bloom.replace('{n}', g * 2);
+      if (seconds < m.time - 30) return B.pour.replace('{n}', total);
+      if (seconds < m.time) return B.wait;
+      return B.done;
     };
-    var stopTimer = function () { clearInterval(timerId); timerId = null; startBtn.textContent = 'Empezar'; };
-    var resetTimer = function () { stopTimer(); seconds = 0; clock.textContent = '0:00'; step.textContent = 'Pulsa empezar cuando eches el primer agua.'; };
+    var stopTimer = function () { clearInterval(timerId); timerId = null; startBtn.textContent = B.start; };
+    var resetTimer = function () { stopTimer(); seconds = 0; clock.textContent = '0:00'; step.textContent = B.hint; };
 
     brew.querySelectorAll('[data-method]').forEach(function (b) {
       b.addEventListener('click', function () {
@@ -148,7 +169,7 @@
     dose.addEventListener('input', calc);
     startBtn.addEventListener('click', function () {
       if (timerId) { stopTimer(); return; }
-      startBtn.textContent = 'Pausar';
+      startBtn.textContent = B.pause;
       step.textContent = stepText();
       timerId = setInterval(function () {
         seconds++;
