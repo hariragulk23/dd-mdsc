@@ -6,6 +6,8 @@
   root.classList.add('js-g');
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hasIO = 'IntersectionObserver' in window;
+  var EN = (document.documentElement.getAttribute('lang') || 'es').slice(0, 2) === 'en';
+  var S = EN ? { calc: 'Calculator' } : { calc: 'Calculadora' };
 
   function $(sel, ctx) { return (ctx || document).querySelector(sel); }
   function $$(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
@@ -29,7 +31,7 @@
   var brew = $('[data-brew]');
   var calcSec = brew ? brew.closest('section') : null;
   if (calcSec && !calcSec.id) calcSec.id = 'calculadora';
-  if (calcSec && !calcSec.hasAttribute('data-chapter')) calcSec.setAttribute('data-chapter', 'Calculadora');
+  if (calcSec && !calcSec.hasAttribute('data-chapter')) calcSec.setAttribute('data-chapter', S.calc);
 
   function useInCalc(method) {
     if (!brew) return;
@@ -56,6 +58,22 @@
       '2-cuerpo-facil': ['prensa', 'Prensa francesa', 'La forma más sencilla de hacer café con cuerpo para varias personas.'],
       '2-cuerpo-exp': ['prensa', 'Prensa francesa', 'Con cuerpo para compartir. Juega con la molienda y el tiempo de reposo.']
     };
+    var RESULTS_EN = {
+      '1-limpia-facil': ['AeroPress', 'Quick, easy to clean and gives a clean cup. Forgives beginner mistakes.'],
+      '1-limpia-exp': ['V60', 'The most aromatic cup for one person. You can taste every adjustment, ideal if you like to experiment.'],
+      '1-cuerpo-facil': ['Moka pot', 'Intense coffee from the pot you probably already have. With good coffee and two tricks, it makes a big difference.'],
+      '1-cuerpo-exp': ['Espresso', 'Maximum intensity and control. It needs a machine and a grinder, and plenty of practice.'],
+      '2-limpia-facil': ['Chemex', 'Makes several clean cups at once and looks beautiful on the table.'],
+      '2-limpia-exp': ['Chemex', 'Several clean, aromatic cups, with room to adjust your pour.'],
+      '2-cuerpo-facil': ['French press', 'The simplest way to make coffee with body for several people.'],
+      '2-cuerpo-exp': ['French press', 'Full-bodied coffee to share. Play with the grind and the steeping time.']
+    };
+    if (EN) {
+      Object.keys(RESULTS).forEach(function (k) { RESULTS[k] = [RESULTS[k][0], RESULTS_EN[k][0], RESULTS_EN[k][1]]; });
+    }
+    var Q = EN
+      ? { left1: '1 question left.', leftN: '{n} questions left.', method: 'Your method', see: 'See the recipe', use: 'Use in the calculator' }
+      : { left1: 'Te queda 1 pregunta.', leftN: 'Te quedan {n} preguntas.', method: 'Tu método', see: 'Ver la receta', use: 'Usar en la calculadora' };
     var CALC = { v60: 1, chemex: 1, aeropress: 1, prensa: 1, espresso: 1 };
     var out = $('[data-quiz-result]', quiz);
     $$('.g-q', quiz).forEach(function (fs) {
@@ -71,14 +89,14 @@
     function render() {
       if (!answers.q1 || !answers.q2 || !answers.q3) {
         var left = 3 - (answers.q1 ? 1 : 0) - (answers.q2 ? 1 : 0) - (answers.q3 ? 1 : 0);
-        out.innerHTML = '<p class="muted">Te ' + (left === 1 ? 'queda 1 pregunta.' : 'quedan ' + left + ' preguntas.') + '</p>';
+        out.innerHTML = '<p class="muted">' + (left === 1 ? Q.left1 : Q.leftN.replace('{n}', left)) + '</p>';
         return;
       }
       var r = RESULTS[answers.q1 + '-' + answers.q2 + '-' + answers.q3];
       out.classList.add('is-done');
-      out.innerHTML = '<p class="small muted">Tu método</p><p class="g-res-name">' + r[1] + '</p><p>' + r[2] + '</p>' +
-        '<div class="btn-row"><a class="btn btn--ghost" href="#metodo-' + r[0] + '" data-goto>Ver la receta</a>' +
-        (CALC[r[0]] ? '<button type="button" class="btn btn--primary" data-use-method="' + r[0] + '">Usar en la calculadora</button>' : '') + '</div>';
+      out.innerHTML = '<p class="small muted">' + Q.method + '</p><p class="g-res-name">' + r[1] + '</p><p>' + r[2] + '</p>' +
+        '<div class="btn-row"><a class="btn btn--ghost" href="#metodo-' + r[0] + '" data-goto>' + Q.see + '</a>' +
+        (CALC[r[0]] ? '<button type="button" class="btn btn--primary" data-use-method="' + r[0] + '">' + Q.use + '</button>' : '') + '</div>';
     }
   }
   document.addEventListener('click', function (e) {
@@ -202,13 +220,16 @@
   var tds = $('[data-tds]');
   if (tds) {
     var inp = $('[data-tds-in]', tds), o2 = $('[data-tds-out]', tds);
+    var W = EN
+      ? { type: 'Type the number from the label.', soft: 'Very soft: the coffee can taste flat or sour.', great: 'Very good for coffee.', ok: 'Suitable for coffee.', hard: 'Hard: it dulls the flavours and leaves limescale in the coffee machine.' }
+      : { type: 'Escribe el número de la etiqueta.', soft: 'Muy blanda: el café puede saber plano o ácido.', great: 'Muy buena para café.', ok: 'Válida para café.', hard: 'Dura: apaga los sabores y deja cal en la cafetera.' };
     inp.addEventListener('input', function () {
       var v = parseFloat(inp.value);
       o2.className = 'g-tds-out';
-      if (isNaN(v)) { o2.textContent = 'Escribe el número de la etiqueta.'; return; }
-      if (v < 75) { o2.textContent = 'Muy blanda: el café puede saber plano o ácido.'; o2.classList.add('is-low'); }
-      else if (v <= 250) { o2.textContent = (v >= 100 && v <= 200) ? 'Muy buena para café.' : 'Válida para café.'; o2.classList.add('is-ok'); }
-      else { o2.textContent = 'Dura: apaga los sabores y deja cal en la cafetera.'; o2.classList.add('is-high'); }
+      if (isNaN(v)) { o2.textContent = W.type; return; }
+      if (v < 75) { o2.textContent = W.soft; o2.classList.add('is-low'); }
+      else if (v <= 250) { o2.textContent = (v >= 100 && v <= 200) ? W.great : W.ok; o2.classList.add('is-ok'); }
+      else { o2.textContent = W.hard; o2.classList.add('is-high'); }
     });
   }
 

@@ -3,6 +3,7 @@
   'use strict';
   var root = document.querySelector('[data-explorer]');
   if (!root) return;
+  var EN = (document.documentElement.getAttribute('lang') || 'es').slice(0, 2) === 'en';
 
   /* Tabs */
   var tabs = [].slice.call(root.querySelectorAll('[role="tab"]'));
@@ -43,14 +44,22 @@
       { name: 'Excelente', text: 'Más claridad y complejidad. Aquí suelen estar los cafés que los buenos tostadores destacan.' },
       { name: 'Excepcional', text: 'Rango poco frecuente, reservado a lotes muy destacados.' }
     ];
+    var BANDS_EN = [
+      { name: 'Below 80 · not specialty coffee', text: 'Commercial coffee. It falls outside specialty coffee.' },
+      { name: 'Very good · already specialty coffee', text: 'Clean, sweet and with a recognisable character.' },
+      { name: 'Excellent', text: 'More clarity and complexity. This is where you usually find the coffees that good roasters highlight.' },
+      { name: 'Exceptional', text: 'An uncommon range, reserved for outstanding lots.' }
+    ];
+    if (EN) BANDS = BANDS_EN;
+    var S = EN ? { points: ' points, ' } : { points: ' puntos, ' };
     var updateScore = function () {
       var v = parseFloat(input.value);
       var b = v < 80 ? 0 : v < 85 ? 1 : v < 90 ? 2 : 3;
-      out.textContent = (v % 1 === 0) ? String(v) : String(v).replace('.', ',');
+      out.textContent = (v % 1 === 0 || EN) ? String(v) : String(v).replace('.', ',');
       band.textContent = BANDS[b].name;
       desc.textContent = BANDS[b].text;
       score.setAttribute('data-band', String(b));
-      input.setAttribute('aria-valuetext', out.textContent + ' puntos, ' + BANDS[b].name);
+      input.setAttribute('aria-valuetext', out.textContent + S.points + BANDS[b].name);
     };
     input.addEventListener('input', updateScore);
     updateScore();
@@ -68,6 +77,16 @@
       tueste: ['Fecha de tueste', 'El dato más útil para saber si está fresco. Si no aparece, pregunta.'],
       notas: ['Notas de cata', 'Sabores que el tostador ha encontrado en la taza. Son una guía, no una promesa.']
     };
+    var INFO_EN = {
+      origen: ['Country and region', 'Where it was grown. The more specific, the better the traceability.'],
+      finca: ['Farm or producer', 'Who grew it. In specialty coffee the name is usually shown.'],
+      altitud: ['Altitude', 'Metres above sea level. It is usually linked to denser beans and more acidity.'],
+      variedad: ['Variety', 'The coffee plant: Caturra, Bourbon, Geisha… Each one brings its own character.'],
+      proceso: ['Process', 'How the fruit was removed from the bean. Washed: clean cup. Natural: more fruit and body. Honey: sweetness and balance.'],
+      tueste: ['Roast date', 'The most useful detail to know if it is fresh. If it is not shown, ask.'],
+      notas: ['Tasting notes', 'Flavours the roaster has found in the cup. They are a guide, not a promise.']
+    };
+    if (EN) INFO = INFO_EN;
     var keys = [].slice.call(label.querySelectorAll('[data-key]'));
     var infoT = label.querySelector('[data-label-title]');
     var infoP = label.querySelector('[data-label-text]');
@@ -100,12 +119,13 @@
 
   /* Pronunciation (only where the browser can speak) */
   var say = root.querySelector('[data-say]');
+  var SAY = EN ? { text: 'specialty coffee', lang: 'en-GB' } : { text: 'café de especialidad', lang: 'es-ES' };
   if (say && 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window) {
     say.hidden = false;
     say.addEventListener('click', function () {
       window.speechSynthesis.cancel();
-      var u = new window.SpeechSynthesisUtterance('café de especialidad');
-      u.lang = 'es-ES';
+      var u = new window.SpeechSynthesisUtterance(SAY.text);
+      u.lang = SAY.lang;
       u.rate = 0.9;
       u.onstart = function () { say.setAttribute('aria-pressed', 'true'); };
       u.onend = u.onerror = function () { say.setAttribute('aria-pressed', 'false'); };

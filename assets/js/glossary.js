@@ -3,6 +3,8 @@
   'use strict';
   var root = document.querySelector('[data-gl]');
   if (!root) return;
+  var EN = (document.documentElement.getAttribute('lang') || 'es').slice(0, 2) === 'en';
+  var S = EN ? { one: '1 term', many: ' terms' } : { one: '1 término', many: ' términos' };
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hasIO = 'IntersectionObserver' in window;
   root.classList.add('is-ready');
@@ -24,7 +26,7 @@
       c.hidden = !ok;
       if (ok) { n++; c.classList.add('is-in'); }
     });
-    count.textContent = n === 1 ? '1 término' : n + ' términos';
+    count.textContent = n === 1 ? S.one : n + S.many;
     empty.hidden = n !== 0;
   };
   input.addEventListener('input', apply);

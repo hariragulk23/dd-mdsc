@@ -3,6 +3,8 @@
   'use strict';
   var root = document.querySelector('[data-cv]');
   if (!root) return;
+  var EN = (document.documentElement.getAttribute('lang') || 'es').slice(0, 2) === 'en';
+  var S = EN ? { sp: '% specialty, ', tor: '% torrefacto' } : { sp: '% especialidad, ', tor: '% torrefacto' };
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hasIO = 'IntersectionObserver' in window;
   root.classList.add('is-ready');
@@ -16,7 +18,7 @@
       v = Math.max(0, Math.min(100, v));
       slider.style.setProperty('--pos', v + '%');
       range.value = String(Math.round(v));
-      range.setAttribute('aria-valuetext', Math.round(v) + '% especialidad, ' + Math.round(100 - v) + '% torrefacto');
+      range.setAttribute('aria-valuetext', Math.round(v) + S.sp + Math.round(100 - v) + S.tor);
     };
     range.addEventListener('input', function () { touched = true; setPos(parseFloat(range.value)); });
     var peek = function () {
