@@ -21,6 +21,7 @@
 ## English
 - [Specialty coffee in Madrid, explained simply](https://madridspecialtycoffee.com/en/): English landing page with guides, tools and services.
 - [What is specialty coffee?](https://madridspecialtycoffee.com/en/specialty-coffee): the score, origin and roast that define it, a roast simulator, a bean comparison and a glossary.
+- [Coffee brewing guides](https://madridspecialtycoffee.com/en/guides): a brew calculator with timer, a method quiz, recipes for V60, Chemex, AeroPress, French press, espresso and moka pot, a grind guide, a taste diagnosis, and water and storage tips.
 - [Specialty coffee journal](https://madridspecialtycoffee.com/en/journal): English articles about specialty coffee, with calculators and tools.
 - [How much does specialty coffee cost?](https://madridspecialtycoffee.com/en/how-much-does-specialty-coffee-cost): a calculator and five signs to tell if the price makes sense.
 - [How to make coffee in a moka pot](https://madridspecialtycoffee.com/en/how-to-make-coffee-in-a-moka-pot): six steps and a diagnosis if it comes out bitter or watery.
@@ -29,6 +30,8 @@
 - [Services for your coffee project](https://madridspecialtycoffee.com/en/services): opening a café, creating a brand, green and roasted coffee, training, origin advice and event coffee bars.
 - [How to start with specialty coffee](https://madridspecialtycoffee.com/en/how-to-start-with-specialty-coffee): a method quiz, a three-item kit, a first recipe and a freshness guide.
 - [The journey of specialty coffee in Spain](https://madridspecialtycoffee.com/en/history-of-specialty-coffee-in-spain): a timeline from 1765 to today, torrefacto and current figures.
+- [Contact](https://madridspecialtycoffee.com/en/contact): a form to tell us about your project, with our WhatsApp details.
+- [Withdraw from my order](https://madridspecialtycoffee.com/en/withdrawal): a form to withdraw from an order within 14 calendar days. Courtesy translation; the Spanish version prevails.
 
 ## Información legal y de compra
 - [Aviso legal](https://madridspecialtycoffee.com/aviso-legal)

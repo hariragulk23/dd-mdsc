@@ -13,7 +13,12 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/servicios"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/services"/>
   </url>
-  <url><loc>https://madridspecialtycoffee.com/guias</loc><lastmod>2026-10-21</lastmod></url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/guias</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/guias"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/guides"/>
+  </url>
   <url><loc>https://madridspecialtycoffee.com/journal</loc><lastmod>2026-10-21</lastmod></url>
   <url>
     <loc>https://madridspecialtycoffee.com/como-empezar-cafe-de-especialidad</loc>
@@ -45,7 +50,12 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/cafe-descafeinado-como-se-hace"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/decaf-coffee-how-its-made"/>
   </url>
-  <url><loc>https://madridspecialtycoffee.com/contacto</loc><lastmod>2026-10-21</lastmod></url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/contacto</loc>
+    <lastmod>2026-10-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/contacto"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/contact"/>
+  </url>
   <url>
     <loc>https://madridspecialtycoffee.com/sobre-nosotros</loc>
     <lastmod>2026-10-21</lastmod>
@@ -59,7 +69,12 @@
   <url><loc>https://madridspecialtycoffee.com/envios</loc><lastmod>2026-10-21</lastmod></url>
   <url><loc>https://madridspecialtycoffee.com/devoluciones</loc><lastmod>2026-10-21</lastmod></url>
   <url><loc>https://madridspecialtycoffee.com/atencion-cliente</loc><lastmod>2026-10-21</lastmod></url>
-  <url><loc>https://madridspecialtycoffee.com/desistir</loc><lastmod>2026-10-21</lastmod></url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/desistir</loc>
+    <lastmod>2026-10-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/desistir"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/withdrawal"/>
+  </url>
   <url>
     <loc>https://madridspecialtycoffee.com/en/how-much-does-specialty-coffee-cost</loc>
     <lastmod>2026-10-22</lastmod>
@@ -109,5 +124,23 @@
     <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/cafe-de-especialidad"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/specialty-coffee"/>
+  </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/en/guides</loc>
+    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/guias"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/guides"/>
+  </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/en/contact</loc>
+    <lastmod>2026-10-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/contacto"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/contact"/>
+  </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/en/withdrawal</loc>
+    <lastmod>2026-10-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/desistir"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/withdrawal"/>
   </url>
 </urlset>
