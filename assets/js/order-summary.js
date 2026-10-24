@@ -2,6 +2,19 @@
    Lee ?session_id=... (lo añade Stripe), pide el resumen a la función y vacía el carrito. */
 (function () {
   'use strict';
+  var EN = (document.documentElement.getAttribute('lang') || 'es').slice(0, 2) === 'en';
+  var S = EN ? {
+    free: 'Free',
+    mail1: 'We have sent your receipt to ',
+    mail2: '. If you cannot see it, check your spam folder.'
+  } : {
+    free: 'Gratis',
+    mail1: 'Te hemos enviado el recibo a ',
+    mail2: '. Si no lo ves, revisa la carpeta de spam.'
+  };
+  /* English: the function sends Spanish grind and product names; show the English ones */
+  var GR = { 'En grano': 'Whole bean', 'Molido para espresso': 'Ground for espresso', 'Molido para moka': 'Ground for moka pot', 'Molido para filtro': 'Ground for filter', 'Molido para prensa': 'Ground for French press' };
+  var PN = { 'Descafeinado Colombia': 'Decaf Colombia' };
   var box = document.getElementById('order-summary');
   if (!box) return;
   var m = /[?&]session_id=([^&#]+)/.exec(window.location.search);
@@ -14,6 +27,10 @@
     try { return (cents / 100).toLocaleString('es-ES', { style: 'currency', currency: (cur || 'eur').toUpperCase() }); }
     catch (e) { return (cents / 100).toFixed(2).replace('.', ',') + ' €'; }
   }
+  if (EN) eur = function (cents, cur) {
+    try { return (cents / 100).toLocaleString('en-GB', { style: 'currency', currency: (cur || 'eur').toUpperCase() }); }
+    catch (e) { return '€' + (cents / 100).toFixed(2); }
+  };
   function q(sel) { return box.querySelector(sel); }
 
   box.setAttribute('aria-busy', 'true');
@@ -26,17 +43,17 @@
         var li = document.createElement('li');
         var mm = /^(\d+)x\s+(.+?)\s*\((.+)\)$/.exec(line);
         if (mm) {
-          var b = document.createElement('b'); b.textContent = mm[1] + ' × ' + mm[2];
-          var s = document.createElement('span'); s.textContent = mm[3];
+          var b = document.createElement('b'); b.textContent = mm[1] + ' × ' + (EN && PN[mm[2]] ? PN[mm[2]] : mm[2]);
+          var s = document.createElement('span'); s.textContent = EN && GR[mm[3]] ? GR[mm[3]] : mm[3];
           li.appendChild(b); li.appendChild(s);
         } else { li.textContent = line; }
         ul.appendChild(li);
       });
-      q('[data-os-shipping]').textContent = d.shipping > 0 ? eur(d.shipping, d.currency) : 'Gratis';
+      q('[data-os-shipping]').textContent = d.shipping > 0 ? eur(d.shipping, d.currency) : S.free;
       q('[data-os-total]').textContent = eur(d.total, d.currency);
       if (d.email) {
         var mail = q('[data-os-mail]');
-        mail.textContent = 'Te hemos enviado el recibo a ' + d.email + '. Si no lo ves, revisa la carpeta de spam.';
+        mail.textContent = S.mail1 + d.email + S.mail2;
         mail.hidden = false;
       }
       box.hidden = false;

@@ -5,6 +5,27 @@
    Este archivo se carga DESPUÉS de products.js y ANTES de shop.js. */
 (function () {
   'use strict';
+  var EN = (document.documentElement.getAttribute('lang') || 'es').slice(0, 2) === 'en';
+  var S = EN ? {
+    out: 'Sold out',
+    outAria: ': sold out',
+    outTemp: 'Temporarily sold out',
+    outTempAria: ': temporarily sold out',
+    noteA: 'Temporarily sold out. <a href="https://wa.me/34665747463?text=',
+    waQ1: 'Hello, when will ',
+    waQ2: ' be back in stock?',
+    noteB: '" target="_blank" rel="noopener">Ask us on WhatsApp</a>'
+  } : {
+    out: 'Agotado',
+    outAria: ': agotado',
+    outTemp: 'Agotado temporalmente',
+    outTempAria: ': agotado temporalmente',
+    noteA: 'Agotado temporalmente. <a href="https://wa.me/34665747463?text=',
+    waQ1: 'Hola, ¿cuándo vuelve ',
+    waQ2: '?',
+    noteB: '" target="_blank" rel="noopener">Pregúntanos por WhatsApp</a>'
+  };
+  function dn(p) { return EN && p.name_en ? p.name_en : p.name; }
   var P = window.MSC_PRODUCTS || [];
   var out = {};
   P.forEach(function (p) { if (p && p.available === false) out[p.id] = p; });
@@ -48,7 +69,7 @@
   function mark() {
     document.querySelectorAll('[data-add]').forEach(function (btn) {
       var bid = btn.getAttribute('data-add');
-      setBtn(btn, !!out[bid], 'Agotado', out[bid] ? out[bid].name + ': agotado' : null);
+      setBtn(btn, !!out[bid], S.out, out[bid] ? dn(out[bid]) + S.outAria : null);
     });
     document.querySelectorAll('.sp-card').forEach(function (card) {
       var btn = card.querySelector('[data-add]');
@@ -57,19 +78,19 @@
       card.classList.add('is-soldout');
       var badges = card.querySelector('.sp-badges');
       if (badges && !badges.querySelector('.sp-badge--out')) {
-        var s = document.createElement('span'); s.className = 'sp-badge sp-badge--out'; s.textContent = 'Agotado';
+        var s = document.createElement('span'); s.className = 'sp-badge sp-badge--out'; s.textContent = S.out;
         badges.insertBefore(s, badges.firstChild);
       }
     });
     var pid = pageId();
     if (pid && out[pid]) {
-      var buy = document.querySelector('[data-buy]'); if (buy) setBtn(buy, true, 'Agotado temporalmente', out[pid].name + ': agotado temporalmente');
-      var st = document.querySelector('[data-sticky-buy]'); if (st) setBtn(st, true, 'Agotado', out[pid].name + ': agotado');
+      var buy = document.querySelector('[data-buy]'); if (buy) setBtn(buy, true, S.outTemp, dn(out[pid]) + S.outTempAria);
+      var st = document.querySelector('[data-sticky-buy]'); if (st) setBtn(st, true, S.out, dn(out[pid]) + S.outAria);
       var price = document.querySelector('.pd-price');
       if (price && !document.querySelector('.pd-soldout')) {
         var n = document.createElement('p'); n.className = 'pd-soldout'; n.setAttribute('role', 'status');
-        n.innerHTML = 'Agotado temporalmente. <a href="https://wa.me/34665747463?text=' +
-          encodeURIComponent('Hola, ¿cuándo vuelve ' + out[pid].name + '?') + '" target="_blank" rel="noopener">Pregúntanos por WhatsApp</a>';
+        n.innerHTML = S.noteA +
+          encodeURIComponent(S.waQ1 + dn(out[pid]) + S.waQ2) + S.noteB;
         price.parentNode.insertBefore(n, price.nextSibling);
       }
     }
