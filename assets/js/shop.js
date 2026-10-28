@@ -7,7 +7,7 @@
     head: '<div class="sp-dh"><h2 id="sp-cart-title">Your cart</h2><button type="button" class="sp-x" aria-label="Close cart">×</button></div>',
     total1: '<div class="sp-df"><div class="sp-total"><span>Total</span><b data-total>€0.00</b></div>',
     postal: '<label class="sp-postal"><span>Delivery postcode</span><input type="text" inputmode="numeric" maxlength="5" autocomplete="postal-code" data-postal placeholder="28001"></label>',
-    terms: '<label class="sp-terms"><input type="checkbox" data-terms> <span>I have read and accept the <a href="/condiciones-compra" target="_blank" rel="noopener" hreflang="es">terms of sale (Spanish)</a></span></label>',
+    terms: '<label class="sp-terms"><input type="checkbox" data-terms> <span>I have read and accept the <a href="/en/terms-of-sale" target="_blank" rel="noopener">terms of sale</a></span></label>',
     payBtn: '<button type="button" class="sp-btn" data-pay disabled>Pay by card</button>',
     waBtn: '<a class="sp-btn sp-btn--ghost" data-wa href="#" target="_blank" rel="noopener">Order on WhatsApp</a>',
     small: '<small>Prices include VAT. Secure payment with Stripe. We only ship to mainland Spain for now.</small>',
@@ -249,7 +249,7 @@
     payBtn.disabled = true; payBtn.textContent = S.paying;
     fetch('/.netlify/functions/create-checkout', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ postal: postalIn.value.trim(), items: cart.map(function (l) { return { id: l.id, grind: l.grind, qty: l.qty }; }) })
+      body: JSON.stringify(EN ? { postal: postalIn.value.trim(), items: cart.map(function (l) { return { id: l.id, grind: l.grind, qty: l.qty }; }), lang: 'en' } : { postal: postalIn.value.trim(), items: cart.map(function (l) { return { id: l.id, grind: l.grind, qty: l.qty }; }) })
     }).then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
       .then(function (x) {
         if (x.ok && x.d.url) { window.location.href = x.d.url; return; }
