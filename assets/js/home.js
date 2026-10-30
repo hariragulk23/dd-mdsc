@@ -1,6 +1,14 @@
 /* home.js: scroll story, horizontal services gallery, mobile CTA */
 (function () {
   'use strict';
+  var EN = (document.documentElement.getAttribute('lang') || 'es').slice(0, 2) === 'en';
+  var S = EN ? {
+    hintPinned: 'Keep scrolling to go through them ↓',
+    hintSwipe: 'Swipe to see more →'
+  } : {
+    hintPinned: 'Sigue bajando para recorrerlos ↓',
+    hintSwipe: 'Desliza para ver más →'
+  };
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hasIO = 'IntersectionObserver' in window;
 
@@ -79,12 +87,12 @@
         var vs = window.getComputedStyle(viewport);
         dist = Math.max(0, track.scrollWidth + parseFloat(vs.paddingLeft) + parseFloat(vs.paddingRight) - viewport.clientWidth);
         hs.style.height = (dist + window.innerHeight) + 'px';
-        if (hint) hint.textContent = 'Sigue bajando para recorrerlos ↓';
+        if (hint) hint.textContent = S.hintPinned;
       } else {
         dist = 0;
         hs.style.height = '';
         track.style.transform = '';
-        if (hint) hint.textContent = 'Desliza para ver más →';
+        if (hint) hint.textContent = S.hintSwipe;
       }
       update();
       if (window.ScrollTrigger && typeof window.ScrollTrigger.refresh === 'function') window.ScrollTrigger.refresh();
