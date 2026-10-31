@@ -5,7 +5,11 @@
   var S = EN ? {
     fab: 'Cart <b data-cart-count>0</b>',
     head: '<div class="sp-dh"><h2 id="sp-cart-title">Your cart</h2><button type="button" class="sp-x" aria-label="Close cart">×</button></div>',
-    total1: '<div class="sp-df"><div class="sp-total"><span>Total</span><b data-total>€0.00</b></div>',
+    total1: '<div class="sp-df"><div class="sp-totals" data-totals><div class="sp-total"><span>Subtotal</span><b data-total>€0.00</b></div></div>',
+    sub: 'Subtotal',
+    shipL: 'Shipping',
+    free: 'Free',
+    tot: 'Total',
     postal: '<label class="sp-postal"><span>Delivery postcode</span><input type="text" inputmode="numeric" maxlength="5" autocomplete="postal-code" data-postal placeholder="28001"></label>',
     terms: '<label class="sp-terms"><input type="checkbox" data-terms> <span>I have read and accept the <a href="/en/terms-of-sale" target="_blank" rel="noopener">terms of sale</a></span></label>',
     payBtn: '<button type="button" class="sp-btn" data-pay disabled>Pay by card</button>',
@@ -51,7 +55,11 @@
   } : {
     fab: 'Carrito <b data-cart-count>0</b>',
     head: '<div class="sp-dh"><h2 id="sp-cart-title">Tu carrito</h2><button type="button" class="sp-x" aria-label="Cerrar carrito">×</button></div>',
-    total1: '<div class="sp-df"><div class="sp-total"><span>Total</span><b data-total>0,00 €</b></div>',
+    total1: '<div class="sp-df"><div class="sp-totals" data-totals><div class="sp-total"><span>Subtotal</span><b data-total>0,00 €</b></div></div>',
+    sub: 'Subtotal',
+    shipL: 'Envío',
+    free: 'Gratis',
+    tot: 'Total',
     postal: '<label class="sp-postal"><span>Código postal de envío</span><input type="text" inputmode="numeric" maxlength="5" autocomplete="postal-code" data-postal placeholder="28001"></label>',
     terms: '<label class="sp-terms"><input type="checkbox" data-terms> <span>He leído y acepto las <a href="condiciones-compra.html" target="_blank" rel="noopener">condiciones de compra</a></span></label>',
     payBtn: '<button type="button" class="sp-btn" data-pay disabled>Pagar con tarjeta</button>',
@@ -193,7 +201,7 @@
   function waText() {
     var t = S.waHello;
     cart.forEach(function (l) { var p = byId[l.id]; t += '- ' + l.qty + ' × ' + pname(p) + ' 250 g (' + GRINDS[l.grind] + '): ' + eur(l.qty * p.price) + '\n'; });
-    t += 'Total: ' + eur(total()) + S.waTail;
+    t += 'Subtotal: ' + eur(total()) + S.waTail;
     return t;
   }
   function render() {
@@ -212,7 +220,6 @@
           '<div class="sp-line-r"><b>' + eur(l.qty * p.price) + '</b><span class="sp-mini"><button type="button" data-dec="' + i + '" aria-label="' + S.dec + '">−</button><span>' + l.qty + '</span><button type="button" data-inc="' + i + '" aria-label="' + S.inc + '">+</button></span></div></li>';
       }).join('');
     }
-    $('[data-total]', drawer).textContent = eur(tot);
     var ship = $('[data-ship]', drawer); var left = CFG.freeShip - tot;
     ship.innerHTML = (tot <= 0 ? S.shipFrom + eur(CFG.freeShip) : left > 0 ? S.shipLeftA + eur(left) + S.shipLeftB : S.shipFree) +
       '<div class="sp-ship-bar"><i style="--p:' + Math.min(100, Math.round(tot / CFG.freeShip * 100)) + '%"></i></div>';
@@ -230,7 +237,21 @@
     if (NON_MAINLAND.test(v)) return 'island';
     return 'ok';
   };
+  /* Subtotal / shipping / total. Display only: the server decides the real amounts. Three rows when the postcode is deliverable, else just the subtotal. */
+  function renderTotals() {
+    var tot = total(), st = postalState(), sc = Math.round(tot * 100);
+    var row = function (cls, label, val, attr) { return '<div class="sp-total' + cls + '"><span>' + label + '</span><b' + attr + '>' + val + '</b></div>'; };
+    var html;
+    if (st === 'ok' && cart.length && typeof CFG.shipCost === 'number') {
+      var shipC = sc >= Math.round(CFG.freeShip * 100) ? 0 : Math.round(CFG.shipCost * 100);
+      html = row(' sp-total--s', S.sub, eur(tot), ' data-total') +
+        row(' sp-total--s', S.shipL, shipC ? eur(shipC / 100) : S.free, ' data-ship-cost') +
+        row('', S.tot, eur((sc + shipC) / 100), ' data-grand');
+    } else html = row('', S.sub, eur(tot), ' data-total');
+    $('[data-totals]', drawer).innerHTML = html;
+  }
   function refreshPay() {
+    renderTotals();
     var st = postalState();
     var msg = st === 'empty' ? S.pEmpty
       : st === 'bad' ? S.pBad

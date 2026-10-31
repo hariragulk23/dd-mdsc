@@ -262,6 +262,9 @@
 .sp-df { padding: 16px 20px calc(16px + env(safe-area-inset-bottom, 0px)); border-top: 2px solid var(--tinta); display: grid; gap: 10px; }
 .sp-total { display: flex; justify-content: space-between; align-items: baseline; font-weight: 700; }
 .sp-total b { font-family: var(--serif); font-size: 30px; }
+.sp-totals { display: grid; gap: 6px; }
+.sp-total--s { font-weight: 600; font-size: 15px; }
+.sp-total--s b { font-family: var(--sans); font-size: 15px; }
 .sp-df small { color: var(--tinta-suave); font-size: 12px; line-height: 1.45; }
 .sp-toast { position: fixed; left: 50%; bottom: calc(92px + env(safe-area-inset-bottom, 0px)); z-index: 140; transform: translate(-50%, 20px); display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 14px; background: var(--tinta); color: var(--crema); font-size: 14px; font-weight: 700; opacity: 0; visibility: hidden; transition: opacity .3s var(--ease), transform .3s var(--ease), visibility 0s linear .3s; max-width: calc(100% - 32px); }
 .sp-toast.is-on { opacity: 1; visibility: visible; transform: translate(-50%, 0); transition: opacity .3s var(--ease), transform .3s var(--ease); }
