@@ -112,6 +112,8 @@
   function pname(p) { return EN && p.name_en ? p.name_en : p.name; }
   function pdesc(p) { return EN && p.desc_en ? p.desc_en : p.desc; }
   function purl(p) { return EN && p.url_en ? p.url_en : p.url; }
+  /* English pages live in /en/, so a relative asset path from products.js must be root-absolute there; Spanish is untouched */
+  function asset(u) { return EN && u && !/^(\/|https?:)/i.test(u) ? '/' + u : u; }
   var KEY = 'msc_cart_v1';
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hasIO = 'IntersectionObserver' in window;
@@ -215,7 +217,7 @@
       lines.innerHTML = cart.map(function (l, i) {
         var p = byId[l.id];
         var opts = Object.keys(GRINDS).map(function (g) { return '<option value="' + g + '"' + (g === l.grind ? ' selected' : '') + '>' + GRINDS[g] + '</option>'; }).join('');
-        return '<li class="sp-line"><img src="' + esc(p.img) + '" alt="" width="64" height="64">' +
+        return '<li class="sp-line"><img src="' + esc(asset(p.img)) + '" alt="" width="64" height="64">' +
           '<div><h3>' + esc(pname(p)) + '</h3><label class="sr" for="g' + i + '">' + S.grind + '</label><select id="g' + i + '" data-grind-i="' + i + '">' + opts + '</select></div>' +
           '<div class="sp-line-r"><b>' + eur(l.qty * p.price) + '</b><span class="sp-mini"><button type="button" data-dec="' + i + '" aria-label="' + S.dec + '">−</button><span>' + l.qty + '</span><button type="button" data-inc="' + i + '" aria-label="' + S.inc + '">+</button></span></div></li>';
       }).join('');
@@ -377,7 +379,7 @@
           $$('[data-v]', grp).forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
           if (ans.met && ans.fam && ans.milk && ans.caf) {
             var top = score(), p = byId[top[0]], alt = top[1] ? byId[top[1]] : null;
-            res.innerHTML = '<img src="' + esc(p.img) + '" alt="" width="110" height="110"><div><p>' + S.yourCoffee + '</p><h3>' + esc(pname(p)) + '</h3><p>' + esc(pdesc(p)) + '</p>' +
+            res.innerHTML = '<img src="' + esc(asset(p.img)) + '" alt="" width="110" height="110"><div><p>' + S.yourCoffee + '</p><h3>' + esc(pname(p)) + '</h3><p>' + esc(pdesc(p)) + '</p>' +
               (alt ? '<p style="margin-top:8px">' + S.alsoLike + '<a href="' + esc(purl(alt)) + '" style="color:var(--cielo)">' + esc(pname(alt)) + '</a></p>' : '') +
               '<div class="sp-row"><a class="sp-btn sp-btn--ghost" href="' + esc(purl(p)) + '">' + S.viewCoffee + '</a><button type="button" class="sp-btn" data-add="' + p.id + '">' + S.addDot + eur(p.price) + '</button></div></div>';
             res.classList.add('is-on');
