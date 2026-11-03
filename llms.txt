@@ -9,7 +9,7 @@
 - [Servicios](https://madridspecialtycoffee.com/servicios): abrir una cafetería, crear una marca de café, café verde, café tostado para negocios, formación, asesoría de origen y eventos.
 - [Journal](https://madridspecialtycoffee.com/journal): artículos sobre café de especialidad.
 - [Sobre nosotros](https://madridspecialtycoffee.com/sobre-nosotros): quién está detrás de la marca.
-- [Contacto](https://madridspecialtycoffee.com/contacto): WhatsApp, teléfono y formulario.
+- [Contacto](https://madridspecialtycoffee.com/contacto): email (hello@spainspecialtycoffee.com), WhatsApp, teléfono y formulario.
 
 ## Artículos
 - [Cómo empezar con el café de especialidad](https://madridspecialtycoffee.com/como-empezar-cafe-de-especialidad)
@@ -34,7 +34,7 @@
 - [Services for your coffee project](https://madridspecialtycoffee.com/en/services): opening a café, creating a brand, green and roasted coffee, training, origin advice and event coffee bars.
 - [How to start with specialty coffee](https://madridspecialtycoffee.com/en/how-to-start-with-specialty-coffee): a method quiz, a three-item kit, a first recipe and a freshness guide.
 - [The journey of specialty coffee in Spain](https://madridspecialtycoffee.com/en/history-of-specialty-coffee-in-spain): a timeline from 1765 to today, torrefacto and current figures.
-- [Contact](https://madridspecialtycoffee.com/en/contact): a form to tell us about your project, with our WhatsApp details.
+- [Contact](https://madridspecialtycoffee.com/en/contact): a form to tell us about your project, with our email (hello@spainspecialtycoffee.com) and WhatsApp details.
 - [Withdraw from my order](https://madridspecialtycoffee.com/en/withdrawal): a form to withdraw from an order within 14 calendar days. Courtesy translation; the Spanish version prevails.
 
 ## Información legal y de compra
