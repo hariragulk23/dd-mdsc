@@ -13,12 +13,10 @@
     postal: '<label class="sp-postal"><span>Delivery postcode</span><input type="text" inputmode="numeric" maxlength="5" autocomplete="postal-code" data-postal placeholder="28001"></label>',
     terms: '<label class="sp-terms"><input type="checkbox" data-terms> <span>I have read and accept the <a href="/en/terms-of-sale" target="_blank" rel="noopener">terms of sale</a></span></label>',
     payBtn: '<button type="button" class="sp-btn" data-pay disabled>Pay by card</button>',
-    waBtn: '<a class="sp-btn sp-btn--ghost" data-wa href="#" target="_blank" rel="noopener">Order on WhatsApp</a>',
+    help: '<small>Questions before ordering? Email <a href="mailto:hello@spainspecialtycoffee.com">hello@spainspecialtycoffee.com</a></small>',
     small: '<small>Prices include VAT. Secure payment with Stripe. We only ship to mainland Spain for now.</small>',
     toastBtn: '</span><button type="button">View cart</button>',
     added: ' added',
-    waHello: 'Hello, I would like to place this order at Madrid Specialty Coffee:\n',
-    waTail: '\n\nName:\nDelivery address:',
     open: 'Open cart, ',
     item1: ' item',
     itemN: ' items',
@@ -35,8 +33,8 @@
     pIsland: 'For now we only ship to mainland Spain. Message us on WhatsApp to ask about your delivery.',
     payTxt: 'Pay by card',
     paying: 'Opening payment…',
-    payFail: 'We could not open the payment page. Order your coffee on WhatsApp.',
-    offline: 'No connection. Try again or order on WhatsApp.',
+    payFail: 'We could not open the payment page. Try again or email hello@spainspecialtycoffee.com.',
+    offline: 'No connection. Try again or email hello@spainspecialtycoffee.com.',
     count1: '1 coffee',
     countN: ' coffees',
     yourCoffee: 'Your coffee',
@@ -63,12 +61,10 @@
     postal: '<label class="sp-postal"><span>Código postal de envío</span><input type="text" inputmode="numeric" maxlength="5" autocomplete="postal-code" data-postal placeholder="28001"></label>',
     terms: '<label class="sp-terms"><input type="checkbox" data-terms> <span>He leído y acepto las <a href="condiciones-compra.html" target="_blank" rel="noopener">condiciones de compra</a></span></label>',
     payBtn: '<button type="button" class="sp-btn" data-pay disabled>Pagar con tarjeta</button>',
-    waBtn: '<a class="sp-btn sp-btn--ghost" data-wa href="#" target="_blank" rel="noopener">Pedir por WhatsApp</a>',
+    help: '<small>¿Dudas antes de pedir? Escríbenos a <a href="mailto:hello@spainspecialtycoffee.com">hello@spainspecialtycoffee.com</a></small>',
     small: '<small>Precios con IVA incluido. Pago seguro con Stripe. Envíos solo a la España peninsular por ahora.</small>',
     toastBtn: '</span><button type="button">Ver carrito</button>',
     added: ' añadido',
-    waHello: 'Hola, quiero hacer este pedido en Madrid Specialty Coffee:\n',
-    waTail: '\n\nNombre:\nDirección de envío:',
     open: 'Abrir carrito, ',
     item1: ' producto',
     itemN: ' productos',
@@ -85,8 +81,8 @@
     pIsland: 'De momento enviamos solo a la España peninsular. Escríbenos por WhatsApp para consultar tu envío.',
     payTxt: 'Pagar con tarjeta',
     paying: 'Abriendo pago…',
-    payFail: 'No se pudo abrir el pago. Pide tu café por WhatsApp.',
-    offline: 'Sin conexión. Inténtalo de nuevo o pide por WhatsApp.',
+    payFail: 'No se pudo abrir el pago. Inténtalo de nuevo o escríbenos a hello@spainspecialtycoffee.com.',
+    offline: 'Sin conexión. Inténtalo de nuevo o escríbenos a hello@spainspecialtycoffee.com.',
     count1: '1 café',
     countN: ' cafés',
     yourCoffee: 'Tu café',
@@ -104,7 +100,7 @@
     guideUrl: 'guias.html?metodo='
   };
   var P = window.MSC_PRODUCTS || [];
-  var CFG = window.MSC_SHOP || { wa: '', freeShip: 35 };
+  var CFG = window.MSC_SHOP || { freeShip: 35 };
   var byId = {};
   P.forEach(function (p) { byId[p.id] = p; });
   var GRINDS = { grano: 'En grano', espresso: 'Molido para espresso', moka: 'Molido para moka', filtro: 'Molido para filtro', prensa: 'Molido para prensa' };
@@ -173,7 +169,7 @@
     '<p class="sp-postal-msg" data-postal-msg role="status"></p>' +
     S.terms +
     S.payBtn +
-    S.waBtn +
+    S.help +
     S.small + '</div>';
   var toastEl = document.createElement('div'); toastEl.className = 'sp-toast'; toastEl.setAttribute('role', 'status');
   document.body.appendChild(fab); document.body.appendChild(scrim); document.body.appendChild(drawer); document.body.appendChild(toastEl);
@@ -200,12 +196,6 @@
     toastTimer = setTimeout(function () { toastEl.classList.remove('is-on'); }, 3200);
   }
   function bump() { if (reduce) return; fab.classList.remove('is-bump'); void fab.offsetWidth; fab.classList.add('is-bump'); }
-  function waText() {
-    var t = S.waHello;
-    cart.forEach(function (l) { var p = byId[l.id]; t += '- ' + l.qty + ' × ' + pname(p) + ' 250 g (' + GRINDS[l.grind] + '): ' + eur(l.qty * p.price) + '\n'; });
-    t += 'Subtotal: ' + eur(total()) + S.waTail;
-    return t;
-  }
   function render() {
     var n = count(), tot = total();
     $$('[data-cart-count]').forEach(function (e) { e.textContent = String(n); });
@@ -226,9 +216,6 @@
     ship.innerHTML = (tot <= 0 ? S.shipFrom + eur(CFG.freeShip) : left > 0 ? S.shipLeftA + eur(left) + S.shipLeftB : S.shipFree) +
       '<div class="sp-ship-bar"><i style="--p:' + Math.min(100, Math.round(tot / CFG.freeShip * 100)) + '%"></i></div>';
     refreshPay();
-    var wa = $('[data-wa]', drawer);
-    if (cart.length && CFG.wa) { wa.removeAttribute('aria-disabled'); wa.href = 'https://wa.me/' + CFG.wa + '?text=' + encodeURIComponent(waText()); }
-    else { wa.setAttribute('aria-disabled', 'true'); wa.href = '#'; }
   }
   var postalIn = $('[data-postal]', drawer), termsIn = $('[data-terms]', drawer), payBtn = $('[data-pay]', drawer), postalMsg = $('[data-postal-msg]', drawer);
   var NON_MAINLAND = /^(07|35|38|51|52)/;
@@ -286,7 +273,6 @@
     var t = e.target;
     if (t.hasAttribute('data-inc')) { var i = +t.getAttribute('data-inc'); setQty(i, cart[i].qty + 1); }
     if (t.hasAttribute('data-dec')) { var j = +t.getAttribute('data-dec'); setQty(j, cart[j].qty - 1); }
-    if (t.hasAttribute('data-wa') && t.getAttribute('aria-disabled') === 'true') e.preventDefault();
   });
   drawer.addEventListener('change', function (e) { if (e.target.hasAttribute('data-grind-i')) setGrind(+e.target.getAttribute('data-grind-i'), e.target.value); });
   window.addEventListener('storage', function (e) { if (e.key === KEY) { cart = load(); render(); } });
