@@ -49,6 +49,8 @@
     bag1: ' bag',
     bagN: ' bags',
     notNote: 'Not a note of this coffee',
+    paused: 'Coming soon',
+    pausedMsg: 'The shop is paused right now. Coming soon.',
     guideUrl: '/en/guides?metodo='
   } : {
     fab: 'Carrito <b data-cart-count>0</b>',
@@ -97,10 +99,18 @@
     bag1: ' bolsa',
     bagN: ' bolsas',
     notNote: 'No es una nota de este café',
+    paused: 'Disponible muy pronto',
+    pausedMsg: 'La tienda está en pausa. Disponible muy pronto.',
     guideUrl: 'guias.html?metodo='
   };
   var P = window.MSC_PRODUCTS || [];
   var CFG = window.MSC_SHOP || { freeShip: 35 };
+  /* Pause switch: the server answers { paused: true } when the Netlify variable SHOP_PAUSED is "true". Open by default. */
+  var paused = false;
+  document.addEventListener('click', function (e) {
+    var t = paused && e.target.closest ? e.target.closest('[data-add],[data-buy],[data-sticky-buy]') : null;
+    if (t) { e.preventDefault(); e.stopPropagation(); if (e.stopImmediatePropagation) e.stopImmediatePropagation(); }
+  }, true);
   var byId = {};
   P.forEach(function (p) { byId[p.id] = p; });
   var GRINDS = { grano: 'En grano', espresso: 'Molido para espresso', moka: 'Molido para moka', filtro: 'Molido para filtro', prensa: 'Molido para prensa' };
@@ -125,14 +135,8 @@
   function load() {
     try {
       var a = JSON.parse(window.localStorage.getItem(KEY) || '[]');
-      return Array.isArray(a) ? a.filter(function (l) { return byId[l.id] && GRINDS[l.grind] && l.qty > 0; }).map(function (l) { return { id: l.id, grind: l.grind, qty: Math.min(20, Math.floor(l.qty)) }; }) : [];
+      return Array.isArray(a) ? a.filter(function (l) { return byId[l.id] && !byId[l.id].eco && GRINDS[l.grind] && l.qty > 0; }).map(function (l) { return { id: l.id, grind: l.grind, qty: Math.min(20, Math.floor(l.qty)) }; }) : [];
     } catch (e) { return []; }
-  }
-  var held = [];
-  if (EN) {
-    var load0 = load;
-    load = function () { var all = load0(); held = all.filter(function (l) { return byId[l.id].eco; }); return all.filter(function (l) { return !byId[l.id].eco; }); };
-    save = function () { try { window.localStorage.setItem(KEY, JSON.stringify(cart.concat(held))); } catch (e) {} };
   }
   var cart = load();
   function save() { try { window.localStorage.setItem(KEY, JSON.stringify(cart)); } catch (e) {} }
@@ -141,7 +145,7 @@
   function findLine(id, grind) { for (var i = 0; i < cart.length; i++) { if (cart[i].id === id && cart[i].grind === grind) return i; } return -1; }
   function add(id, grind, qty) {
     if (!byId[id]) return;
-    if (EN && byId[id].eco) return;
+    if (byId[id].eco || paused) return;
     grind = GRINDS[grind] ? grind : 'grano';
     qty = Math.max(1, Math.min(20, qty || 1));
     var i = findLine(id, grind);
@@ -246,8 +250,9 @@
       : st === 'bad' ? S.pBad
       : st === 'island' ? S.pIsland
       : '';
+    if (paused) msg = S.pausedMsg;
     postalMsg.textContent = msg;
-    var ready = cart.length > 0 && st === 'ok' && termsIn.checked && !!CFG.stripe;
+    var ready = cart.length > 0 && st === 'ok' && termsIn.checked && !!CFG.stripe && !paused;
     payBtn.disabled = !ready;
     if (!CFG.stripe) payBtn.textContent = S.payTxt;
     else payBtn.textContent = S.payTxt;
@@ -278,6 +283,27 @@
   window.addEventListener('storage', function (e) { if (e.key === KEY) { cart = load(); render(); } });
   render();
 
+  function markPaused() {
+    $$('[data-add],[data-buy],[data-sticky-buy]').forEach(function (b) {
+      if (b.getAttribute('data-paused')) return;
+      b.setAttribute('data-paused', '1'); b.classList.add('is-soldout'); b.setAttribute('aria-disabled', 'true');
+      b.removeAttribute('aria-label'); b.textContent = S.paused;
+    });
+  }
+  function setPaused() {
+    paused = true; fab.style.display = 'none'; markPaused(); refreshPay();
+    if (window.MutationObserver) {
+      var raf = false;
+      new MutationObserver(function () { if (raf) return; raf = true; requestAnimationFrame(function () { raf = false; markPaused(); }); }).observe(document.body, { childList: true, subtree: true });
+    }
+  }
+  try {
+    fetch('/.netlify/functions/shop-status', { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) { if (d && d.paused === true) setPaused(); })
+      .catch(function () {});
+  } catch (e) {}
+
   /* Quick add buttons (cards, quiz, related) */
   document.addEventListener('click', function (e) {
     var b = e.target.closest ? e.target.closest('[data-add]') : null;
@@ -293,8 +319,8 @@
     rev.forEach(function (el) { rio.observe(el); });
   } else rev.forEach(function (el) { el.classList.add('is-in'); });
 
-  /* English: the organic coffee is not offered (cards, filter chip, calculator option, map dot) */
-  if (EN) P.filter(function (p) { return p.eco; }).forEach(function (p) {
+  /* The organic coffee is not offered in either language (cards, filter chip, calculator option, map dot) */
+  P.filter(function (p) { return p.eco; }).forEach(function (p) {
     $$('.sp-card[data-eco="1"], [data-f-tog="eco"], option[value="' + p.id + '"], .sp-dot[href="' + p.url + '"]').forEach(function (e) { e.parentNode.removeChild(e); });
   });
 
@@ -346,7 +372,7 @@
       var s = {};
       P.forEach(function (p) {
         if (p.decaf) return;
-        if (EN && p.eco) return;
+        if (p.eco) return;
         var v = 0;
         if (ans.met && p.ideal.indexOf(ans.met) > -1) v += 3;
         if (ans.fam && p.families.indexOf(ans.fam) > -1) v += 3;

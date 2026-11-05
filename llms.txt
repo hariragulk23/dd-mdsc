@@ -1,9 +1,10 @@
 # Madrid Specialty Coffee
 
-> Marca de café de especialidad de THE COFFEE PROJECT OF 69 SL (sociedad limitada unipersonal, NIF B19853563), con sede social en Torrevieja (Alicante). Ofrece guías para entender el café, servicios para cafeterías, tostadores y marcas, y una tienda online que abrirá pronto. No tiene tienda física abierta al público.
+> Marca de café de especialidad de THE COFFEE PROJECT OF 69 SL (sociedad limitada unipersonal, NIF B19853563), con sede social en Torrevieja (Alicante). Ofrece guías para entender el café, servicios para cafeterías, tostadores y marcas, y una tienda online con cinco cafés en bolsas de 250 g. No tiene tienda física abierta al público.
 
 ## Páginas principales
 - [Inicio](https://madridspecialtycoffee.com/): qué es Madrid Specialty Coffee y qué ofrece.
+- [Tienda](https://madridspecialtycoffee.com/tienda): cinco cafés de especialidad en bolsas de 250 g, en grano o molido, con envío a la España peninsular.
 - [Café de especialidad](https://madridspecialtycoffee.com/cafe-de-especialidad): qué es, cómo se puntúa, torrefacto frente a tueste natural, procesos y glosario.
 - [Guías de preparación](https://madridspecialtycoffee.com/guias): recetas y calculadoras para espresso, filtro, moka, prensa y AeroPress.
 - [Servicios](https://madridspecialtycoffee.com/servicios): abrir una cafetería, crear una marca de café, café verde, café tostado para negocios, formación, asesoría de origen y eventos.
@@ -24,6 +25,7 @@
 
 ## English
 - [Specialty coffee in Madrid, explained simply](https://madridspecialtycoffee.com/en/): English landing page with guides, tools and services.
+- [Shop](https://madridspecialtycoffee.com/en/shop): five specialty coffees in 250 g bags, whole bean or ground, shipped within mainland Spain.
 - [What is specialty coffee?](https://madridspecialtycoffee.com/en/specialty-coffee): the score, origin and roast that define it, a roast simulator, a bean comparison and a glossary.
 - [Coffee brewing guides](https://madridspecialtycoffee.com/en/guides): a brew calculator with timer, a method quiz, recipes for V60, Chemex, AeroPress, French press, espresso and moka pot, a grind guide, a taste diagnosis, and water and storage tips.
 - [Specialty coffee journal](https://madridspecialtycoffee.com/en/journal): English articles about specialty coffee, with calculators and tools.

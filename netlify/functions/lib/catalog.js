@@ -32,6 +32,7 @@ const CATALOG = {
 };
 
 // Cafés agotados: debe coincidir con "available": false en assets/js/products.js
-const UNAVAILABLE = [];
+// "ecologico" está oculto en la tienda (no se vende): el pago lo rechaza aunque llegue de un carrito antiguo.
+const UNAVAILABLE = ['ecologico'];
 
 module.exports = { CATALOG, UNAVAILABLE };

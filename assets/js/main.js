@@ -24,6 +24,16 @@
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
+  /* ---------- Enlace a la tienda en el menú (las páginas legales no se editan, lo añade este script) ---------- */
+  var navEl = document.querySelector('.site-nav');
+  if (navEl && !navEl.querySelector('a[href$="tienda.html"], a[href="/tienda"], a[href="/en/shop"]')) {
+    var shopLink = document.createElement('a');
+    var enMenu = (document.documentElement.getAttribute('lang') || 'es').slice(0, 2) === 'en';
+    shopLink.href = enMenu ? '/en/shop' : '/tienda';
+    shopLink.textContent = enMenu ? 'Shop' : 'Tienda';
+    navEl.insertBefore(shopLink, navEl.firstChild);
+  }
+
   /* ---------- Menú móvil ---------- */
   var toggle = document.querySelector('.nav-toggle');
   if (toggle) {

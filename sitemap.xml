@@ -179,4 +179,76 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/desistir"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/withdrawal"/>
   </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/tienda</loc>
+    <lastmod>2026-11-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/tienda"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/shop"/>
+  </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/en/shop</loc>
+    <lastmod>2026-11-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/tienda"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/shop"/>
+  </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/cafe-colombia</loc>
+    <lastmod>2026-11-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/cafe-colombia"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/colombia-huila-coffee"/>
+  </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/en/colombia-huila-coffee</loc>
+    <lastmod>2026-11-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/cafe-colombia"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/colombia-huila-coffee"/>
+  </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/cafe-guatemala</loc>
+    <lastmod>2026-11-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/cafe-guatemala"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/guatemala-huehuetenango-coffee"/>
+  </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/en/guatemala-huehuetenango-coffee</loc>
+    <lastmod>2026-11-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/cafe-guatemala"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/guatemala-huehuetenango-coffee"/>
+  </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/cafe-india</loc>
+    <lastmod>2026-11-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/cafe-india"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/india-karnataka-coffee"/>
+  </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/en/india-karnataka-coffee</loc>
+    <lastmod>2026-11-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/cafe-india"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/india-karnataka-coffee"/>
+  </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/cafe-italian-blend</loc>
+    <lastmod>2026-11-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/cafe-italian-blend"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/italian-blend-coffee"/>
+  </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/en/italian-blend-coffee</loc>
+    <lastmod>2026-11-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/cafe-italian-blend"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/italian-blend-coffee"/>
+  </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/cafe-descafeinado</loc>
+    <lastmod>2026-11-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/cafe-descafeinado"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/decaf-colombia-coffee"/>
+  </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/en/decaf-colombia-coffee</loc>
+    <lastmod>2026-11-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/cafe-descafeinado"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/decaf-colombia-coffee"/>
+  </url>
 </urlset>

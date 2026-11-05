@@ -30,6 +30,7 @@ const MSG_EN = {
   empty: 'Your cart is empty.',
   soldOut: 'One of the coffees in your cart is sold out. Remove it and try again.',
   max: 'Maximum 50 bags per order. Message us on WhatsApp for large orders.',
+  paused: 'The shop is paused right now. Coming soon.',
   noPay: 'Card payment is not available right now. Try again later or email hello@spainspecialtycoffee.com.',
   stripe: 'We could not open the payment page. Try again or email hello@spainspecialtycoffee.com.'
 };
@@ -59,6 +60,9 @@ exports.handler = async (event) => {
   let data;
   try { data = JSON.parse(event.body || '{}'); } catch (e) { return json(400, { error: 'Pedido no válido.' }); }
   const EN = !!data && data.lang === 'en';
+
+  // Pause switch: set SHOP_PAUSED to exactly "true" in Netlify to stop new orders (no Stripe call is made)
+  if (process.env.SHOP_PAUSED === 'true') return json(503, { error: EN ? MSG_EN.paused : 'La tienda está en pausa en este momento. Disponible muy pronto.' });
 
   const postal = String(data.postal || '').trim();
   if (!/^\d{5}$/.test(postal)) return json(400, { error: EN ? MSG_EN.postal : 'Revisa el código postal.' });

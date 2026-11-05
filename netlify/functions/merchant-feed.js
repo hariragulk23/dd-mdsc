@@ -1,6 +1,7 @@
 // Feed de productos para Google Merchant Center (RSS 2.0 con espacio de nombres g:).
 // Se sirve en https://madridspecialtycoffee.com/merchant-feed.xml (redirección en netlify.toml).
 // Precio y disponibilidad salen de ./lib/catalog.js, así que siempre coinciden con el pago.
+// Apagado por defecto: responde 404 salvo que la variable MERCHANT_FEED_ENABLED de Netlify valga exactamente "true".
 
 const { CATALOG, UNAVAILABLE } = require('./lib/catalog.js');
 const FEED = require('./lib/feed-data.js');
@@ -14,6 +15,9 @@ const esc = (s) => String(s)
   .replace(/"/g, '&quot;').replace(/'/g, '&apos;');
 
 exports.handler = async () => {
+  if (process.env.MERCHANT_FEED_ENABLED !== 'true') {
+    return { statusCode: 404, headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex' }, body: 'Not found' };
+  }
   const items = Object.keys(FEED)
     .filter((id) => FEED[id].include && CATALOG[id] && CATALOG[id].price_cents > 0)
     .map((id) => {
