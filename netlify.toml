@@ -35,6 +35,19 @@
   [headers.values]
     Cache-Control = "public, max-age=2592000"
 
+# Archivos internos: no se publican (404)
+[[redirects]]
+  from = "/netlify/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/translation-notes.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
 [[redirects]]
   from = "/madrid"
   to = "/"
