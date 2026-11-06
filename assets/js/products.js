@@ -104,10 +104,13 @@ window.MSC_PRODUCTS = [
   "available": true,
   "order": 4,
   "name": "Ecológico Isnos",
+  "name_en": "Organic Isnos",
   "price": 13.9,
   "img": "assets/images/tienda/bolsa-ecologico.jpg",
   "url": "cafe-ecologico.html",
+  "url_en": "/en/organic-isnos-coffee",
   "desc": "Caramelo, fresa y mandarina, con acidez viva y cuerpo ligero. Con certificación ecológica.",
+  "desc_en": "Caramel, strawberry and mandarin, with lively acidity and a light body. With organic certification.",
   "families": [
    "frutal",
    "citrico",

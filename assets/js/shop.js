@@ -135,7 +135,7 @@
   function load() {
     try {
       var a = JSON.parse(window.localStorage.getItem(KEY) || '[]');
-      return Array.isArray(a) ? a.filter(function (l) { return byId[l.id] && !byId[l.id].eco && GRINDS[l.grind] && l.qty > 0; }).map(function (l) { return { id: l.id, grind: l.grind, qty: Math.min(20, Math.floor(l.qty)) }; }) : [];
+      return Array.isArray(a) ? a.filter(function (l) { return byId[l.id] && GRINDS[l.grind] && l.qty > 0; }).map(function (l) { return { id: l.id, grind: l.grind, qty: Math.min(20, Math.floor(l.qty)) }; }) : [];
     } catch (e) { return []; }
   }
   var cart = load();
@@ -145,7 +145,7 @@
   function findLine(id, grind) { for (var i = 0; i < cart.length; i++) { if (cart[i].id === id && cart[i].grind === grind) return i; } return -1; }
   function add(id, grind, qty) {
     if (!byId[id]) return;
-    if (byId[id].eco || paused) return;
+    if (paused) return;
     grind = GRINDS[grind] ? grind : 'grano';
     qty = Math.max(1, Math.min(20, qty || 1));
     var i = findLine(id, grind);
@@ -319,10 +319,6 @@
     rev.forEach(function (el) { rio.observe(el); });
   } else rev.forEach(function (el) { el.classList.add('is-in'); });
 
-  /* The organic coffee is not offered in either language (cards, filter chip, calculator option, map dot) */
-  P.filter(function (p) { return p.eco; }).forEach(function (p) {
-    $$('.sp-card[data-eco="1"], [data-f-tog="eco"], option[value="' + p.id + '"], .sp-dot[href="' + p.url + '"]').forEach(function (e) { e.parentNode.removeChild(e); });
-  });
 
   /* ---------- Tienda: filters + sort ---------- */
   var grid = $('[data-grid]');
@@ -372,7 +368,6 @@
       var s = {};
       P.forEach(function (p) {
         if (p.decaf) return;
-        if (p.eco) return;
         var v = 0;
         if (ans.met && p.ideal.indexOf(ans.met) > -1) v += 3;
         if (ans.fam && p.families.indexOf(ans.fam) > -1) v += 3;

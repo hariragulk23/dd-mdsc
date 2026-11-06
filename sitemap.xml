@@ -251,4 +251,16 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/cafe-descafeinado"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/decaf-colombia-coffee"/>
   </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/cafe-ecologico</loc>
+    <lastmod>2026-11-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/cafe-ecologico"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/organic-isnos-coffee"/>
+  </url>
+  <url>
+    <loc>https://madridspecialtycoffee.com/en/organic-isnos-coffee</loc>
+    <lastmod>2026-11-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://madridspecialtycoffee.com/cafe-ecologico"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://madridspecialtycoffee.com/en/organic-isnos-coffee"/>
+  </url>
 </urlset>

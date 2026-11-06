@@ -16,7 +16,7 @@ const CATALOG = {
  },
  "ecologico": {
   "name": "Ecológico Isnos",
-  "name_en": "Ecológico Isnos",
+  "name_en": "Organic Isnos",
   "price_cents": 1390
  },
  "italian-blend": {
@@ -32,7 +32,6 @@ const CATALOG = {
 };
 
 // Cafés agotados: debe coincidir con "available": false en assets/js/products.js
-// "ecologico" está oculto en la tienda (no se vende): el pago lo rechaza aunque llegue de un carrito antiguo.
-const UNAVAILABLE = ['ecologico'];
+const UNAVAILABLE = [];
 
 module.exports = { CATALOG, UNAVAILABLE };

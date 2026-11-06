@@ -47,18 +47,6 @@
   status = 302
   force = true
 
-[[redirects]]
-  from = "/cafe-ecologico"
-  to = "/tienda"
-  status = 302
-  force = true
-
-[[redirects]]
-  from = "/cafe-ecologico.html"
-  to = "/tienda"
-  status = 302
-  force = true
-
 [functions]
   directory = "netlify/functions"
 
