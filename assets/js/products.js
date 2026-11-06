@@ -1,5 +1,5 @@
 /* products.js: catálogo. Los precios existen en dos sitios: assets/js/products.js (lo que ve el cliente) y netlify/functions/lib/catalog.js (pago y feed de Google). Para marcar un café agotado: "available": false aquí, y añade su id a UNAVAILABLE en netlify/functions/lib/catalog.js. */
-window.MSC_SHOP = { wa: "34665747463", freeShip: 35, shipCost: 4.95, stripe: true };
+window.MSC_SHOP = { freeShip: 35, shipCost: 4.95, stripe: true };
 window.MSC_PRODUCTS = [
  {
   "id": "colombia",
@@ -104,10 +104,13 @@ window.MSC_PRODUCTS = [
   "available": true,
   "order": 4,
   "name": "Ecológico Isnos",
+  "name_en": "Organic Isnos",
   "price": 13.9,
   "img": "assets/images/tienda/bolsa-ecologico.jpg",
   "url": "cafe-ecologico.html",
+  "url_en": "/en/organic-isnos-coffee",
   "desc": "Caramelo, fresa y mandarina, con acidez viva y cuerpo ligero. Con certificación ecológica.",
+  "desc_en": "Caramel, strawberry and mandarin, with lively acidity and a light body. With organic certification.",
   "families": [
    "frutal",
    "citrico",

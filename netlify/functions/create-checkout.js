@@ -30,8 +30,9 @@ const MSG_EN = {
   empty: 'Your cart is empty.',
   soldOut: 'One of the coffees in your cart is sold out. Remove it and try again.',
   max: 'Maximum 50 bags per order. Message us on WhatsApp for large orders.',
-  noPay: 'Card payment is not available right now. Order your coffee on WhatsApp.',
-  stripe: 'We could not open the payment page. Try again or order your coffee on WhatsApp.'
+  paused: 'The shop is paused right now. Coming soon.',
+  noPay: 'Card payment is not available right now. Try again later or email hello@spainspecialtycoffee.com.',
+  stripe: 'We could not open the payment page. Try again or email hello@spainspecialtycoffee.com.'
 };
 
 const FREE_SHIPPING_FROM_CENTS = 3500; // 35 €
@@ -60,6 +61,9 @@ exports.handler = async (event) => {
   try { data = JSON.parse(event.body || '{}'); } catch (e) { return json(400, { error: 'Pedido no válido.' }); }
   const EN = !!data && data.lang === 'en';
 
+  // Pause switch: set SHOP_PAUSED to exactly "true" in Netlify to stop new orders (no Stripe call is made)
+  if (process.env.SHOP_PAUSED === 'true') return json(503, { error: EN ? MSG_EN.paused : 'La tienda está en pausa en este momento. Disponible muy pronto.' });
+
   const postal = String(data.postal || '').trim();
   if (!/^\d{5}$/.test(postal)) return json(400, { error: EN ? MSG_EN.postal : 'Revisa el código postal.' });
   if (NON_MAINLAND.test(postal)) {
@@ -82,7 +86,7 @@ exports.handler = async (event) => {
   const shipping = subtotal >= FREE_SHIPPING_FROM_CENTS ? 0 : SHIPPING_CENTS;
 
   const key = process.env.STRIPE_SECRET_KEY;
-  if (!key) return json(503, { error: EN ? MSG_EN.noPay : 'El pago con tarjeta no está disponible ahora. Pide tu café por WhatsApp.' });
+  if (!key) return json(503, { error: EN ? MSG_EN.noPay : 'El pago con tarjeta no está disponible ahora. Inténtalo más tarde o escríbenos a hello@spainspecialtycoffee.com.' });
 
   // Build the form-encoded request for Stripe's Checkout Sessions API
   const p = new URLSearchParams();
@@ -128,11 +132,11 @@ exports.handler = async (event) => {
     const out = await res.json();
     if (!res.ok || !out.url) {
       console.error('Stripe error', out && out.error && out.error.message);
-      return json(502, { error: EN ? MSG_EN.stripe : 'No se pudo abrir el pago. Inténtalo de nuevo o pide tu café por WhatsApp.' });
+      return json(502, { error: EN ? MSG_EN.stripe : 'No se pudo abrir el pago. Inténtalo de nuevo o escríbenos a hello@spainspecialtycoffee.com.' });
     }
     return json(200, { url: out.url });
   } catch (e) {
     console.error('Stripe request failed', e && e.message);
-    return json(502, { error: EN ? MSG_EN.stripe : 'No se pudo abrir el pago. Inténtalo de nuevo o pide tu café por WhatsApp.' });
+    return json(502, { error: EN ? MSG_EN.stripe : 'No se pudo abrir el pago. Inténtalo de nuevo o escríbenos a hello@spainspecialtycoffee.com.' });
   }
 };

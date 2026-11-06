@@ -16,7 +16,7 @@ const CATALOG = {
  },
  "ecologico": {
   "name": "Ecológico Isnos",
-  "name_en": "Ecológico Isnos",
+  "name_en": "Organic Isnos",
   "price_cents": 1390
  },
  "italian-blend": {
