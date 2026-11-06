@@ -36,7 +36,7 @@ const MSG_EN = {
 };
 
 const FREE_SHIPPING_FROM_CENTS = 3500; // 35 €
-const SHIPPING_CENTS = 495;            // 4,95 € below 35 € (confirm)
+const SHIPPING_CENTS = 495;            // 4,95 € below 35 €
 const MAX_ITEMS = 50;
 const SITE = 'https://madridspecialtycoffee.com';
 
