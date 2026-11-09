@@ -53,9 +53,25 @@
   /* ---------- Vídeos ---------- */
   document.querySelectorAll('video[data-autoplay]').forEach(function (v) {
     v.muted = true;
-    if (reduce) { v.removeAttribute('autoplay'); v.pause(); return; }
-    var p = v.play();
-    if (p && p.catch) p.catch(function () {});
+    var saveData = !!(navigator.connection && navigator.connection.saveData);
+    if (reduce || saveData) { v.removeAttribute('autoplay'); v.pause(); return; } /* solo el póster, sin descargar vídeo */
+    var big = v.getAttribute('data-src');
+    if (!big) { var p0 = v.play(); if (p0 && p0.catch) p0.catch(function () {}); return; }
+    var phone = window.matchMedia && window.matchMedia('(max-width: 700px) and (orientation: portrait)').matches;
+    var src = (phone && v.getAttribute('data-src-small')) || big;
+    var started = false;
+    function start() {
+      if (started) return; started = true;
+      v.src = src;
+      var p = v.play();
+      if (p && p.catch) p.catch(function () {});
+    }
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        if (entries.some(function (e) { return e.isIntersecting; })) { io.disconnect(); start(); }
+      }, { rootMargin: '100% 0px' });
+      io.observe(v);
+    } else { start(); }
   });
 
   /* ---------- Simulador de tueste ---------- */
