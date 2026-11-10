@@ -1,0 +1,27 @@
+/* journal-tools-3.css: test del molinillo y comparador de cursos (lote artículos 3) */
+.jt-box{border:1px solid var(--linea,#ddd);border-radius:14px;padding:22px;margin:28px 0;background:var(--surface,transparent)}
+.jt-title{font-weight:700;font-size:1.15rem;margin:0 0 14px}
+.jt-q{border:0;padding:0;margin:0 0 16px}
+.jt-q legend{font-weight:600;margin-bottom:8px;padding:0}
+.jt-q label{display:inline-flex;align-items:center;gap:8px;margin:0 8px 8px 0;padding:8px 14px;border:1px solid var(--linea,#ccc);border-radius:999px;cursor:pointer;min-height:44px}
+.jt-q label:has(input:checked){border-color:var(--cereza,#b3261e);box-shadow:inset 0 0 0 1px var(--cereza,#b3261e)}
+.jt-q input{accent-color:var(--cereza,#b3261e)}
+.jt-result{margin-top:8px;padding:16px;border-radius:10px;border-left:4px solid var(--cereza,#b3261e);background:rgba(163,19,43,.08)}
+.jt-result strong{display:block;margin-bottom:4px}
+.jt-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.jt-col label{display:block;margin-bottom:10px;font-size:.95rem}
+.jt-col input{display:block;width:100%;margin-top:4px;padding:10px;border:1px solid var(--linea,#ccc);border-radius:8px;font:inherit;min-height:44px;box-sizing:border-box}
+.jt-sub{font-weight:700;margin:0 0 8px}
+.jt-out{font-weight:700;margin:4px 0 0}
+.jt-note{font-size:.9rem;opacity:.8;margin:12px 0 0}
+@media (max-width:600px){.jt-grid{grid-template-columns:1fr}}
+/* Ruta de niveles SCA (curso de barista): fila de 3 pasos */
+.jt-flow{margin:24px 0}
+.jt-flow-intro{font-weight:700;margin:0 0 10px}
+.jt-flow-row{list-style:none;display:flex;align-items:stretch;gap:0;margin:0;padding:0}
+.jt-flow-row li{flex:1;position:relative;padding:14px 16px;border:1px solid var(--linea,#ccc);background:var(--granito-2,transparent);text-align:center}
+.jt-flow-row li+li{margin-left:28px}
+.jt-flow-row li+li::before{content:"→";position:absolute;left:-26px;top:50%;transform:translateY(-50%);color:var(--cereza,#A3132B);font-weight:700}
+.jt-flow-row strong{display:block}
+.jt-flow-row small{display:block;font-size:.9rem;opacity:.8}
+@media (max-width:600px){.jt-flow-row{flex-direction:column}.jt-flow-row li+li{margin:28px 0 0}.jt-flow-row li+li::before{content:"↓";left:50%;top:-24px;transform:translateX(-50%)}}
